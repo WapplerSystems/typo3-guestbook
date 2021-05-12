@@ -1,0 +1,123 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Function</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <switchableControllerActions>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.select</label>
+                            <onChange>reload</onChange>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items>
+                                    <numIndex index="1">
+                                        <numIndex index="0">LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.disForm</numIndex>
+                                        <numIndex index="1">Nsguestbook->new;Nsguestbook->create;</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2">
+                                        <numIndex index="0">LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.disList</numIndex>
+                                        <numIndex index="1">Nsguestbook->list;Nsguestbook->show;</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </switchableControllerActions>
+                    <settings.maintitle>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.maintitle</label>
+                            <config>
+                                <type>input</type>
+                                <size>40</size>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.maintitle>
+                    <settings.adminName>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.adminName</label>
+                            <displayCond>FIELD:switchableControllerActions:!=:Nsguestbook->list;Nsguestbook->show;</displayCond>
+                            <config>
+                                <type>input</type>
+                                <size>40</size>
+                                <eval>trim,required</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.adminName>
+                    <settings.adminEmail>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.adminEmail</label>
+                            <displayCond>FIELD:switchableControllerActions:!=:Nsguestbook->list;Nsguestbook->show;</displayCond>
+                            <config>
+                                <type>input</type>
+                                <size>40</size>
+                                <eval>trim,required</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.adminEmail>
+                    <settings.emailSubject>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.emailSubject</label>
+                            <displayCond>FIELD:switchableControllerActions:!=:Nsguestbook->list;Nsguestbook->show;</displayCond>
+                            <config>
+                                <type>input</type>
+                                <size>40</size>
+                                <eval>trim,required</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.emailSubject>
+                    <settings.captcha>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.captcha</label>
+                            <displayCond>FIELD:switchableControllerActions:!=:Nsguestbook->list;Nsguestbook->show;</displayCond>
+                            <config>
+                                <type>check</type>
+                                <default>1</default>
+                            </config>
+                         </TCEforms>
+                    </settings.captcha>
+                    <settings.totalnumber>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.totalnumber</label>
+                            <displayCond>FIELD:switchableControllerActions:=:Nsguestbook->list;Nsguestbook->show;</displayCond>
+                            <config>
+                                <type>input</type>
+                                <size>40</size>
+                                <default>5</default>
+                                <eval>trim,num</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.totalnumber>
+                    <settings.sorting>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.sorting</label>
+                            <displayCond>FIELD:switchableControllerActions:=:Nsguestbook->list;Nsguestbook->show;</displayCond>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items>
+                                    <numIndex index="1">
+                                        <numIndex index="0">
+                                            LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.newfirst
+                                        </numIndex>
+                                        <numIndex index="1">DESCENDING</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2">
+                                        <numIndex index="0">
+                                            LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.oldfirst
+                                        </numIndex>
+                                        <numIndex index="1">ASCENDING</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.sorting>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

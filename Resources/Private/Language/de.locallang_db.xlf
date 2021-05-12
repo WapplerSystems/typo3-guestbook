@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-11-08T11:15:02Z" product-name="ns_guestbook">
+		<header/>
+		<body>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook">
+				<target>Nitsan Gästebuch</target>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.name">
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.city">
+				<target>Stadt</target>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.email">
+				<target>Email</target>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.website">
+				<target>Website</target>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.message">
+				<target>Botschaft</target>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.captcha">
+				<target>Captcha</target>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.terms">
+				<target>Captcha</target>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.terms">
+				<target>AGB akzeptiert</target>
+			</trans-unit>
+			<trans-unit id="flexform.thankyouPageId">
+				<target>Danke Seiten-ID</target>
+			</trans-unit>			
+			<trans-unit id="flexform.adminEmail">
+				<target>Administrator-E-Mail</target>
+			</trans-unit>
+			<trans-unit id="flexform.adminName">
+				<target>Administratorname</target>
+			</trans-unit>
+			<trans-unit id="flexform.emailSubject">
+				<target>E-Mail Betreff</target>
+			</trans-unit>
+			<trans-unit id="flexform.totalnumber">
+				<target>Anzahl der Zeilen anzeigen</target>
+			</trans-unit>
+			<trans-unit id="flexform.sorting">
+				<target>Sortierung</target>
+			</trans-unit>
+			<trans-unit id="flexform.newfirst">
+				<target>Das neuste zuerst</target>
+			</trans-unit>
+			<trans-unit id="flexform.oldfirst">
+				<target>Die ältesten zu erst</target>
+			</trans-unit>
+			<trans-unit id="flexform.detailpage">
+				<target>Detailseite</target>
+			</trans-unit>
+			<trans-unit id="flexform.newformpage">
+				<target>Gastformularseite</target>
+			</trans-unit>
+			<trans-unit id="flexform.backpage">
+				<target>Wählen Sie Rückseite</target>
+			</trans-unit>
+			<trans-unit id="flexform.maintitle">
+				<target>Überschrift</target>
+			</trans-unit>
+			<trans-unit id="flexform.storagepage">
+				<target>Speicherseite auswählen</target>
+			</trans-unit>
+			<trans-unit id="be_lable">
+				<target>Nitsan Guestbook</target>
+			</trans-unit>			
+			<trans-unit id="be_desctiption">
+				<target>Diese Erweiterung hilft Ihnen dabei, Bewertungen vom Gast zu sammeln.</target>
+			</trans-unit>
+			<trans-unit id="flexform.select">
+				<target>Wähle eine Option</target>
+			</trans-unit>
+			<trans-unit id="flexform.disLtsList">
+				<target>Neueste Nachrichtenliste</target>
+			</trans-unit>
+			<trans-unit id="flexform.disList">
+				<target>Nachrichtenliste</target>
+			</trans-unit>
+			<trans-unit id="flexform.disForm">
+				<target>Bilden</target>
+			</trans-unit>
+			<trans-unit id="flexform.selectMenu">
+				<target>Wählen</target>
+			</trans-unit>
+			<trans-unit id="flexform.disDetail">
+				<target>Detail</target>
+			</trans-unit>
+
+			<trans-unit id="flexform.Nsguestbook->latest;Nsguestbook->show;">
+				<target>Neueste Nachrichtenliste</target>
+			</trans-unit>
+			<trans-unit id="flexform.Nsguestbook->list;Nsguestbook->show;">
+				<target>Nachrichtenliste</target>
+			</trans-unit>
+			<trans-unit id="flexform.Nsguestbook->new;Nsguestbook->create;">
+				<target>Bilden</target>
+			</trans-unit>
+			<trans-unit id="flexform.Nsguestbook->show;Nsguestbook->list;Nsguestbook->latest;">
+				<target>Detail</target>
+			</trans-unit>
+
+			<trans-unit id="flexform.function">
+				<target>Funktion</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

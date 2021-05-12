@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ns_guestbook">
+		<header/>
+		<body>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook">
+				<source>Nitsan Guestbook</source>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.website">
+				<source>Website</source>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.message">
+				<source>Message</source>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.captcha">
+				<source>Captcha</source>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.terms">
+				<source>Terms accepted</source>
+			</trans-unit>
+			<trans-unit id="flexform.thankyouPageId">
+				<source>Thankyou Page Id</source>
+			</trans-unit>			
+			<trans-unit id="flexform.adminEmail">
+				<source>Admin Email</source>
+			</trans-unit>
+			<trans-unit id="flexform.adminName">
+				<source>Admin Name</source>
+			</trans-unit>
+			<trans-unit id="flexform.emailSubject">
+				<source>Email Subject</source>
+			</trans-unit>
+			<trans-unit id="flexform.totalnumber">
+				<source>Show Number of Rows</source>
+			</trans-unit>
+			<trans-unit id="flexform.sorting">
+				<source>Sorting</source>
+			</trans-unit>
+			<trans-unit id="flexform.newfirst">
+				<source>Newest First</source>
+			</trans-unit>
+			<trans-unit id="flexform.oldfirst">
+				<source>Oldest First</source>
+			</trans-unit>
+			<trans-unit id="flexform.detailpage">
+				<source>Detail page</source>
+			</trans-unit>
+			<trans-unit id="flexform.newformpage">
+				<source>Guest form page</source>
+			</trans-unit>
+			<trans-unit id="flexform.backpage">
+				<source>Select Back page</source>
+			</trans-unit>
+			<trans-unit id="flexform.maintitle">
+				<source>Main Title</source>
+			</trans-unit>
+			<trans-unit id="flexform.storagepage">
+				<source>Select Storage page</source>
+			</trans-unit>
+			<trans-unit id="be_lable">
+				<source>[NITSAN] Guestbook</source>
+			</trans-unit>			
+			<trans-unit id="be_desctiption">
+				<source>This extension will help you to collect review from guest.</source>
+			</trans-unit>
+			<trans-unit id="flexform.select">
+				<source>Select Option</source>
+			</trans-unit>
+			<trans-unit id="flexform.disLtsList">
+				<source>Latest Message List</source>
+			</trans-unit>
+			<trans-unit id="flexform.disList">
+				<source>Message List</source>
+			</trans-unit>
+			<trans-unit id="flexform.disForm">
+				<source>Form</source>
+			</trans-unit>
+			<trans-unit id="flexform.selectMenu">
+				<source>Select</source>
+			</trans-unit>
+			<trans-unit id="flexform.disDetail">
+				<source>Detail</source>
+			</trans-unit>
+
+			<trans-unit id="flexform.Nsguestbook->latest;Nsguestbook->show;">
+				<source>Latest Message List</source>
+			</trans-unit>
+			<trans-unit id="flexform.Nsguestbook->list;Nsguestbook->show;">
+				<source>Message List</source>
+			</trans-unit>
+			<trans-unit id="flexform.Nsguestbook->new;Nsguestbook->create;">
+				<source>Form</source>
+			</trans-unit>
+			<trans-unit id="flexform.Nsguestbook->show;Nsguestbook->list;Nsguestbook->latest;">
+				<source>Detail</source>
+			</trans-unit>
+
+			<trans-unit id="flexform.function">
+				<source>Function</source>
+			</trans-unit>
+			<trans-unit id="flexform.captcha">
+				<source>Disable Captcha</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

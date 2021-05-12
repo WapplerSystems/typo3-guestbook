@@ -1,0 +1,27 @@
+<f:layout name="Default" />
+<f:section name="main">
+	<f:if condition="{settings.maintitle}">
+		<f:then>
+			<h1>{settings.maintitle}</h1>
+		</f:then>
+	</f:if>
+	<f:flashMessages />
+	<f:render partial="FormErrors" arguments="{object:Nsguestbook}" />
+	<f:form controller="Nsguestbook" id="guestBookForm" action="create"  name="newNsguestbook" object="{newNsguestbook}">
+		<div class="ns-form-row">
+			<f:render partial="Nsguestbook/FormFields" arguments="{nsguestbookdata:nsguestbookdata}" />
+			<f:if condition="{settings.captcha}==0">
+				<div class="ns-form-group">
+					<div class="g-recaptcha" data-sitekey="{settings.sitekey}"></div>
+				</div>
+			</f:if>
+			<div class="ns-form-group">
+				<p class="text-muted"><f:translate key="require" /></p>
+			</div>
+			<div class="ns-form-group">
+				<f:form.submit class="btn ns-btn submit" value="<f:translate key='new.create' />" />
+			</div>
+		</div>
+	</f:form>
+</f:section>
+

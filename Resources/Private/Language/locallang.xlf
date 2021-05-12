@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ns_guestbook">
+		<header/>
+		<body>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook">
+				<source>Nsguestbook</source>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.website">
+				<source>Website</source>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.message">
+				<source>Message</source>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.captcha">
+				<source>Captcha</source>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.terms">
+				<source>Terms accepted</source>
+			</trans-unit>
+
+			<!-- Mail template -->
+			<trans-unit id="mail.title">
+				<source>New Guest feedback</source>
+			</trans-unit>
+			<trans-unit id="mail.hello">
+				<source>Hello</source>
+			</trans-unit>
+			<trans-unit id="mail.msg">
+				<source>Following is new feedback information</source>
+			</trans-unit>
+			<trans-unit id="mail.Name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="mail.City">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="mail.Email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="mail.Website">
+				<source>Website</source>
+			</trans-unit>
+			<trans-unit id="mail.Message">
+				<source>Message</source>
+			</trans-unit>
+			<trans-unit id="mail.regards">
+				<source>Regards.</source>
+			</trans-unit>
+			<!-- Mail template -->
+
+			<!-- Controller msg -->
+			<trans-unit id="controller.checkcaptcha.msg">
+				<source>Please check the the captcha form.</source>
+			</trans-unit>
+			<trans-unit id="controller.wrongcaptcha.msg">
+				<source>Sorry, Wrong captcha!</source>
+			</trans-unit>
+			<trans-unit id="controller.thanks.msg">
+				<source>Your feedback is saved successfully! Thank you!</source>
+			</trans-unit>
+			<trans-unit id="controller.insertError.msg">
+				<source>Please Insert following valid Information.</source>
+			</trans-unit>
+			<trans-unit id="controller.requireFields">
+				<source>Please fill the require(*) fields</source>
+			</trans-unit>
+			<!-- Controller msg -->
+
+			<!-- Latest file -->
+			<trans-unit id="latest.heading">
+				<source>Guestbook</source>
+			</trans-unit>
+			<trans-unit id="latest.visit">
+				<source>Visit guestbook</source>
+			</trans-unit>
+			<!-- Latest file -->
+
+			<!-- list file -->
+			<trans-unit id="list.from">
+				<source>from</source>
+			</trans-unit>
+			<trans-unit id="list.wroteon">
+				<source>Wrote on</source>
+			</trans-unit>
+			<trans-unit id="list.at">
+				<source>at</source>
+			</trans-unit>
+			<!-- list file -->
+
+			<!-- New file -->
+			<trans-unit id="new.heading">
+				<source>New guestbook</source>
+			</trans-unit>
+			<trans-unit id="new.create">
+				<source>Send Feedback</source>
+			</trans-unit>
+			<!-- New file -->
+
+			<!-- Show File -->
+			<trans-unit id="show.heading">
+				<source>Single View for guestbook</source>
+			</trans-unit>
+			<trans-unit id="show.back">
+				<source>Back to list</source>
+			</trans-unit>
+			<!-- Show File -->
+
+			<trans-unit id="emptymsg">
+				<source>No records found!!</source>
+			</trans-unit>
+
+			<!-- Error messages -->
+			<trans-unit id="validator.newNsguestbook.name.1221560718">
+			    <source>Field name is required.</source>
+			</trans-unit>
+			<trans-unit id="validator.newNsguestbook.email.1221560718">
+			    <source>Field email is required.</source>
+			</trans-unit>
+			<trans-unit id="validator.newNsguestbook.email.1221559976">
+			    <source>Invalid Email Address</source>
+			</trans-unit>
+			<!-- Error messages -->
+
+			<!-- Flex form labels -->
+			<trans-unit id="flexform.thankyouPageId">
+				<source>Thankyou Page Id</source>
+			</trans-unit>			
+			<trans-unit id="flexform.adminEmail">
+				<source>Admin Email</source>
+			</trans-unit>
+			<trans-unit id="flexform.adminName">
+				<source>Admin Name</source>
+			</trans-unit>
+			<trans-unit id="flexform.emailSubject">
+				<source>Email Subject</source>
+			</trans-unit>
+			<trans-unit id="flexform.totalnumber">
+				<source>Show Number of Rows</source>
+			</trans-unit>
+			<trans-unit id="flexform.sorting">
+				<source>Sorting</source>
+			</trans-unit>
+			<trans-unit id="flexform.newfirst">
+				<source>Newest First</source>
+			</trans-unit>
+			<trans-unit id="flexform.oldfirst">
+				<source>Oldest First</source>
+			</trans-unit>
+			<trans-unit id="flexform.detailpage">
+				<source>Detail page</source>
+			</trans-unit>
+			<trans-unit id="flexform.newformpage">
+				<source>Guest form page</source>
+			</trans-unit>
+			<trans-unit id="flexform.backpage">
+				<source>Select Back page</source>
+			</trans-unit>
+			<trans-unit id="flexform.maintitle">
+				<source>Main Title</source>
+			</trans-unit>
+			<trans-unit id="flexform.storagepage">
+				<source>Select Storage page</source>
+			</trans-unit>
+			<trans-unit id="nsguestbook_form">
+				<source>Guestbook: Form</source>
+			</trans-unit>
+			<trans-unit id="nsguestbook_messages">
+				<source>Guestbook: Messages</source>
+			</trans-unit>
+			<trans-unit id="nsguestbook_detailpage">
+				<source>Guestbook: Show Detail</source>
+			</trans-unit>
+			<trans-unit id="nsguestbook_latestmessages">
+				<source>Guestbook: Latest Messages</source>
+			</trans-unit>
+
+			<trans-unit id="require">
+				<source>* These fields are required.</source>
+			</trans-unit>
+			<trans-unit id="controller.mailfrmt">
+				<source>E-Mail format is not valid.</source>
+			</trans-unit>
+			<!-- Flex form labels -->
+		</body>
+	</file>
+</xliff>

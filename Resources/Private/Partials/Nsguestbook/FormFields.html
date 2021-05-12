@@ -1,0 +1,30 @@
+<div class="ns-form-group width-50">
+	<label for="name">
+		<f:translate key="tx_nsguestbook_domain_model_nsguestbook.name" /> <span class="required">*</span>
+	</label>
+	<f:form.textfield property="name" value="{nsguestbookdata.name}" />
+</div>
+<div class="ns-form-group width-50">
+	<label for="email">
+		<f:translate key="tx_nsguestbook_domain_model_nsguestbook.email" /> <span class="email">*</span>
+	</label>
+	<f:form.textfield type="email" property="email" value="{nsguestbookdata.email}" />
+</div>
+<div class="ns-form-group width-50">
+	<label for="website">
+		<f:translate key="tx_nsguestbook_domain_model_nsguestbook.website" />
+	</label>
+	<f:form.textfield property="website" value="{nsguestbookdata.website}" />
+</div>
+<div class="ns-form-group width-50">
+	<label for="city">
+		<f:translate key="tx_nsguestbook_domain_model_nsguestbook.city" />
+	</label>
+	<f:form.textfield property="city" value="{nsguestbookdata.city}" />
+</div>
+<div class="ns-form-group">
+	<label for="message">
+		<f:translate key="tx_nsguestbook_domain_model_nsguestbook.message" />
+	</label>
+	<f:form.textarea property="message" id="editor1" rows="10" cols="120" value="{nsguestbookdata.message}" />
+</div>

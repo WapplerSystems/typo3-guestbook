@@ -1,0 +1,34 @@
+<table class='table table-striped table-hover typo3-extension-list no-footer'>
+	<thead>
+		<tr>
+			<th colspan='2'>
+				<f:translate key="LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xl:tx_nsguestbook_domain_model_nsguestbook" />
+			</th>
+		</tr>
+	</thead>
+	<tr>
+		<th><f:translate key="LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xl:flexform.function" /></th><td><f:translate key="LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xl:flexform.{flexformData.switchableControllerActions}" /></td>
+	</tr>
+	<f:for each="{flexformData.settings}" as="previewData" key="previewKey">
+        <f:if condition="{previewData}">
+            <tr>
+                <th><f:translate key="LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xl:flexform.{previewKey}" /></th>
+                <f:if condition="{previewData} == 'DESCENDING'">
+                    <f:then>
+                        <td><f:translate key="LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xl:flexform.newfirst" /></td>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{previewData} == 'ASCENDING'">
+                            <f:then>
+                                <td><f:translate key="LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xl:flexform.oldfirst" /></td>
+                            </f:then>
+                            <f:else>
+                                <td>{previewData}</td>
+                            </f:else>
+                        </f:if>
+                    </f:else>
+                </f:if>
+            </tr>
+        </f:if>
+	</f:for>
+</table>

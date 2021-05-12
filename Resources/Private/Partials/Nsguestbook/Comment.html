@@ -1,0 +1,40 @@
+<div class="comment-main-level">
+    <div class="comment-avatar">
+        <div class="entry-author-info">
+            <span class="author-avatar"><f:image src="EXT:ns_guestbook/Resources/Public/Icons/person-default.png" width='32px' height='32px'/></span>
+        </div>
+    </div>
+
+    <!-- Comment -->
+    <div class="comment-box">
+        <div class="comment-head">
+            <div class="comment-author">
+                <strong>{nsguestbook.name}</strong>
+                <span class="text-muted">
+                    <f:if condition="{nsguestbook.tstamp}">
+                        <f:then>
+                           <f:format.date format="M d,Y">{nsguestbook.tstamp}</f:format.date> <f:translate key="list.at" />  <f:format.date format="H:i">{nsguestbook.tstamp}</f:format.date>
+                        </f:then>
+                    </f:if>
+                </span>
+            </div>
+        </div>
+
+        <div class="comment-content">
+            <f:format.raw>{nsguestbook.message}</f:format.raw>
+
+            <f:if condition="{nsguestbook.city}">
+              <f:format.html> <f:translate key="tx_nsguestbook_domain_model_nsguestbook.city" /> : {nsguestbook.city}</f:format.html>
+            </f:if>
+
+            <f:if condition="{nsguestbook.email}">
+              <f:format.html> <f:translate key="tx_nsguestbook_domain_model_nsguestbook.email" /> : <a href="mailto:{nsguestbook.email}"> {nsguestbook.email}</a></f:format.html>
+            </f:if>
+
+            <f:if condition="{nsguestbook.website}">
+              <f:format.html> <f:translate key="tx_nsguestbook_domain_model_nsguestbook.website" /> : <a target="_blank" href="{nsguestbook.website}"> {nsguestbook.website}</a></f:format.html>
+            </f:if>          
+        </div>
+    </div>
+</div>
+

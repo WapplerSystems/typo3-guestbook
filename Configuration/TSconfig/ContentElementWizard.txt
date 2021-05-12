@@ -1,0 +1,16 @@
+mod.wizards.newContentElement.wizardItems.plugins {
+	elements {
+		NsGuestbook {
+			icon = ../typo3conf/ext/ns_guestbook/Resources/Public/Icons/user_plugin_guestbook.svg
+			iconIdentifier = ext-ns-guestbook-icon
+			title = LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:be_lable
+			description = LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:be_desctiption
+			tt_content_defValues {
+				CType = list
+				list_type = nsguestbook_form
+			}
+		}
+	}
+	show = *
+}
+

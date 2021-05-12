@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-11-08T11:15:02Z" product-name="ns_guestbook">
+		<header/>
+		<body>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook">
+				<target>Nsguestbook</target>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.name">
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.city">
+				<target>Stadt</target>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.email">
+				<target>Email</target>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.website">
+				<target>Website</target>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.message">
+				<target>Botschaft</target>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.captcha">
+				<target>Captcha</target>
+			</trans-unit>
+			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.terms">
+				<target>AGB akzeptiert</target>
+			</trans-unit>
+
+			<!-- Mail template -->
+			<trans-unit id="mail.title">
+				<target>Neues Gästefeedback</target>
+			</trans-unit>
+			<trans-unit id="mail.hello">
+				<target>Hallo</target>
+			</trans-unit>
+			<trans-unit id="mail.msg">
+				<target>Es folgen neue Feedback-Informationen</target>
+			</trans-unit>
+			<trans-unit id="mail.Name">
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="mail.City">
+				<target>Stadt</target>
+			</trans-unit>
+			<trans-unit id="mail.Email">
+				<target>Email</target>
+			</trans-unit>
+			<trans-unit id="mail.Website">
+				<target>Website</target>
+			</trans-unit>
+			<trans-unit id="mail.Message">
+				<target>Message</target>
+			</trans-unit>
+			<trans-unit id="mail.regards">
+				<target>Grüße.</target>
+			</trans-unit>
+			<!-- Mail template -->
+
+			<!-- Controller msg -->
+			<trans-unit id="controller.checkcaptcha.msg">
+				<target>Bitte überprüfen Sie das Captcha-Formular.</target>
+			</trans-unit>
+			<trans-unit id="controller.wrongcaptcha.msg">
+				<target>Sorry, falsches Captcha!</target>
+			</trans-unit>
+			<trans-unit id="controller.thanks.msg">
+				<target>Ihr Feedback wurde erfolgreich gespeichert! Vielen Dank!</target>
+			</trans-unit>
+			<trans-unit id="controller.insertError.msg">
+				<target>Bitte geben Sie die folgenden gültigen Informationen ein.</target>
+			</trans-unit>
+			<!-- Controller msg -->
+
+			<!-- Latest file -->
+			<trans-unit id="latest.heading">
+				<target>Guestbook</target>
+			</trans-unit>
+			<trans-unit id="latest.visit">
+				<target>Gästebuch besuchen</target>
+			</trans-unit>
+			<!-- Latest file -->
+
+			<!-- list file -->
+			<trans-unit id="list.from">
+				<target>from</target>
+			</trans-unit>
+			<trans-unit id="list.wroteon">
+				<target>Wrote on</target>
+			</trans-unit>
+			<trans-unit id="list.at">
+				<target>at</target>
+			</trans-unit>
+			<!-- list file -->
+
+			<!-- New file -->
+			<trans-unit id="new.heading">
+				<target>Neues Gästebuch</target>
+			</trans-unit>
+			<trans-unit id="new.create">
+				<target>Feedback schicken</target>
+			</trans-unit>
+			<!-- New file -->
+
+			<!-- Show File -->
+			<trans-unit id="show.heading">
+				<target>Einzelansicht für Gästebuch</target>
+			</trans-unit>
+			<trans-unit id="show.back">
+				<target>Zurück zur Liste</target>
+			</trans-unit>
+			<!-- Show File -->
+
+			<trans-unit id="emptymsg">
+				<target>Keine Aufzeichnungen gefunden!!</target>
+			</trans-unit>
+
+			<!-- Error messages -->
+			<trans-unit id="validator.newNsguestbook.name.1221560718">
+			    <target>Feldname ist erforderlich.</target>
+			</trans-unit>
+			<trans-unit id="validator.newNsguestbook.email.1221560718">
+			    <target>Feld E-Mail ist erforderlich.</target>
+			</trans-unit>
+			<trans-unit id="validator.newNsguestbook.email.1221559976">
+			    <target>Ungültige E-Mail-Adresse</target>
+			</trans-unit>
+			<!-- Error messages -->
+
+			<!-- Flex form labels -->
+			<trans-unit id="flexform.thankyouPageId">
+				<target>Danke Page-ID</target>
+			</trans-unit>			
+			<trans-unit id="flexform.adminEmail">
+				<target>Administrator E-Mail</target>
+			</trans-unit>
+			<trans-unit id="flexform.adminName">
+				<target>Administratorname</target>
+			</trans-unit>
+			<trans-unit id="flexform.emailSubject">
+				<target>E-Mail Betreff</target>
+			</trans-unit>
+			<trans-unit id="flexform.totalnumber">
+				<target>Anzahl der Zeilen anzeigen</target>
+			</trans-unit>
+			<trans-unit id="flexform.sorting">
+				<target>Sortierung</target>
+			</trans-unit>
+			<trans-unit id="flexform.newfirst">
+				<target>Das neuste zuerst</target>
+			</trans-unit>
+			<trans-unit id="flexform.oldfirst">
+				<target>Die ältesten zu erst</target>
+			</trans-unit>
+			<trans-unit id="flexform.detailpage">
+				<target>Detailseite</target>
+			</trans-unit>
+			<trans-unit id="flexform.newformpage">
+				<target>Gastformularseite</target>
+			</trans-unit>
+			<trans-unit id="flexform.backpage">
+				<target>Wählen Sie Rückseite</target>
+			</trans-unit>
+			<trans-unit id="flexform.maintitle">
+				<target>Überschrift</target>
+			</trans-unit>
+			<trans-unit id="flexform.storagepage">
+				<target>Speicherseite auswählen</target>
+			</trans-unit>
+			<trans-unit id="nsguestbook_form">
+				<target>Gästebuch: Formular</target>
+			</trans-unit>
+			<trans-unit id="nsguestbook_messages">
+				<target>Gästebuch: Nachrichten</target>
+			</trans-unit>
+			<trans-unit id="nsguestbook_detailpage">
+				<target>Gästebuch: Detail anzeigen</target>
+			</trans-unit>
+			<trans-unit id="nsguestbook_latestmessages">
+				<target>Gästebuch: Neueste Nachrichten</target>
+			</trans-unit>
+
+			<trans-unit id="require">
+				<target>* Diese Felder müssen ausgefüllt werden.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

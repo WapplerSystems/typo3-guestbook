@@ -1,0 +1,14 @@
+config.tx_extbase{
+	persistence{
+		classes {
+    		Nitsan\NsGuestbook\Domain\Model\Nsguestbook {
+	        mapping {
+	            tableName = tx_nsguestbook_domain_model_nsguestbook
+	            columns {
+	                tstamp.mapOnProperty = tstamp
+	            }
+	        }
+	    	}
+	    }
+    }
+}

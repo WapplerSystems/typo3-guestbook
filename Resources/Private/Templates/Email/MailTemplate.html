@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--"Multipart/Alternative MIME" format-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><f:translate key="mail.title" /></title>
+</head>
+<body>    
+    <div>
+        <div>
+            <p><f:translate key="mail.hello" /> {guest.adminName}</p>
+
+            <p><f:translate key="mail.msg" /></p>
+
+            <p><b><f:translate key="mail.Name" />:</b> {guest.name}</p>
+            <p><b><f:translate key="mail.City" />:</b> {guest.city}</p>
+            <p><b><f:translate key="mail.Email" />:</b> {guest.email}</p>
+            <p><b><f:translate key="mail.Website" />:</b> {guest.website}</p>
+            <p>
+	        	<b><f:translate key="mail.Message" />:</b>
+            	<f:format.raw>{guest.message}</f:format.raw>
+            </p>
+            <br/>
+            <br/>
+            <f:translate key="mail.regards" />
+        </div>
+    </div>
+</body>
+
+</html>
