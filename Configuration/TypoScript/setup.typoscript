@@ -1,13 +1,13 @@
-plugin.tx_nsguestbook_form {
+plugin.tx_wsguestbook_form {
 	view {
-		templateRootPaths.0 = {$plugin.tx_nsguestbook_form.view.templateRootPath}
-		partialRootPaths.0 = {$plugin.tx_nsguestbook_form.view.partialRootPath}
-		layoutRootPaths.0 = {$plugin.tx_nsguestbook_form.view.layoutRootPath}
+		templateRootPaths.0 = {$plugin.tx_wsguestbook_form.view.templateRootPath}
+		partialRootPaths.0 = {$plugin.tx_wsguestbook_form.view.partialRootPath}
+		layoutRootPaths.0 = {$plugin.tx_wsguestbook_form.view.layoutRootPath}
 	}
 	settings {
-      autoaprrove = {$plugin.tx_nsguestbook_form.settings.autoaprrove}
-      sitekey = {$plugin.tx_nsguestbook_form.settings.sitekey}
-      secretkey = {$plugin.tx_nsguestbook_form.settings.secretkey}
+      autoaprrove = {$plugin.tx_wsguestbook_form.settings.autoaprrove}
+      sitekey = {$plugin.tx_wsguestbook_form.settings.sitekey}
+      secretkey = {$plugin.tx_wsguestbook_form.settings.secretkey}
 	}
 	mvc{
 		callDefaultActionIfActionCantBeResolved = 1
@@ -16,20 +16,20 @@ plugin.tx_nsguestbook_form {
 
 page {
     includeCSS {
-        1000 = EXT:ns_guestbook/Resources/Public/css/custom.css
+        1000 = EXT:ws_guestbook/Resources/Public/css/custom.css
     }
     includeJSLibs {
-        nsfjquery = EXT:ns_guestbook/Resources/Public/js/jquery-2.1.0.js
-        nsfjquery.if.isTrue = {$plugin.tx_nsguestbook_form.settings.jQuery}
+        nsfjquery = EXT:ws_guestbook/Resources/Public/js/jquery-2.1.0.js
+        nsfjquery.if.isTrue = {$plugin.tx_wsguestbook_form.settings.jQuery}
     }
     includeJS {
         1000 = https://www.google.com/recaptcha/api.js
         1000.external= 1
-        1005 = EXT:ns_guestbook/Resources/Public/ckeditor/ckeditor.js
+        1005 = EXT:ws_guestbook/Resources/Public/ckeditor/ckeditor.js
         1005.disableCompression = 1
         1005.excludeFromConcatenation = 1
     }
     includeJSFooter {
-        1010 = EXT:ns_guestbook/Resources/Public/js/custom.js
+        1010 = EXT:ws_guestbook/Resources/Public/js/custom.js
     }
 }

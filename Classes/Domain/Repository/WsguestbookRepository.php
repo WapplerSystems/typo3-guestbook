@@ -1,5 +1,5 @@
 <?php
-namespace Nitsan\NsGuestbook\Domain\Repository;
+namespace WapplerSystems\WsGuestbook\Domain\Repository;
 
 /***************************************************************
  *
@@ -27,9 +27,9 @@ namespace Nitsan\NsGuestbook\Domain\Repository;
  ***************************************************************/
 
 /**
- * The repository for Nsguestbooks
+ * The repository for Wsguestbooks
  */
-class NsguestbookRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class WsguestbookRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
     public function findSorted($settings)
     {

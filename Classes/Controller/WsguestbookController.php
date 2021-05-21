@@ -1,6 +1,6 @@
 <?php
 
-namespace Nitsan\NsGuestbook\Controller;
+namespace WapplerSystems\WsGuestbook\Controller;
 
 use TYPO3\CMS\Extbase\Annotation\Inject as inject;
 
@@ -30,18 +30,18 @@ use TYPO3\CMS\Extbase\Annotation\Inject as inject;
  ***************************************************************/
 
 /**
- * NsguestbookController
+ * WsguestbookController
  */
-class NsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
 
     /**
-     * nsguestbookRepository
+     * wsguestbookRepository
      *
-     * @var \Nitsan\NsGuestbook\Domain\Repository\NsguestbookRepository
+     * @var \WapplerSystems\WsGuestbook\Domain\Repository\WsguestbookRepository
      * @inject
      */
-    protected $nsguestbookRepository = null;
+    protected $wsguestbookRepository = null;
 
     /**
      * action list
@@ -50,8 +50,8 @@ class NsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
     public function listAction()
     {
-        $nsguestbooks = $this->nsguestbookRepository->findSorted($this->settings);
-        $this->view->assign('nsguestbooks', $nsguestbooks);
+        $wsguestbooks = $this->wsguestbookRepository->findSorted($this->settings);
+        $this->view->assign('wsguestbooks', $wsguestbooks);
         $this->view->assign('settings', $this->settings);
     }
 
@@ -62,27 +62,27 @@ class NsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
     public function newAction()
     {
-        $request = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_ns_guestbook_form'); // extname
-        $this->view->assign('nsguestbookdata', $request['tx_nsguestbook_form']['newNsguestbook']);
+        $request = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_ws_guestbook_form'); // extname
+        $this->view->assign('wsguestbookdata', $request['tx_wsguestbook_form']['newWsguestbook']);
     }
 
     /**
      * action create
      *
-     * @param \Nitsan\NsGuestbook\Domain\Model\Nsguestbook $newNsguestbook
+     * @param \WapplerSystems\WsGuestbook\Domain\Model\Wsguestbook $newWsguestbook
      * @return void
      */
-    public function createAction(\Nitsan\NsGuestbook\Domain\Model\Nsguestbook $newNsguestbook)
+    public function createAction(\WapplerSystems\WsGuestbook\Domain\Model\Wsguestbook $newWsguestbook)
     {
         $settings = $this->settings;
         $error = 0;
         $mailerror = 0;
 
-        if ($newNsguestbook->getName() == '' || $newNsguestbook->getEmail() == '') {
+        if ($newWsguestbook->getName() == '' || $newWsguestbook->getEmail() == '') {
             $error = 1;
         }
-        if ($newNsguestbook->getEmail() != '') {
-            if (filter_var($newNsguestbook->getEmail(), FILTER_VALIDATE_EMAIL)) {
+        if ($newWsguestbook->getEmail() != '') {
+            if (filter_var($newWsguestbook->getEmail(), FILTER_VALIDATE_EMAIL)) {
             } else {
                 $mailerror = 1;
             }
@@ -94,10 +94,10 @@ class NsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         if (!$captcha && $settings['captcha'] == 0) {
             $checkcaptchamsg = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
                 'controller.checkcaptcha.msg',
-                'ns_guestbook'
+                'ws_guestbook'
             );
             $this->addFlashMessage($checkcaptchamsg, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
-            $this->redirect('new', 'Nsguestbook', 'ns_guestbook', $_REQUEST);
+            $this->redirect('new', 'Wsguestbook', 'ws_guestbook', $_REQUEST);
         } else {
             $secretkey = $settings['secretkey'];
             $response = json_decode(
@@ -107,19 +107,19 @@ class NsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
             if ($response['success'] == false && $settings['captcha'] == 0) {
                 $wrongcaptcha = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
                     'controller.wrongcaptcha.msg',
-                    'ns_guestbook'
+                    'ws_guestbook'
                 );
                 $this->addFlashMessage($wrongcaptcha, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
             } else {
                 if ($error == 1) {
                     $requireFields = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
                         'controller.requireFields',
-                        'ns_guestbook'
+                        'ws_guestbook'
                     );
 
                     $mailfrmt = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
                         'controller.mailfrmt',
-                        'ns_guestbook'
+                        'ws_guestbook'
                     );
 
                     $this->addFlashMessage($requireFields, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
@@ -128,29 +128,29 @@ class NsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
                         $this->addFlashMessage($mailfrmt, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
                     }
 
-                    $this->redirect('new', 'Nsguestbook', 'ns_guestbook', $_REQUEST);
+                    $this->redirect('new', 'Wsguestbook', 'ws_guestbook', $_REQUEST);
                 }
 
                 if ($mailerror == 1) {
                     $mailfrmt = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
                         'controller.mailfrmt',
-                        'ns_guestbook'
+                        'ws_guestbook'
                     );
                     $this->addFlashMessage($mailfrmt, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
-                    $this->redirect('new', 'Nsguestbook', 'ns_guestbook', $_REQUEST);
+                    $this->redirect('new', 'Wsguestbook', 'ws_guestbook', $_REQUEST);
                 }
 
                 $thanksmsg = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
                     'controller.thanks.msg',
-                    'ns_guestbook'
+                    'ws_guestbook'
                 );
 
                 $this->addFlashMessage($thanksmsg, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
                 if ($this->settings['autoaprrove']) {
                 } else {
-                    $newNsguestbook->setHidden('1');
+                    $newWsguestbook->setHidden('1');
                 }
-                $this->nsguestbookRepository->add($newNsguestbook);
+                $this->wsguestbookRepository->add($newWsguestbook);
 
                 // User name and mail
                 if (!empty($this->settings['adminEmail'])) {
@@ -159,11 +159,11 @@ class NsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
                     $confirmationContent = [
                         'adminName' => $adminName,
-                        'name' => $newNsguestbook->getName(),
-                        'city' => $newNsguestbook->getCity(),
-                        'email' => $newNsguestbook->getEmail(),
-                        'website' => $newNsguestbook->getWebsite(),
-                        'message' => $newNsguestbook->getMessage(),
+                        'name' => $newWsguestbook->getName(),
+                        'city' => $newWsguestbook->getCity(),
+                        'email' => $newWsguestbook->getEmail(),
+                        'website' => $newWsguestbook->getWebsite(),
+                        'message' => $newWsguestbook->getMessage(),
                     ];
                     $emailSubject = $this->settings['emailSubject'];
 
@@ -241,7 +241,7 @@ class NsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
     {
         $errormsg = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
             'controller.insertError.msg',
-            'ns_guestbook'
+            'ws_guestbook'
         );
         return $errormsg;
     }

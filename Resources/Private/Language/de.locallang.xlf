@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-11-08T11:15:02Z" product-name="ns_guestbook">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-11-08T11:15:02Z" product-name="ws_guestbook">
 		<header/>
 		<body>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook">
-				<target>Nsguestbook</target>
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook">
+				<target>Wsguestbook</target>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.name">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.name">
 				<target>Name</target>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.city">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.city">
 				<target>Stadt</target>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.email">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.email">
 				<target>Email</target>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.website">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.website">
 				<target>Website</target>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.message">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.message">
 				<target>Botschaft</target>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.captcha">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.captcha">
 				<target>Captcha</target>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.terms">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.terms">
 				<target>AGB akzeptiert</target>
 			</trans-unit>
 
@@ -117,13 +117,13 @@
 			</trans-unit>
 
 			<!-- Error messages -->
-			<trans-unit id="validator.newNsguestbook.name.1221560718">
+			<trans-unit id="validator.newWsguestbook.name.1221560718">
 			    <target>Feldname ist erforderlich.</target>
 			</trans-unit>
-			<trans-unit id="validator.newNsguestbook.email.1221560718">
+			<trans-unit id="validator.newWsguestbook.email.1221560718">
 			    <target>Feld E-Mail ist erforderlich.</target>
 			</trans-unit>
-			<trans-unit id="validator.newNsguestbook.email.1221559976">
+			<trans-unit id="validator.newWsguestbook.email.1221559976">
 			    <target>Ungültige E-Mail-Adresse</target>
 			</trans-unit>
 			<!-- Error messages -->
@@ -131,7 +131,7 @@
 			<!-- Flex form labels -->
 			<trans-unit id="flexform.thankyouPageId">
 				<target>Danke Page-ID</target>
-			</trans-unit>			
+			</trans-unit>
 			<trans-unit id="flexform.adminEmail">
 				<target>Administrator E-Mail</target>
 			</trans-unit>
@@ -168,16 +168,16 @@
 			<trans-unit id="flexform.storagepage">
 				<target>Speicherseite auswählen</target>
 			</trans-unit>
-			<trans-unit id="nsguestbook_form">
+			<trans-unit id="wsguestbook_form">
 				<target>Gästebuch: Formular</target>
 			</trans-unit>
-			<trans-unit id="nsguestbook_messages">
+			<trans-unit id="wsguestbook_messages">
 				<target>Gästebuch: Nachrichten</target>
 			</trans-unit>
-			<trans-unit id="nsguestbook_detailpage">
+			<trans-unit id="wsguestbook_detailpage">
 				<target>Gästebuch: Detail anzeigen</target>
 			</trans-unit>
-			<trans-unit id="nsguestbook_latestmessages">
+			<trans-unit id="wsguestbook_latestmessages">
 				<target>Gästebuch: Neueste Nachrichten</target>
 			</trans-unit>
 

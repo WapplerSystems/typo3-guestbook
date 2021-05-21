@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ns_guestbook">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_guestbook">
 		<header/>
 		<body>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook">
-				<source>Nitsan Guestbook</source>
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook">
+				<source>WapplerSystems Guestbook</source>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.name">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.name">
 				<source>Name</source>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.city">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.city">
 				<source>City</source>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.email">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.email">
 				<source>Email</source>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.website">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.website">
 				<source>Website</source>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.message">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.message">
 				<source>Message</source>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.captcha">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.captcha">
 				<source>Captcha</source>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.terms">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.terms">
 				<source>Terms accepted</source>
 			</trans-unit>
 			<trans-unit id="flexform.thankyouPageId">
 				<source>Thankyou Page Id</source>
-			</trans-unit>			
+			</trans-unit>
 			<trans-unit id="flexform.adminEmail">
 				<source>Admin Email</source>
 			</trans-unit>
@@ -68,7 +68,7 @@
 			</trans-unit>
 			<trans-unit id="be_lable">
 				<source>[NITSAN] Guestbook</source>
-			</trans-unit>			
+			</trans-unit>
 			<trans-unit id="be_desctiption">
 				<source>This extension will help you to collect review from guest.</source>
 			</trans-unit>
@@ -91,16 +91,16 @@
 				<source>Detail</source>
 			</trans-unit>
 
-			<trans-unit id="flexform.Nsguestbook->latest;Nsguestbook->show;">
+			<trans-unit id="flexform.Wsguestbook->latest;Wsguestbook->show;">
 				<source>Latest Message List</source>
 			</trans-unit>
-			<trans-unit id="flexform.Nsguestbook->list;Nsguestbook->show;">
+			<trans-unit id="flexform.Wsguestbook->list;Wsguestbook->show;">
 				<source>Message List</source>
 			</trans-unit>
-			<trans-unit id="flexform.Nsguestbook->new;Nsguestbook->create;">
+			<trans-unit id="flexform.Wsguestbook->new;Wsguestbook->create;">
 				<source>Form</source>
 			</trans-unit>
-			<trans-unit id="flexform.Nsguestbook->show;Nsguestbook->list;Nsguestbook->latest;">
+			<trans-unit id="flexform.Wsguestbook->show;Wsguestbook->list;Wsguestbook->latest;">
 				<source>Detail</source>
 			</trans-unit>
 

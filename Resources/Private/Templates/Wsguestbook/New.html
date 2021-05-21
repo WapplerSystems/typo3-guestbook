@@ -6,10 +6,10 @@
 		</f:then>
 	</f:if>
 	<f:flashMessages />
-	<f:render partial="FormErrors" arguments="{object:Nsguestbook}" />
-	<f:form controller="Nsguestbook" id="guestBookForm" action="create"  name="newNsguestbook" object="{newNsguestbook}">
+	<f:render partial="FormErrors" arguments="{object:Wsguestbook}" />
+	<f:form controller="Wsguestbook" id="guestBookForm" action="create"  name="newWsguestbook" object="{newWsguestbook}">
 		<div class="ns-form-row">
-			<f:render partial="Nsguestbook/FormFields" arguments="{nsguestbookdata:nsguestbookdata}" />
+			<f:render partial="Wsguestbook/FormFields" arguments="{wsguestbookdata:wsguestbookdata}" />
 			<f:if condition="{settings.captcha}==0">
 				<div class="ns-form-group">
 					<div class="g-recaptcha" data-sitekey="{settings.sitekey}"></div>

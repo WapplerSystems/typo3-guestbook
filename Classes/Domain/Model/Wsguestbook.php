@@ -1,5 +1,5 @@
 <?php
-namespace Nitsan\NsGuestbook\Domain\Model;
+namespace WapplerSystems\WsGuestbook\Domain\Model;
 
 /***************************************************************
  *
@@ -27,9 +27,9 @@ namespace Nitsan\NsGuestbook\Domain\Model;
  ***************************************************************/
 
 /**
- * Nsguestbook
+ * Wsguestbook
  */
-class Nsguestbook extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Wsguestbook extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
     /**

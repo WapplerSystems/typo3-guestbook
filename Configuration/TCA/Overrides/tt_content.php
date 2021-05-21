@@ -1,10 +1,10 @@
 <?php
 defined('TYPO3_MODE') or die();
 
-$_EXTKEY = 'ns_guestbook';
+$_EXTKEY = 'ws_guestbook';
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'Nitsan.' . $_EXTKEY,
+    'WapplerSystems.' . $_EXTKEY,
     'Form',
     'Guestbook'
 );

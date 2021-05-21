@@ -1,9 +1,9 @@
 config.tx_extbase{
 	persistence{
 		classes {
-    		Nitsan\NsGuestbook\Domain\Model\Nsguestbook {
+    		WapplerSystems\WsGuestbook\Domain\Model\Wsguestbook {
 	        mapping {
-	            tableName = tx_nsguestbook_domain_model_nsguestbook
+	            tableName = tx_wsguestbook_domain_model_wsguestbook
 	            columns {
 	                tstamp.mapOnProperty = tstamp
 	            }

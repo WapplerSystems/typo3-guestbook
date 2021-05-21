@@ -9,19 +9,19 @@
                 <el>
                     <switchableControllerActions>
                         <TCEforms>
-                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.select</label>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.select</label>
                             <onChange>reload</onChange>
                             <config>
                                 <type>select</type>
                                 <renderType>selectSingle</renderType>
                                 <items>
                                     <numIndex index="1">
-                                        <numIndex index="0">LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.disForm</numIndex>
-                                        <numIndex index="1">Nsguestbook->new;Nsguestbook->create;</numIndex>
+                                        <numIndex index="0">LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.disForm</numIndex>
+                                        <numIndex index="1">Wsguestbook->new;Wsguestbook->create;</numIndex>
                                     </numIndex>
                                     <numIndex index="2">
-                                        <numIndex index="0">LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.disList</numIndex>
-                                        <numIndex index="1">Nsguestbook->list;Nsguestbook->show;</numIndex>
+                                        <numIndex index="0">LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.disList</numIndex>
+                                        <numIndex index="1">Wsguestbook->list;Wsguestbook->show;</numIndex>
                                     </numIndex>
                                 </items>
                             </config>
@@ -29,7 +29,7 @@
                     </switchableControllerActions>
                     <settings.maintitle>
                         <TCEforms>
-                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.maintitle</label>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.maintitle</label>
                             <config>
                                 <type>input</type>
                                 <size>40</size>
@@ -39,8 +39,8 @@
                     </settings.maintitle>
                     <settings.adminName>
                         <TCEforms>
-                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.adminName</label>
-                            <displayCond>FIELD:switchableControllerActions:!=:Nsguestbook->list;Nsguestbook->show;</displayCond>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.adminName</label>
+                            <displayCond>FIELD:switchableControllerActions:!=:Wsguestbook->list;Wsguestbook->show;</displayCond>
                             <config>
                                 <type>input</type>
                                 <size>40</size>
@@ -50,8 +50,8 @@
                     </settings.adminName>
                     <settings.adminEmail>
                         <TCEforms>
-                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.adminEmail</label>
-                            <displayCond>FIELD:switchableControllerActions:!=:Nsguestbook->list;Nsguestbook->show;</displayCond>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.adminEmail</label>
+                            <displayCond>FIELD:switchableControllerActions:!=:Wsguestbook->list;Wsguestbook->show;</displayCond>
                             <config>
                                 <type>input</type>
                                 <size>40</size>
@@ -61,8 +61,8 @@
                     </settings.adminEmail>
                     <settings.emailSubject>
                         <TCEforms>
-                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.emailSubject</label>
-                            <displayCond>FIELD:switchableControllerActions:!=:Nsguestbook->list;Nsguestbook->show;</displayCond>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.emailSubject</label>
+                            <displayCond>FIELD:switchableControllerActions:!=:Wsguestbook->list;Wsguestbook->show;</displayCond>
                             <config>
                                 <type>input</type>
                                 <size>40</size>
@@ -72,8 +72,8 @@
                     </settings.emailSubject>
                     <settings.captcha>
                         <TCEforms>
-                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.captcha</label>
-                            <displayCond>FIELD:switchableControllerActions:!=:Nsguestbook->list;Nsguestbook->show;</displayCond>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.captcha</label>
+                            <displayCond>FIELD:switchableControllerActions:!=:Wsguestbook->list;Wsguestbook->show;</displayCond>
                             <config>
                                 <type>check</type>
                                 <default>1</default>
@@ -82,8 +82,8 @@
                     </settings.captcha>
                     <settings.totalnumber>
                         <TCEforms>
-                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.totalnumber</label>
-                            <displayCond>FIELD:switchableControllerActions:=:Nsguestbook->list;Nsguestbook->show;</displayCond>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.totalnumber</label>
+                            <displayCond>FIELD:switchableControllerActions:=:Wsguestbook->list;Wsguestbook->show;</displayCond>
                             <config>
                                 <type>input</type>
                                 <size>40</size>
@@ -94,21 +94,21 @@
                     </settings.totalnumber>
                     <settings.sorting>
                         <TCEforms>
-                            <label>LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.sorting</label>
-                            <displayCond>FIELD:switchableControllerActions:=:Nsguestbook->list;Nsguestbook->show;</displayCond>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.sorting</label>
+                            <displayCond>FIELD:switchableControllerActions:=:Wsguestbook->list;Wsguestbook->show;</displayCond>
                             <config>
                                 <type>select</type>
                                 <renderType>selectSingle</renderType>
                                 <items>
                                     <numIndex index="1">
                                         <numIndex index="0">
-                                            LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.newfirst
+                                            LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.newfirst
                                         </numIndex>
                                         <numIndex index="1">DESCENDING</numIndex>
                                     </numIndex>
                                     <numIndex index="2">
                                         <numIndex index="0">
-                                            LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.oldfirst
+                                            LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.oldfirst
                                         </numIndex>
                                         <numIndex index="1">ASCENDING</numIndex>
                                     </numIndex>

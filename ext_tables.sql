@@ -1,7 +1,7 @@
 #
-# Table structure for table 'tx_nsguestbook_domain_model_nsguestbook'
+# Table structure for table 'tx_wsguestbook_domain_model_wsguestbook'
 #
-CREATE TABLE tx_nsguestbook_domain_model_nsguestbook (
+CREATE TABLE tx_wsguestbook_domain_model_wsguestbook (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,

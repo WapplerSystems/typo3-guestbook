@@ -2,7 +2,7 @@
 <f:section name="main">
     <f:flashMessages />
     <h2>{settings.maintitle}</h2>
-    <f:if condition="{nsguestbooks}">
+    <f:if condition="{wsguestbooks}">
         <f:then>
             <div class="ns-news-comment-wrapper">
                 <div class="ns-headline">
@@ -10,9 +10,9 @@
                 </div>
                 <div class="comments-container">
                     <ul class="comments-list" id="comments-list">
-                        <f:for each="{nsguestbooks}" as="nsguestbook">
-                            <li id="comments-{nsguestbook.uid}">
-                                <f:render partial="Nsguestbook/Comment" arguments="{nsguestbook:nsguestbook}" />
+                        <f:for each="{wsguestbooks}" as="wsguestbook">
+                            <li id="comments-{wsguestbook.uid}">
+                                <f:render partial="Wsguestbook/Comment" arguments="{wsguestbook:wsguestbook}" />
                             </li>
                         </f:for>
                     </ul>

@@ -1,5 +1,5 @@
 <?php
-namespace Nitsan\NsGuestbook\Hooks;
+namespace WapplerSystems\WsGuestbook\Hooks;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\View\StandaloneView;
@@ -8,8 +8,8 @@ class PageLayoutView implements \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHo
 {
     public function preProcess(\TYPO3\CMS\Backend\View\PageLayoutView &$parentObject, &$drawItem, &$headerContent, &$itemContent, array &$row)
     {
-        $extKey = 'ns_guestbook';
-        if ($row['CType'] == 'list' && $row['list_type'] == 'nsguestbook_form') {
+        $extKey = 'ws_guestbook';
+        if ($row['CType'] == 'list' && $row['list_type'] == 'wsguestbook_form') {
             $drawItem = false;
             $headerContent = '';
             // template

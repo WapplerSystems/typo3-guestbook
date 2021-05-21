@@ -2,7 +2,7 @@
 
 $temp = [
     'ctrl' => [
-        'title'	=> 'LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:tx_nsguestbook_domain_model_nsguestbook',
+        'title'	=> 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_wsguestbook',
         'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -20,7 +20,7 @@ $temp = [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'name,city,email,website,message,terms,',
-        'iconfile' => 'EXT:ns_guestbook/Resources/Public/Icons/tx_nsguestbook_domain_model_nsguestbook.gif'
+        'iconfile' => 'EXT:ws_guestbook/Resources/Public/Icons/tx_wsguestbook_domain_model_wsguestbook.gif'
     ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, city, email, website, message, terms',
@@ -57,8 +57,8 @@ $temp = [
                 'items' => [
                     ['', 0],
                 ],
-                'foreign_table' => 'tx_nsguestbook_domain_model_nsguestbook',
-                'foreign_table_where' => 'AND tx_nsguestbook_domain_model_nsguestbook.pid=###CURRENT_PID### AND tx_nsguestbook_domain_model_nsguestbook.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_wsguestbook_domain_model_wsguestbook',
+                'foreign_table_where' => 'AND tx_wsguestbook_domain_model_wsguestbook.pid=###CURRENT_PID### AND tx_wsguestbook_domain_model_wsguestbook.sys_language_uid IN (-1,0)',
             ],
         ],
         'l10n_diffsource' => [
@@ -123,7 +123,7 @@ $temp = [
 
         'name' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:tx_nsguestbook_domain_model_nsguestbook.name',
+            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_wsguestbook.name',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -132,7 +132,7 @@ $temp = [
         ],
         'city' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:tx_nsguestbook_domain_model_nsguestbook.city',
+            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_wsguestbook.city',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -141,7 +141,7 @@ $temp = [
         ],
         'email' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:tx_nsguestbook_domain_model_nsguestbook.email',
+            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_wsguestbook.email',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -150,7 +150,7 @@ $temp = [
         ],
         'website' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:tx_nsguestbook_domain_model_nsguestbook.website',
+            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_wsguestbook.website',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -159,7 +159,7 @@ $temp = [
         ],
         'message' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:tx_nsguestbook_domain_model_nsguestbook.message',
+            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_wsguestbook.message',
             'config' => [
                      'type' => 'text',
                      'enableRichtext' => true,
@@ -167,7 +167,7 @@ $temp = [
         ],
         'terms' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:ns_guestbook/Resources/Private/Language/locallang_db.xlf:tx_nsguestbook_domain_model_nsguestbook.terms',
+            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_wsguestbook.terms',
             'config' => [
                 'type' => 'check',
                 'readOnly' => 1,

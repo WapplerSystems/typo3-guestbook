@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-11-08T11:15:02Z" product-name="ns_guestbook">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-11-08T11:15:02Z" product-name="ws_guestbook">
 		<header/>
 		<body>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook">
-				<target>Nitsan Gästebuch</target>
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook">
+				<target>WapplerSystems Gästebuch</target>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.name">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.name">
 				<target>Name</target>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.city">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.city">
 				<target>Stadt</target>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.email">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.email">
 				<target>Email</target>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.website">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.website">
 				<target>Website</target>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.message">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.message">
 				<target>Botschaft</target>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.captcha">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.captcha">
 				<target>Captcha</target>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.terms">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.terms">
 				<target>Captcha</target>
 			</trans-unit>
-			<trans-unit id="tx_nsguestbook_domain_model_nsguestbook.terms">
+			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.terms">
 				<target>AGB akzeptiert</target>
 			</trans-unit>
 			<trans-unit id="flexform.thankyouPageId">
 				<target>Danke Seiten-ID</target>
-			</trans-unit>			
+			</trans-unit>
 			<trans-unit id="flexform.adminEmail">
 				<target>Administrator-E-Mail</target>
 			</trans-unit>
@@ -70,8 +70,8 @@
 				<target>Speicherseite auswählen</target>
 			</trans-unit>
 			<trans-unit id="be_lable">
-				<target>Nitsan Guestbook</target>
-			</trans-unit>			
+				<target>WapplerSystems Guestbook</target>
+			</trans-unit>
 			<trans-unit id="be_desctiption">
 				<target>Diese Erweiterung hilft Ihnen dabei, Bewertungen vom Gast zu sammeln.</target>
 			</trans-unit>
@@ -94,16 +94,16 @@
 				<target>Detail</target>
 			</trans-unit>
 
-			<trans-unit id="flexform.Nsguestbook->latest;Nsguestbook->show;">
+			<trans-unit id="flexform.Wsguestbook->latest;Wsguestbook->show;">
 				<target>Neueste Nachrichtenliste</target>
 			</trans-unit>
-			<trans-unit id="flexform.Nsguestbook->list;Nsguestbook->show;">
+			<trans-unit id="flexform.Wsguestbook->list;Wsguestbook->show;">
 				<target>Nachrichtenliste</target>
 			</trans-unit>
-			<trans-unit id="flexform.Nsguestbook->new;Nsguestbook->create;">
+			<trans-unit id="flexform.Wsguestbook->new;Wsguestbook->create;">
 				<target>Bilden</target>
 			</trans-unit>
-			<trans-unit id="flexform.Nsguestbook->show;Nsguestbook->list;Nsguestbook->latest;">
+			<trans-unit id="flexform.Wsguestbook->show;Wsguestbook->list;Wsguestbook->latest;">
 				<target>Detail</target>
 			</trans-unit>
 
