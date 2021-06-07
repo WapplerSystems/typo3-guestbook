@@ -2,6 +2,7 @@
 
 namespace WapplerSystems\WsGuestbook\Controller;
 
+use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Extbase\Annotation\Inject as inject;
 use TYPO3\CMS\Form\Domain\Model\FormDefinition;
 use TYPO3\CMS\Form\Domain\Renderer\FluidFormRenderer;
@@ -98,38 +99,27 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $formDefinition = $this->objectManager->get(FormDefinition::class, 'guestbookEntryForm', $prototypeConfiguration);
         $formDefinition->setRendererClassName(FluidFormRenderer::class);
         $formDefinition->setRenderingOption('controllerAction', 'guestbookEntry');
-        $formDefinition->setRenderingOption('submitButtonLabel', 'Eintragen');
+        $formDefinition->setRenderingOption('submitButtonLabel', 'Submit');
 
         $saveToDatabaseFinisher = $formDefinition->createFinisher('SaveToDatabase');
         $saveToDatabaseFinisher->setOptions([
-            'table' => 'fe_users',
+            'table' => 'tx_wsguestbook_domain_model_wsguestbook',
             'mode' => 'insert',
             'databaseColumnMappings' => [
                 'pid' => [
-                    'value' => 14,
-                ],
-                'password' => [
-                    'value' => bin2hex(random_bytes(10)),
-                ],
-                'tx_extbase_type' => [
-                    'value' => 'Tx_Extbase_Domain_Model_FrontendUser',
-                ],
-                'usergroup' => [
-                    'value' => '1',
+                    'value' => $this->settings['storagePid'],
                 ],
                 'tstamp' => [
                     'value' => time(),
                 ]
             ],
+
             'elements' => [
                 'email' => [
-                    'mapOnDatabaseColumn' => 'username',
+                    'mapOnDatabaseColumn' => 'email',
                 ],
-                'firstName' => [
-                    'mapOnDatabaseColumn' => 'first_name',
-                ],
-                'lastName' => [
-                    'mapOnDatabaseColumn' => 'last_name',
+                'name' => [
+                    'mapOnDatabaseColumn' => 'name',
                 ],
                 'city' => [
                     'mapOnDatabaseColumn' => 'city',
@@ -142,6 +132,8 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
                 ],
             ]
         ]);
+
+        //DebugUtility::debug($this->settings);
 
 /*
 
@@ -201,7 +193,7 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
         /** @var Section $fieldset */
         $fieldset = $row->createElement('fieldsetEntry', 'Fieldset');
-        $fieldset->setLabel('Neuer Gästebucheintrag');
+        $fieldset->setLabel('New Guestbook Entry');
         $fieldset->setOptions(['properties' => [
             'gridColumnClassAutoConfiguration' => [
                 'viewPorts' => [
@@ -212,13 +204,13 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
         /** @var GenericFormElement $element */
         $element = $fieldset->createElement('firstName', 'Text');
-        $element->setLabel('Vorname');
+        $element->setLabel('Firstname');
         $element->setProperty('required', true);
         $element->addValidator(new StringLengthValidator(['maximum' => 50]));
         $element->addValidator(new NotEmptyValidator());
 
         $element = $fieldset->createElement('lastName', 'Text');
-        $element->setLabel('Nachname');
+        $element->setLabel('Lastname');
         $element->addValidator(new StringLengthValidator(['maximum' => 50]));
 
         $element = $fieldset->createElement('email', 'Text');
@@ -230,11 +222,11 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $element->addValidator(new StringLengthValidator(['maximum' => 100]));
 
         $element = $fieldset->createElement('city', 'Text');
-        $element->setLabel('Ort');
+        $element->setLabel('City');
         $element->addValidator(new StringLengthValidator(['maximum' => 100]));
 
         $element = $fieldset->createElement('message', 'Textarea');
-        $element->setLabel('Nachricht');
+        $element->setLabel('Message');
         $element->setProperty('required', true);
         $element->addValidator(new NotEmptyValidator());
 

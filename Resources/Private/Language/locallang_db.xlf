@@ -67,7 +67,7 @@
 				<source>Select Storage page</source>
 			</trans-unit>
 			<trans-unit id="be_lable">
-				<source>[NITSAN] Guestbook</source>
+				<source>WapplerSystems Guestbook</source>
 			</trans-unit>
 			<trans-unit id="be_desctiption">
 				<source>This extension will help you to collect review from guest.</source>
