@@ -1,13 +1,13 @@
-plugin.tx_wsguestbook_form {
+plugin.tx_wsguestbook {
 	view {
-		templateRootPaths.0 = {$plugin.tx_wsguestbook_form.view.templateRootPath}
-		partialRootPaths.0 = {$plugin.tx_wsguestbook_form.view.partialRootPath}
-		layoutRootPaths.0 = {$plugin.tx_wsguestbook_form.view.layoutRootPath}
+		templateRootPaths.0 = {$plugin.tx_wsguestbook.view.templateRootPath}
+		partialRootPaths.0 = {$plugin.tx_wsguestbook.view.partialRootPath}
+		layoutRootPaths.0 = {$plugin.tx_wsguestbook.view.layoutRootPath}
 	}
 	settings {
-      autoaprrove = {$plugin.tx_wsguestbook_form.settings.autoaprrove}
-      sitekey = {$plugin.tx_wsguestbook_form.settings.sitekey}
-      secretkey = {$plugin.tx_wsguestbook_form.settings.secretkey}
+      autoaprrove = {$plugin.tx_wsguestbook.settings.autoaprrove}
+      sitekey = {$plugin.tx_wsguestbook.settings.sitekey}
+      secretkey = {$plugin.tx_wsguestbook.settings.secretkey}
 	}
 	mvc{
 		callDefaultActionIfActionCantBeResolved = 1
@@ -20,7 +20,7 @@ page {
     }
     includeJSLibs {
         nsfjquery = EXT:ws_guestbook/Resources/Public/js/jquery-2.1.0.js
-        nsfjquery.if.isTrue = {$plugin.tx_wsguestbook_form.settings.jQuery}
+        nsfjquery.if.isTrue = {$plugin.tx_wsguestbook.settings.jQuery}
     }
     includeJS {
         1000 = https://www.google.com/recaptcha/api.js
