@@ -98,7 +98,7 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         /** @var FormDefinition $formDefinition */
         $formDefinition = $this->objectManager->get(FormDefinition::class, 'guestbookEntryForm', $prototypeConfiguration);
         $formDefinition->setRendererClassName(FluidFormRenderer::class);
-        $formDefinition->setRenderingOption('controllerAction', 'guestbookEntry');
+        $formDefinition->setRenderingOption('controllerAction', 'new');
         $formDefinition->setRenderingOption('submitButtonLabel', 'Submit');
 
         $saveToDatabaseFinisher = $formDefinition->createFinisher('SaveToDatabase');
@@ -115,17 +115,17 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
             ],
 
             'elements' => [
-                'email' => [
-                    'mapOnDatabaseColumn' => 'email',
-                ],
                 'name' => [
                     'mapOnDatabaseColumn' => 'name',
+                ],
+                'email' => [
+                    'mapOnDatabaseColumn' => 'email',
                 ],
                 'city' => [
                     'mapOnDatabaseColumn' => 'city',
                 ],
-                'company' => [
-                    'mapOnDatabaseColumn' => 'company',
+                'website' => [
+                    'mapOnDatabaseColumn' => 'website',
                 ],
                 'message' => [
                     'mapOnDatabaseColumn' => 'message',
@@ -203,15 +203,11 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         ]]);
 
         /** @var GenericFormElement $element */
-        $element = $fieldset->createElement('firstName', 'Text');
+        $element = $fieldset->createElement('name', 'Text');
         $element->setLabel('Firstname');
         $element->setProperty('required', true);
         $element->addValidator(new StringLengthValidator(['maximum' => 50]));
         $element->addValidator(new NotEmptyValidator());
-
-        $element = $fieldset->createElement('lastName', 'Text');
-        $element->setLabel('Lastname');
-        $element->addValidator(new StringLengthValidator(['maximum' => 50]));
 
         $element = $fieldset->createElement('email', 'Text');
         $element->setLabel('E-Mail');
