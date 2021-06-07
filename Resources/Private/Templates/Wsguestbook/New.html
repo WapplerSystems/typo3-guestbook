@@ -1,5 +1,6 @@
 <f:layout name="Default" />
 <f:section name="main">
+    <!--
 	<f:if condition="{settings.maintitle}">
 		<f:then>
 			<h1>{settings.maintitle}</h1>
@@ -22,6 +23,14 @@
 				<f:form.submit class="btn ns-btn submit" value="<f:translate key='new.create' />" />
 			</div>
 		</div>
-	</f:form>
+	</f:form> -->
+
+    {form -> f:format.raw()}
+    <p>test</p>
 </f:section>
+
+
+
+
+
 
