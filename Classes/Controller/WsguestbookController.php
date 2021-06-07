@@ -79,15 +79,26 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
     public function newAction()
     {
+        $formDefinition = $this->buildGuestbookEntryForm();
+        $form = $formDefinition->bind($this->request, $this->response);
+
+        $this->view->assignMultiple([
+            'settings' => $this->settings,
+            'form' => $form->render(),
+        ]);
+    }
+
+    public function buildGuestbookEntryForm()
+    {
         /** @var ConfigurationService $configurationService */
         $configurationService = $this->objectManager->get(ConfigurationService::class);
         $prototypeConfiguration = $configurationService->getPrototypeConfiguration('standard');
 
         /** @var FormDefinition $formDefinition */
-        $formDefinition = $this->objectManager->get(FormDefinition::class, 'registrationForm', $prototypeConfiguration);
+        $formDefinition = $this->objectManager->get(FormDefinition::class, 'guestbookEntryForm', $prototypeConfiguration);
         $formDefinition->setRendererClassName(FluidFormRenderer::class);
-        $formDefinition->setRenderingOption('controllerAction', 'registration');
-        $formDefinition->setRenderingOption('submitButtonLabel', 'Submit registration');
+        $formDefinition->setRenderingOption('controllerAction', 'guestbookEntry');
+        $formDefinition->setRenderingOption('submitButtonLabel', 'Eintragen');
 
         $saveToDatabaseFinisher = $formDefinition->createFinisher('SaveToDatabase');
         $saveToDatabaseFinisher->setOptions([
@@ -120,49 +131,24 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
                 'lastName' => [
                     'mapOnDatabaseColumn' => 'last_name',
                 ],
-                'telephone' => [
-                    'mapOnDatabaseColumn' => 'telephone',
-                ],
-                'postalcode' => [
-                    'mapOnDatabaseColumn' => 'zip',
-                ],
                 'city' => [
                     'mapOnDatabaseColumn' => 'city',
-                ],
-                'street' => [
-                    'mapOnDatabaseColumn' => 'address',
                 ],
                 'company' => [
                     'mapOnDatabaseColumn' => 'company',
                 ],
-                'country' => [
-                    'mapOnDatabaseColumn' => 'country',
+                'message' => [
+                    'mapOnDatabaseColumn' => 'message',
                 ],
-                'privacyStatement' => [
-                    'mapOnDatabaseColumn' => 'accept_privacy_policy',
-                    'skipIfValueIsEmpty' => true
-                ],
-                'dataTransfer' => [
-                    'mapOnDatabaseColumn' => 'accept_data_transfer',
-                    'skipIfValueIsEmpty' => true
-                ]
             ]
         ]);
 
+/*
 
-
-
-        /*
         $mailchimpFinisher = $formDefinition->createFinisher('MailChimp');
         $mailchimpFinisher->setOption('apiKey',$this->settings['mailchimp']['apiKey']);
         $mailchimpFinisher->setOption('listId',$this->settings['mailchimp']['listId']);
 
-
-        if (isset($this->settings['keycloak']['activate']) && (int)$this->settings['keycloak']['activate'] === 1) {
-            $keycloakCreateUserFinisher = $formDefinition->createFinisher('KeycloakCreateUser');
-            $link = $this->uriBuilder->reset()->setTargetPageUid(293)->setCreateAbsoluteUri(true)->buildFrontendUri();
-            $keycloakCreateUserFinisher->setOption('redirectUrl', $link);
-        }
 
 
         $doubleOptInFormFinisher = $formDefinition->createFinisher('DoubleOptIn');
@@ -214,109 +200,43 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
 
         /** @var Section $fieldset */
-        $fieldset = $row->createElement('fieldsetPerson', 'Fieldset');
-        $fieldset->setLabel('Personal data');
+        $fieldset = $row->createElement('fieldsetEntry', 'Fieldset');
+        $fieldset->setLabel('Neuer Gästebucheintrag');
         $fieldset->setOptions(['properties' => [
             'gridColumnClassAutoConfiguration' => [
                 'viewPorts' => [
-                    'md' => 6
+                    'md' => 12
                 ]
             ]
         ]]);
 
         /** @var GenericFormElement $element */
         $element = $fieldset->createElement('firstName', 'Text');
-        $element->setLabel('firstName');
-        //$element->addValidator(new StringLengthValidator(['maximum' => 50]));
+        $element->setLabel('Vorname');
+        $element->setProperty('required', true);
+        $element->addValidator(new StringLengthValidator(['maximum' => 50]));
         $element->addValidator(new NotEmptyValidator());
 
         $element = $fieldset->createElement('lastName', 'Text');
-        $element->setLabel('lastName');
-        $element->setProperty('required', true);
-        $element->addValidator(new NotEmptyValidator());
-        //$element->addValidator(new StringLengthValidator(['minimum' => 2]));
+        $element->setLabel('Nachname');
+        $element->addValidator(new StringLengthValidator(['maximum' => 50]));
 
         $element = $fieldset->createElement('email', 'Text');
-        $element->setLabel('email');
-        //$element->addValidator(new StringLengthValidator(['maximum' => 50]));
-        $element->addValidator(new NotEmptyValidator());
+        $element->setLabel('E-Mail');
         $element->addValidator(new EmailAddressValidator());
-        if (isset($this->settings['keycloak']['activate']) && (int)$this->settings['keycloak']['activate'] === 1) {
-            $element->addValidator(new UsernameAlreadyTakenValidator());
-        }
 
-        $element = $fieldset->createElement('telephone', 'Text');
-        $element->setLabel('telephone');
-        $element->addValidator(new StringLengthValidator(['maximum' => 60]));
-
-        /** @var GenericFormElement $element */
-        $element = $fieldset->createElement('password', 'AdvancedPassword');
-        $element->setLabel('password');
-        $element->setProperty('confirmationLabel', 'confirm password');
-        $element->addValidator(new StringLengthValidator(['minimum' => 8, 'maximum' => 40]));
-        $element->addValidator(new NotEmptyValidator());
-        $element->setProperty('passwordDescription', 'At least 8 characters. Numbers, letters and special characters are recommended.');
-
-
-
-        /** @var Section $fieldset */
-        $fieldset = $row->createElement('fieldsetCompany', 'Fieldset');
-        $fieldset->setLabel('Company');
-        $fieldset->setOptions(['properties' => [
-            'gridColumnClassAutoConfiguration' => [
-                'viewPorts' => [
-                    'md' => 6
-                ]
-            ]
-        ]]);
-
-
-        $element = $fieldset->createElement('company', 'Text');
-        $element->setLabel('company');
-        $element->addValidator(new StringLengthValidator(['maximum' => 60]));
-        $element->addValidator(new NotEmptyValidator());
-
-        $element = $fieldset->createElement('street', 'Text');
-        $element->setLabel('street');
-        $element->addValidator(new StringLengthValidator(['maximum' => 60]));
-
-        $element = $fieldset->createElement('postalcode', 'Text');
-        //$element->setLabel('postalcode');
-        $element->setLabel('postalcode');
-        $element->addValidator(new StringLengthValidator(['maximum' => 8]));
+        $element = $fieldset->createElement('website', 'Text');
+        $element->setLabel('Website');
+        $element->addValidator(new StringLengthValidator(['maximum' => 100]));
 
         $element = $fieldset->createElement('city', 'Text');
-        $element->setLabel('city');
-        $element->addValidator(new StringLengthValidator(['maximum' => 60]));
+        $element->setLabel('Ort');
+        $element->addValidator(new StringLengthValidator(['maximum' => 100]));
 
-        $element = $fieldset->createElement('country', 'Text');
-        $element->setLabel('country');
-        $element->addValidator(new StringLengthValidator(['maximum' => 60]));
-
-
-
-        $element = $page->createElement('privacyStatement', 'PrivacyStatementCheckbox');
-        $element->setLabel('privacyStatement');
-        $element->setProperty('privacyUid', 127);
-        $element->setProperty('value', 1);
-        $element->setProperty('containerClassAttribute', 'checkbox single-checkbox');
+        $element = $fieldset->createElement('message', 'Textarea');
+        $element->setLabel('Nachricht');
+        $element->setProperty('required', true);
         $element->addValidator(new NotEmptyValidator());
-
-        $element = $page->createElement('dataTransfer', 'DataTransferCheckbox');
-        $element->setLabel('dataTransfer');
-        $element->setProperty('datatransferUid', 517);
-        $element->setProperty('value', 1);
-        $element->setProperty('containerClassAttribute', 'checkbox single-checkbox');
-
-        $element = $page->createElement( 'subscribeToNewsletter', 'Checkbox');
-        $element->setLabel('subscribeToNewsletter');
-        $element->setProperty('value', 1);
-        $element->setProperty('containerClassAttribute', 'checkbox single-checkbox');
-
-        $element = $page->createElement( 'applyForActivation', 'Checkbox');
-        $element->setLabel('applyForActivation');
-        $element->setProperty('value', 1);
-        $element->setProperty('containerClassAttribute', 'checkbox single-checkbox');
 
         return $formDefinition;
 
