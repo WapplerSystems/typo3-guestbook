@@ -16,7 +16,7 @@
 				<source>Email</source>
 			</trans-unit>
 			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.website">
-				<source>Website</source>
+				<source>Meine Website</source>
 			</trans-unit>
 			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.message">
 				<source>Message</source>

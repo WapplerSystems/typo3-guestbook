@@ -16,7 +16,7 @@
 				<target>Email</target>
 			</trans-unit>
 			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.website">
-				<target>Website</target>
+				<target>Meine Website</target>
 			</trans-unit>
 			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.message">
 				<target>Botschaft</target>

@@ -11,7 +11,7 @@ if (!defined('TYPO3_MODE')) {
     ],
     // non-cacheable actions
     [
-        'Wsguestbook' => 'create',
+        'Wsguestbook' => 'new',
 
     ]
 );

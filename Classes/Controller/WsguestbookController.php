@@ -133,7 +133,7 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
             ]
         ]);
 
-        //DebugUtility::debug($this->settings);
+
 
 /*
 
@@ -224,6 +224,7 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $element = $fieldset->createElement('message', 'Textarea');
         $element->setLabel('Message');
         $element->setProperty('required', true);
+        $element->setProperty('rows', '4');
         $element->addValidator(new NotEmptyValidator());
 
         return $formDefinition;
