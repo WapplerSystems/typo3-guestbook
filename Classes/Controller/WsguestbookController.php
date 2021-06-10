@@ -134,55 +134,28 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         ]);
 
 
-
-/*
-
-        $mailchimpFinisher = $formDefinition->createFinisher('MailChimp');
-        $mailchimpFinisher->setOption('apiKey',$this->settings['mailchimp']['apiKey']);
-        $mailchimpFinisher->setOption('listId',$this->settings['mailchimp']['listId']);
-
-
-
-        $doubleOptInFormFinisher = $formDefinition->createFinisher('DoubleOptIn');
-        $doubleOptInFormFinisher->setOption('validationPid', $this->settings['validationPid']);
-        $doubleOptInFormFinisher->setOption('subject','Please confirm your email address');
-        $doubleOptInFormFinisher->setOption('recipientAddress', '{email}');
-        $doubleOptInFormFinisher->setOption('recipientName', '{firstName} {lastName}');
-        $doubleOptInFormFinisher->setOption('senderAddress', 'info@linear.eu');
-        $doubleOptInFormFinisher->setOption('senderName', 'liNear');
-        $doubleOptInFormFinisher->setOption('templatePathAndFilename', 'EXT:linear_download_manager/Resources/Private/Templates/Email/DoubleOptIn.html');
-        $doubleOptInFormFinisher->setOption('variables',[
-            'uri' => [
-                'icon' => $this->getControllerContext()->getRequest()->getBaseUri() .'typo3conf/ext/linear_download_manager/Resources/Public/Icons/Email/',
-                'images' => $this->getControllerContext()->getRequest()->getBaseUri() .'typo3conf/ext/linear_download_manager/Resources/Public/Images/',
-                'facebook' => LocalizationUtility::translate('uri.facebook', 'linear_download_manager'),
-                'instagram' => LocalizationUtility::translate('uri.instagram', 'linear_download_manager'),
-                'linkedin' => LocalizationUtility::translate('uri.linkedin', 'linear_download_manager'),
-                'youtube' => LocalizationUtility::translate('uri.youtube', 'linear_download_manager'),
-                'website' => LocalizationUtility::translate('uri.website', 'linear_download_manager'),
-                'legalNotice' => LocalizationUtility::translate('uri.legalNotice', 'linear_download_manager'),
-                'dataPrivacyStatement' => LocalizationUtility::translate('uri.dataPrivacyStatement', 'linear_download_manager')
-            ]
-        ]);
-        $doubleOptInFormFinisher->setOption('payloadElements', [
-                'subscribeToNewsletter',
-                'applyForActivation',
-            ]
-        );
-        if (isset($GLOBALS['TSFE']->config['config']['language'])) {
-            $doubleOptInFormFinisher->setOption('translation',['language' => $GLOBALS['TSFE']->config['config']['language']]);
-        }
-
-
         $confirmationFinisher = $formDefinition->createFinisher('Confirmation');
         $confirmationFinisher->setOptions([
-            'message' => LocalizationUtility::translate('msg.pleaseConfirmEmailAddress', 'linear_download_manager'),
+            'message' => LocalizationUtility::translate('msg.pleaseConfirmEmailAddress', 'ws_guestbook'),
             'templateName' => 'Confirmation',
             'templateRootPaths' => [
-                10 => 'EXT:linear_download_manager/Resources/Private/Templates/Form/Finisher/Confirmation/',
+                10 => 'EXT:ws_guestbook/Resources/Private/Templates/Wsguestbook/',
             ]
         ]);
-*/
+
+        $emailFinisher = $formDefinition->createFinisher('EmailToReceiver');
+        $emailFinisher->setOptions([
+            'subject' => $this->settings['emailSubject'],
+            'recipientAddress' => $this->settings['adminEmail'],
+            'recipientName' => $this->settings['adminName'],
+            'senderAddress' => 'test@mailhog.local',
+            'templateName' => 'MailTemplate',
+            'templateRootPaths' => [
+                10 => 'EXT:ws_guestbook/Resources/Private/Templates/Email/',
+            ]
+        ]);
+
+
 
         $page = $formDefinition->createPage('page1');
 

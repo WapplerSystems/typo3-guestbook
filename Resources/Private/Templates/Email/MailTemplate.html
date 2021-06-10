@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <!--"Multipart/Alternative MIME" format-->
-<html>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
 <head>
     <meta charset="utf-8">
     <title><f:translate key="mail.title" /></title>
 </head>
-<body>    
+<body>
     <div>
         <div>
-            <p><f:translate key="mail.hello" /> {guest.adminName}</p>
+            <p><f:translate key="mail.hello" /> {wsguestbook.adminName}</p>
 
             <p><f:translate key="mail.msg" /></p>
 
-            <p><b><f:translate key="mail.Name" />:</b> {guest.name}</p>
-            <p><b><f:translate key="mail.City" />:</b> {guest.city}</p>
-            <p><b><f:translate key="mail.Email" />:</b> {guest.email}</p>
-            <p><b><f:translate key="mail.Website" />:</b> {guest.website}</p>
+            <p><b><f:translate key="mail.Name" />:</b> {wsguestbook.name}</p>
+            <p><b><f:translate key="mail.City" />:</b> {wsguestbook.city}</p>
+            <p><b><f:translate key="mail.Email" />:</b> {wsguestbook.email}</p>
+            <p><b><f:translate key="mail.Website" />:</b> {wsguestbook.website}</p>
             <p>
 	        	<b><f:translate key="mail.Message" />:</b>
-            	<f:format.raw>{guest.message}</f:format.raw>
+            	<f:format.raw>{wsguestbook.message}</f:format.raw>
             </p>
             <br/>
             <br/>
