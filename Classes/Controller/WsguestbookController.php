@@ -148,14 +148,12 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
             'subject' => $this->settings['emailSubject'],
             'recipientAddress' => $this->settings['adminEmail'],
             'recipientName' => $this->settings['adminName'],
-            'senderAddress' => 'test@mailhog.local',
+            'senderAddress' => $this->settings['adminEmail'],
             'templateName' => 'MailTemplate',
             'templateRootPaths' => [
                 10 => 'EXT:ws_guestbook/Resources/Private/Templates/Email/',
             ]
         ]);
-
-
 
         $page = $formDefinition->createPage('page1');
 
@@ -177,7 +175,7 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
         /** @var GenericFormElement $element */
         $element = $fieldset->createElement('name', 'Text');
-        $element->setLabel('Firstname');
+        $element->setLabel('Name');
         $element->setProperty('required', true);
         $element->addValidator(new StringLengthValidator(['maximum' => 50]));
         $element->addValidator(new NotEmptyValidator());

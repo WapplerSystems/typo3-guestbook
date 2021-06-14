@@ -1,14 +1,30 @@
-config.tx_extbase{
-	persistence{
-		classes {
-    		WapplerSystems\WsGuestbook\Domain\Model\Wsguestbook {
-	        mapping {
-	            tableName = tx_wsguestbook_domain_model_wsguestbook
-	            columns {
-	                tstamp.mapOnProperty = tstamp
-	            }
-	        }
-	    	}
-	    }
+config.tx_extbase {
+    persistence {
+        classes {
+            WapplerSystems\WsGuestbook\Domain\Model\Wsguestbook {
+                mapping {
+                    tableName = tx_wsguestbook_domain_model_wsguestbook
+                    columns {
+                        tstamp.mapOnProperty = tstamp
+                    }
+                }
+            }
+        }
+    }
+}
+
+module.tx_form {
+    settings {
+        yamlConfigurations {
+            220 = EXT:ws_guestbook/Configuration/Yaml/FormSetup.yaml
+        }
+    }
+}
+
+plugin.tx_form {
+    settings {
+        yamlConfigurations {
+            220 = EXT:ws_guestbook/Configuration/Yaml/FormSetup.yaml
+        }
     }
 }

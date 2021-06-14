@@ -184,6 +184,12 @@
 			<trans-unit id="require">
 				<target>* Diese Felder müssen ausgefüllt werden.</target>
 			</trans-unit>
+
+
+
+			<trans-unit id="element.city.properties.label">
+				<target>Stadt</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

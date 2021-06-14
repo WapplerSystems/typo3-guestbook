@@ -1,0 +1,19 @@
+TYPO3:
+  CMS:
+    Form:
+      formManager:
+        translationFiles:
+          160: 'EXT:ws_guestbook/Resources/Private/Language/locallang.xlf'
+
+      prototypes:
+        standard:
+          formEditor:
+            translationFiles:
+              160: 'EXT:ws_guestbook/Resources/Private/Language/locallang.xlf'
+
+          formElementsDefinition:
+            Form:
+              renderingOptions:
+                translation:
+                  translationFiles:
+                    160: 'EXT:ws_guestbook/Resources/Private/Language/locallang.xlf'
