@@ -185,11 +185,29 @@
 				<target>* Diese Felder müssen ausgefüllt werden.</target>
 			</trans-unit>
 
-
-
+			<trans-unit id="element.fieldsetEntry.properties.label">
+			    <target>Neuer Gästebucheintrag</target>
+			</trans-unit>
+			<trans-unit id="element.name.properties.label">
+            	<target>Name</target>
+            </trans-unit>
+            <trans-unit id="element.email.properties.label">
+            	<target>E-Mail</target>
+            </trans-unit>
+            <trans-unit id="element.website.properties.label">
+            	<target>Website</target>
+            </trans-unit>
 			<trans-unit id="element.city.properties.label">
 				<target>Stadt</target>
 			</trans-unit>
+			<trans-unit id="element.message.properties.label">
+            	<target>Nachricht</target>
+            </trans-unit>
+            <trans-unit id="element.Form.renderingOptions.submitButtonLabel">
+            	<target>Eintragen</target>
+            </trans-unit>
+
+
 		</body>
 	</file>
 </xliff>
