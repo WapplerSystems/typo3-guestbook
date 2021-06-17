@@ -5,14 +5,22 @@ if (!defined('TYPO3_MODE')) {
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'WapplerSystems.ws_guestbook',
+    'List',
+    [
+        'Wsguestbook' => 'list,review,decline,confirm',
+    ],
+    [
+    ]
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'WapplerSystems.ws_guestbook',
     'Form',
     [
-        'Wsguestbook' => 'list, new',
+        'Wsguestbook' => 'new',
     ],
-    // non-cacheable actions
     [
         'Wsguestbook' => 'new',
-
     ]
 );
 
