@@ -153,6 +153,8 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
             'templateRootPaths' => [
                 10 => 'EXT:ws_guestbook/Resources/Private/Templates/Email/',
             ]
+
+
         ]);
 
         $page = $formDefinition->createPage('page1');
@@ -199,6 +201,18 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $element->addValidator(new NotEmptyValidator());
 
         return $formDefinition;
+
+    }
+
+    public function reviewAction() {
+
+    }
+
+    public function declineAction() {
+
+    }
+
+    public function confirmAction() {
 
     }
 
@@ -386,39 +400,6 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         return $errormsg;
     }
 
-    public function guestbookformAction()
-    {
-        $page = $formDefinition->createPage('formPage');
 
-        $row = $page->createElement('row1', 'GridRow');
-
-        $fieldset = $row->createElement('fieldsetEntry', 'Fieldset');
-        $fieldset->setLabel('New Entry');
-        $fieldset->setOptions(['properties' => [
-            'gridColumnClassAutoConfiguration' => [
-                'viewPorts' => [
-                    'md' => 6
-                ]
-            ]
-        ]]);
-
-        $element = $fieldset->createElement('firstName', 'Text');
-        $element->setLabel('firstName');
-        $element->addValidator(new NotEmptyValidator());
-        $element->addValidator(newStringLengthValidator(['maximum' => 50]));
-
-        $element = $fieldset->createElement('lastName', 'Text');
-        $element->setLabel('lastName');
-        $element->addValidator(newStringLengthValidator(['maximum' => 50]));
-
-        $element = $fieldset->createElement('email', 'Text');
-        $element->setLabel('email');
-        $element->addValidator(new NotEmptyValidator());
-        $element->addValidator(new EmailAddressValidator());
-        if (isset($this->settings['keycloak']['activate']) && (int)$this->settings['keycloak']['activate'] === 1) {
-            $element->addValidator(new UsernameAlreadyTakenValidator());
-        }
-
-    }
 
 }

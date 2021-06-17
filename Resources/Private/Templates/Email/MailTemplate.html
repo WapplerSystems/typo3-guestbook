@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!--"Multipart/Alternative MIME" format-->
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers"
       data-namespace-typo3-fluid="true">
 <head>
     <meta charset="utf-8">
@@ -9,17 +10,17 @@
 <body>
     <div>
         <div>
-            <p><f:translate key="mail.hello" /> {wsguestbook.adminName}</p>
+            <p><f:translate key="mail.hello" /> {adminName}</p>
 
             <p><f:translate key="mail.msg" /></p>
 
-            <p><b><f:translate key="mail.Name" />:</b> {wsguestbook.name}</p>
-            <p><b><f:translate key="mail.City" />:</b> {wsguestbook.city}</p>
-            <p><b><f:translate key="mail.Email" />:</b> {wsguestbook.email}</p>
-            <p><b><f:translate key="mail.Website" />:</b> {wsguestbook.website}</p>
+            <p><b><f:translate key="mail.Name" />:</b> {name}</p>
+            <p><b><f:translate key="mail.City" />:</b> {city}</p>
+            <p><b><f:translate key="mail.Email" />:</b> {email}</p>
+            <p><b><f:translate key="mail.Website" />:</b> {website}</p>
             <p>
 	        	<b><f:translate key="mail.Message" />:</b>
-            	<f:format.raw>{wsguestbook.message}</f:format.raw>
+            	<f:format.raw>{message}</f:format.raw>
             </p>
             <br/>
             <br/>

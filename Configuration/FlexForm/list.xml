@@ -37,53 +37,9 @@
                             </config>
                         </TCEforms>
                     </settings.maintitle>
-                    <settings.adminName>
-                        <TCEforms>
-                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.adminName</label>
-                            <displayCond>FIELD:switchableControllerActions:!=:Wsguestbook->list;Wsguestbook->show;</displayCond>
-                            <config>
-                                <type>input</type>
-                                <size>40</size>
-                                <eval>trim,required</eval>
-                            </config>
-                        </TCEforms>
-                    </settings.adminName>
-                    <settings.adminEmail>
-                        <TCEforms>
-                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.adminEmail</label>
-                            <displayCond>FIELD:switchableControllerActions:!=:Wsguestbook->list;Wsguestbook->show;</displayCond>
-                            <config>
-                                <type>input</type>
-                                <size>40</size>
-                                <eval>trim,required</eval>
-                            </config>
-                        </TCEforms>
-                    </settings.adminEmail>
-                    <settings.emailSubject>
-                        <TCEforms>
-                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.emailSubject</label>
-                            <displayCond>FIELD:switchableControllerActions:!=:Wsguestbook->list;Wsguestbook->show;</displayCond>
-                            <config>
-                                <type>input</type>
-                                <size>40</size>
-                                <eval>trim,required</eval>
-                            </config>
-                        </TCEforms>
-                    </settings.emailSubject>
-                    <settings.captcha>
-                        <TCEforms>
-                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.captcha</label>
-                            <displayCond>FIELD:switchableControllerActions:!=:Wsguestbook->list;Wsguestbook->show;</displayCond>
-                            <config>
-                                <type>check</type>
-                                <default>1</default>
-                            </config>
-                         </TCEforms>
-                    </settings.captcha>
                     <settings.totalnumber>
                         <TCEforms>
                             <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.totalnumber</label>
-                            <displayCond>FIELD:switchableControllerActions:=:Wsguestbook->list;Wsguestbook->show;</displayCond>
                             <config>
                                 <type>input</type>
                                 <size>40</size>
@@ -95,7 +51,6 @@
                     <settings.sorting>
                         <TCEforms>
                             <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.sorting</label>
-                            <displayCond>FIELD:switchableControllerActions:=:Wsguestbook->list;Wsguestbook->show;</displayCond>
                             <config>
                                 <type>select</type>
                                 <renderType>selectSingle</renderType>
