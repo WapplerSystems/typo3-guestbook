@@ -7,40 +7,9 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
-                    <switchableControllerActions>
-                        <TCEforms>
-                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.select</label>
-                            <onChange>reload</onChange>
-                            <config>
-                                <type>select</type>
-                                <renderType>selectSingle</renderType>
-                                <items>
-                                    <numIndex index="1">
-                                        <numIndex index="0">LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.disForm</numIndex>
-                                        <numIndex index="1">Wsguestbook->new;Wsguestbook->create;</numIndex>
-                                    </numIndex>
-                                    <numIndex index="2">
-                                        <numIndex index="0">LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.disList</numIndex>
-                                        <numIndex index="1">Wsguestbook->list;Wsguestbook->show;</numIndex>
-                                    </numIndex>
-                                </items>
-                            </config>
-                        </TCEforms>
-                    </switchableControllerActions>
-                    <settings.maintitle>
-                        <TCEforms>
-                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.maintitle</label>
-                            <config>
-                                <type>input</type>
-                                <size>40</size>
-                                <eval>trim</eval>
-                            </config>
-                        </TCEforms>
-                    </settings.maintitle>
                     <settings.adminName>
                         <TCEforms>
                             <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.adminName</label>
-
                             <config>
                                 <type>input</type>
                                 <size>40</size>
@@ -51,7 +20,6 @@
                     <settings.adminEmail>
                         <TCEforms>
                             <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.adminEmail</label>
-
                             <config>
                                 <type>input</type>
                                 <size>40</size>
@@ -62,7 +30,6 @@
                     <settings.emailSubject>
                         <TCEforms>
                             <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.emailSubject</label>
-
                             <config>
                                 <type>input</type>
                                 <size>40</size>
@@ -73,7 +40,6 @@
                     <settings.captcha>
                         <TCEforms>
                             <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.captcha</label>
-
                             <config>
                                 <type>check</type>
                                 <default>1</default>
@@ -82,12 +48,12 @@
                     </settings.captcha>
                     <settings.storagePid>
                         <TCEforms>
-                            <label>LLL:EXT:core/Resources/Private/Language/locallang_db.xlf:LGL.storagePid</label>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.storagePid</label>
                             <config>
                                 <type>group</type>
                                 <internal_type>db</internal_type>
                                 <allowed>pages</allowed>
-                                <size>3</size>
+                                <size>1</size>
                                 <maxitems>1</maxitems>
                                 <minitems>1</minitems>
                             </config>

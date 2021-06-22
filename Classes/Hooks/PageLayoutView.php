@@ -21,8 +21,6 @@ class PageLayoutView implements \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHo
                 } else {
                     $flexFormService = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Service\FlexFormService::class);
                 }
-
-                /** @var FlexFormService $flexFormService */
             }
 
             // assign all to view

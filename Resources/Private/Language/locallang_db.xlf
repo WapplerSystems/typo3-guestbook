@@ -108,7 +108,10 @@
 				<source>Function</source>
 			</trans-unit>
 			<trans-unit id="flexform.captcha">
-				<source>Disable Captcha</source>
+				<source>Enable Captcha</source>
+			</trans-unit>
+			<trans-unit id="flexform.storagePid">
+				<source>Storage Page ID</source>
 			</trans-unit>
 		</body>
 	</file>

@@ -7,26 +7,6 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
-                    <switchableControllerActions>
-                        <TCEforms>
-                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.select</label>
-                            <onChange>reload</onChange>
-                            <config>
-                                <type>select</type>
-                                <renderType>selectSingle</renderType>
-                                <items>
-                                    <numIndex index="1">
-                                        <numIndex index="0">LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.disForm</numIndex>
-                                        <numIndex index="1">Wsguestbook->new;Wsguestbook->create;</numIndex>
-                                    </numIndex>
-                                    <numIndex index="2">
-                                        <numIndex index="0">LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.disList</numIndex>
-                                        <numIndex index="1">Wsguestbook->list;Wsguestbook->show;</numIndex>
-                                    </numIndex>
-                                </items>
-                            </config>
-                        </TCEforms>
-                    </switchableControllerActions>
                     <settings.maintitle>
                         <TCEforms>
                             <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.maintitle</label>
@@ -73,7 +53,7 @@
                     </settings.sorting>
                     <settings.storagePid>
                         <TCEforms>
-                            <label>LLL:EXT:core/Resources/Private/Language/locallang_db.xlf:LGL.storagePid</label>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.storagePid</label>
                             <config>
                                 <type>group</type>
                                 <internal_type>db</internal_type>

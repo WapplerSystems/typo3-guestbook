@@ -1,8 +1,6 @@
 <?php
 defined('TYPO3_MODE') or die();
 
-$_EXTKEY = 'ws_guestbook';
-
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'WapplerSystems.ws_guestbook',
     'List',
@@ -12,7 +10,7 @@ $_EXTKEY = 'ws_guestbook';
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'WapplerSystems.ws_guestbook',
     'Form',
-    'Guestbook'
+    'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang.xlf:wsguestbook_form'
 );
 
 /* Flexform setting  */

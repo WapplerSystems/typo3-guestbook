@@ -4,6 +4,7 @@ namespace WapplerSystems\WsGuestbook\Controller;
 
 use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Extbase\Annotation\Inject as inject;
+use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
 use TYPO3\CMS\Form\Domain\Model\FormDefinition;
 use TYPO3\CMS\Form\Domain\Renderer\FluidFormRenderer;
 use TYPO3\CMS\Form\Domain\Configuration\ConfigurationService;
@@ -149,9 +150,10 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
             'recipientAddress' => $this->settings['adminEmail'],
             'recipientName' => $this->settings['adminName'],
             'senderAddress' => $this->settings['adminEmail'],
-            'templateName' => 'MailTemplate',
+            'useFluidEmail' => true,
+            'templateName' => 'Notification',
             'templateRootPaths' => [
-                10 => 'EXT:ws_guestbook/Resources/Private/Templates/Email/',
+                50 => 'EXT:ws_guestbook/Resources/Private/Templates/Email/',
             ]
 
 
@@ -182,23 +184,27 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $element->addValidator(new StringLengthValidator(['maximum' => 50]));
         $element->addValidator(new NotEmptyValidator());
 
+        /** @var GenericFormElement $element */
         $element = $fieldset->createElement('email', 'Text');
         $element->setLabel('E-Mail');
         $element->addValidator(new EmailAddressValidator());
 
+        /** @var GenericFormElement $element */
         $element = $fieldset->createElement('website', 'Text');
         $element->setLabel('Website');
-        $element->addValidator(new StringLengthValidator(['maximum' => 100]));
+        $element->addValidator(new StringLengthValidator(['maximum' => 200]));
 
+        /** @var GenericFormElement $element */
         $element = $fieldset->createElement('city', 'Text');
         $element->setLabel('City');
         $element->addValidator(new StringLengthValidator(['maximum' => 100]));
 
+        /** @var GenericFormElement $element */
         $element = $fieldset->createElement('message', 'Textarea');
         $element->setLabel('Message');
-        $element->setProperty('required', true);
         $element->setProperty('rows', '4');
         $element->addValidator(new NotEmptyValidator());
+        $element->addValidator(new StringLengthValidator(['minimum' => 50, 'maximum' => 2000]));
 
         return $formDefinition;
 
@@ -213,123 +219,6 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
     }
 
     public function confirmAction() {
-
-    }
-
-    /**
-     * action create
-     *
-     * @param \WapplerSystems\WsGuestbook\Domain\Model\Wsguestbook $newWsguestbook
-     * @return void
-     */
-    public function createAction(\WapplerSystems\WsGuestbook\Domain\Model\Wsguestbook $newWsguestbook)
-    {
-
-        $settings = $this->settings;
-        $error = 0;
-        $mailerror = 0;
-
-        if ($newWsguestbook->getName() == '' || $newWsguestbook->getEmail() == '') {
-            $error = 1;
-        }
-        if ($newWsguestbook->getEmail() != '') {
-            if (filter_var($newWsguestbook->getEmail(), FILTER_VALIDATE_EMAIL)) {
-            } else {
-                $mailerror = 1;
-            }
-        }
-
-        if (isset($_POST['g-recaptcha-response'])) {
-            $captcha = $_POST['g-recaptcha-response'];
-        }
-        if (!$captcha && $settings['captcha'] == 0) {
-            $checkcaptchamsg = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
-                'controller.checkcaptcha.msg',
-                'ws_guestbook'
-            );
-            $this->addFlashMessage($checkcaptchamsg, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
-            $this->redirect('new', 'Wsguestbook', 'ws_guestbook', $_REQUEST);
-        } else {
-            $secretkey = $settings['secretkey'];
-            $response = json_decode(
-                file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secretkey . '&response=' . $captcha . '&remoteip=' . $_SERVER['REMOTE_ADDR']),
-                true
-            );
-            if ($response['success'] == false && $settings['captcha'] == 0) {
-                $wrongcaptcha = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
-                    'controller.wrongcaptcha.msg',
-                    'ws_guestbook'
-                );
-                $this->addFlashMessage($wrongcaptcha, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
-            } else {
-                if ($error == 1) {
-                    $requireFields = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
-                        'controller.requireFields',
-                        'ws_guestbook'
-                    );
-
-                    $mailfrmt = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
-                        'controller.mailfrmt',
-                        'ws_guestbook'
-                    );
-
-                    $this->addFlashMessage($requireFields, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
-
-                    if ($mailerror == 1) {
-                        $this->addFlashMessage($mailfrmt, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
-                    }
-
-                    $this->redirect('new', 'Wsguestbook', 'ws_guestbook', $_REQUEST);
-                }
-
-                if ($mailerror == 1) {
-                    $mailfrmt = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
-                        'controller.mailfrmt',
-                        'ws_guestbook'
-                    );
-                    $this->addFlashMessage($mailfrmt, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
-                    $this->redirect('new', 'Wsguestbook', 'ws_guestbook', $_REQUEST);
-                }
-
-                $thanksmsg = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
-                    'controller.thanks.msg',
-                    'ws_guestbook'
-                );
-
-                $this->addFlashMessage($thanksmsg, '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
-                if ($this->settings['autoaprrove']) {
-                } else {
-                    $newWsguestbook->setHidden('1');
-                }
-                $this->wsguestbookRepository->add($newWsguestbook);
-
-                // User name and mail
-                if (!empty($this->settings['adminEmail'])) {
-                    $adminName = $this->settings['adminName'];
-                    $adminEmail = $this->settings['adminEmail'];
-
-                    $confirmationContent = [
-                        'adminName' => $adminName,
-                        'name' => $newWsguestbook->getName(),
-                        'city' => $newWsguestbook->getCity(),
-                        'email' => $newWsguestbook->getEmail(),
-                        'website' => $newWsguestbook->getWebsite(),
-                        'message' => $newWsguestbook->getMessage(),
-                    ];
-                    $emailSubject = $this->settings['emailSubject'];
-
-                    $confirmationVariables = ['guest' => $confirmationContent];
-                    $sendSenderMail = $this->sendTemplateEmail(
-                        [$adminEmail => $adminName],
-                        [$adminEmail => $adminName],
-                        $emailSubject,
-                        'MailTemplate',
-                        $confirmationVariables
-                    );
-                }
-            }
-        }
-        $this->redirect('new');
 
     }
 
