@@ -4,11 +4,12 @@ namespace WapplerSystems\WsGuestbook\Domain\Repository;
 
 
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  *
  */
-class EntryRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class EntryRepository extends Repository
 {
     public function findSorted($settings)
     {

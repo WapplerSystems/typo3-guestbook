@@ -1,30 +1,6 @@
 <f:layout name="Default"/>
 <f:section name="main">
-    <!--
-	<f:flashMessages />
-	<f:render partial="FormErrors" arguments="{object:Wsguestbook}" />
-	<f:form controller="Wsguestbook" id="guestBookForm" action="create"  name="newWsguestbook" object="{newWsguestbook}">
-		<div class="ns-form-row">
-			<f:render partial="Wsguestbook/FormFields" arguments="{wsguestbookdata:wsguestbookdata}" />
-			<f:if condition="{settings.captcha}==0">
-				<div class="ns-form-group">
-					<div class="g-recaptcha" data-sitekey="{settings.sitekey}"></div>
-				</div>
-			</f:if>
-			<div class="ns-form-group">
-				<p class="text-muted"><f:translate key="require" /></p>
-			</div>
-			<div class="ns-form-group">
-				<f:form.submit class="btn ns-btn submit" value="<f:translate key='new.create' />" />
-			</div>
-		</div>
-	</f:form> -->
 
     {form -> f:format.raw()}
+
 </f:section>
-
-
-
-
-
-

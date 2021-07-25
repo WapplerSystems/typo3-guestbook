@@ -1,37 +1,37 @@
 plugin.tx_wsguestbook {
 
-    view {
-        templateRootPaths {
-            0 = EXT:ws_guestbook/Resources/Private/Templates/
-            1 = {$plugin.tx_wsguestbook.view.templateRootPath}
-        }
-
-        partialRootPaths {
-            0 = EXT:ws_guestbook/Resources/Private/Partials/
-            1 = {$plugin.tx_wsguestbook.view.partialRootPath}
-        }
-
-        layoutRootPaths {
-            0 = EXT:ws_guestbook/Resources/Private/Layouts/
-            1 = {$plugin.tx_wsguestbook.view.layoutRootPath}
-        }
+  view {
+    templateRootPaths {
+      0 = EXT:ws_guestbook/Resources/Private/Templates/
+      1 = {$plugin.tx_wsguestbook.view.templateRootPath}
     }
 
-    settings {
-        autoaprrove = {$plugin.tx_wsguestbook.settings.autoaprrove}
-        sitekey = {$plugin.tx_wsguestbook.settings.sitekey}
-        secretkey = {$plugin.tx_wsguestbook.settings.secretkey}
+    partialRootPaths {
+      0 = EXT:ws_guestbook/Resources/Private/Partials/
+      1 = {$plugin.tx_wsguestbook.view.partialRootPath}
     }
 
-    mvc {
-        callDefaultActionIfActionCantBeResolved = 1
+    layoutRootPaths {
+      0 = EXT:ws_guestbook/Resources/Private/Layouts/
+      1 = {$plugin.tx_wsguestbook.view.layoutRootPath}
     }
+  }
+
+  settings {
+    autoaprrove = {$plugin.tx_wsguestbook.settings.autoaprrove}
+    sitekey = {$plugin.tx_wsguestbook.settings.sitekey}
+    secretkey = {$plugin.tx_wsguestbook.settings.secretkey}
+  }
+
+  mvc {
+    callDefaultActionIfActionCantBeResolved = 1
+  }
 }
 
 page {
-    includeCSS {
-        1000 = EXT:ws_guestbook/Resources/Public/css/custom.css
-    }
+  includeCSS {
+    1000 = EXT:ws_guestbook/Resources/Public/css/custom.css
+  }
 
 
 }

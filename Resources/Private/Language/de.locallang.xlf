@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-11-08T11:15:02Z" product-name="ws_guestbook">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-11-08T11:15:02Z"
+		  product-name="ws_guestbook">
 		<header/>
 		<body>
 			<trans-unit id="tx_wsguestbook_domain_model_entry">
@@ -118,13 +119,13 @@
 
 			<!-- Error messages -->
 			<trans-unit id="validator.newWsguestbook.name.1221560718">
-			    <target>Feldname ist erforderlich.</target>
+				<target>Feldname ist erforderlich.</target>
 			</trans-unit>
 			<trans-unit id="validator.newWsguestbook.email.1221560718">
-			    <target>Feld E-Mail ist erforderlich.</target>
+				<target>Feld E-Mail ist erforderlich.</target>
 			</trans-unit>
 			<trans-unit id="validator.newWsguestbook.email.1221559976">
-			    <target>Ungültige E-Mail-Adresse</target>
+				<target>Ungültige E-Mail-Adresse</target>
 			</trans-unit>
 			<!-- Error messages -->
 
@@ -183,26 +184,26 @@
 			</trans-unit>
 
 			<trans-unit id="element.fieldsetEntry.properties.label">
-			    <target>Neuer Gästebucheintrag</target>
+				<target>Neuer Gästebucheintrag</target>
 			</trans-unit>
 			<trans-unit id="element.name.properties.label">
-            	<target>Name</target>
-            </trans-unit>
-            <trans-unit id="element.email.properties.label">
-            	<target>E-Mail</target>
-            </trans-unit>
-            <trans-unit id="element.website.properties.label">
-            	<target>Website</target>
-            </trans-unit>
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="element.email.properties.label">
+				<target>E-Mail</target>
+			</trans-unit>
+			<trans-unit id="element.website.properties.label">
+				<target>Website</target>
+			</trans-unit>
 			<trans-unit id="element.city.properties.label">
 				<target>Stadt</target>
 			</trans-unit>
 			<trans-unit id="element.message.properties.label">
-            	<target>Nachricht</target>
-            </trans-unit>
-            <trans-unit id="element.Form.renderingOptions.submitButtonLabel">
-            	<target>Eintragen</target>
-            </trans-unit>
+				<target>Nachricht</target>
+			</trans-unit>
+			<trans-unit id="element.Form.renderingOptions.submitButtonLabel">
+				<target>Eintragen</target>
+			</trans-unit>
 
 
 		</body>

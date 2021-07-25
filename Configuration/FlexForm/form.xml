@@ -46,19 +46,19 @@
                             </config>
                          </TCEforms>
                     </settings.captcha>
-                    <settings.storagePid>
+                    <persistence.storagePid>
                         <TCEforms>
                             <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.storagePid</label>
                             <config>
                                 <type>group</type>
                                 <internal_type>db</internal_type>
                                 <allowed>pages</allowed>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <minitems>1</minitems>
                             </config>
                         </TCEforms>
-                    </settings.storagePid>
+                    </persistence.storagePid>
                 </el>
             </ROOT>
         </sDEF>

@@ -16,13 +16,10 @@
 				<source>Email</source>
 			</trans-unit>
 			<trans-unit id="tx_wsguestbook_domain_model_entry.website">
-				<source>My Website</source>
+				<source>Website</source>
 			</trans-unit>
 			<trans-unit id="tx_wsguestbook_domain_model_entry.message">
 				<source>Message</source>
-			</trans-unit>
-			<trans-unit id="tx_wsguestbook_domain_model_entry.captcha">
-				<source>Captcha</source>
 			</trans-unit>
 			<trans-unit id="tx_wsguestbook_domain_model_entry.terms">
 				<source>Terms accepted</source>

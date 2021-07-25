@@ -1,21 +1,27 @@
 plugin.tx_wsguestbook {
-    view {
-        # cat=plugin.tx_wsguestbook_form/file; type=string; label=Path to template root (FE)
-        templateRootPath = EXT:ws_guestbook/Resources/Private/Templates/
-        # cat=plugin.tx_wsguestbook_form/file; type=string; label=Path to template partials (FE)
-        partialRootPath = EXT:ws_guestbook/Resources/Private/Partials/
-        # cat=plugin.tx_wsguestbook_form/file; type=string; label=Path to template layouts (FE)
-        layoutRootPath = EXT:ws_guestbook/Resources/Private/Layouts/
+  view {
+    # cat=plugin.tx_wsguestbook_form/file; type=string; label=Path to template root (FE)
+    templateRootPath = EXT:ws_guestbook/Resources/Private/Templates/
+    # cat=plugin.tx_wsguestbook_form/file; type=string; label=Path to template partials (FE)
+    partialRootPath = EXT:ws_guestbook/Resources/Private/Partials/
+    # cat=plugin.tx_wsguestbook_form/file; type=string; label=Path to template layouts (FE)
+    layoutRootPath = EXT:ws_guestbook/Resources/Private/Layouts/
+  }
+
+  settings {
+    # cat=plugin.tx_wsguestbook_form//b; type=string; label=Sitekey for captcha
+    sitekey =
+    # cat=plugin.tx_wsguestbook_form//c; type=string; label=Secretkey for captcha
+    secretkey =
+    #cat=plugin.tx_wsguestbook_form//d; type=boolean; label=Set auto approve to new comment
+    autoaprrove = 0
+
+    form {
+
+
+
     }
 
-    settings {
-        # cat=plugin.tx_wsguestbook_form//b; type=string; label=Sitekey for captcha
-        sitekey =
-        # cat=plugin.tx_wsguestbook_form//c; type=string; label=Secretkey for captcha
-        secretkey =
-        #cat=plugin.tx_wsguestbook_form//d; type=boolean; label=Set auto approve to new comment
-        autoaprrove = 0
-        #cat=plugin.tx_wsguestbook_form//e; type=boolean; label=Add jQuery
-        jQuery = 0
-    }
+
+  }
 }

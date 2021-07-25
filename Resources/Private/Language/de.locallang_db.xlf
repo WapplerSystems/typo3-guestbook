@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-11-08T11:15:02Z" product-name="ws_guestbook">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-11-08T11:15:02Z"
+		  product-name="ws_guestbook">
 		<header/>
 		<body>
 			<trans-unit id="tx_wsguestbook_domain_model_entry">
-				<target>WapplerSystems Gästebuch</target>
+				<target>Gästebuch-Eintrag</target>
 			</trans-unit>
 			<trans-unit id="tx_wsguestbook_domain_model_entry.name">
 				<target>Name</target>

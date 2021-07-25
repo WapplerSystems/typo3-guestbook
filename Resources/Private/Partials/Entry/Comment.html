@@ -1,0 +1,39 @@
+<div class="comment-main-level">
+
+    <!-- Comment -->
+    <div class="comment-box">
+        <div class="comment-head">
+            <div class="comment-author">
+                <f:if condition="{entry.city}">
+                    <f:then>
+                        <strong>{entry.name} aus {entry.city}</strong>
+                    </f:then>
+                    <f:else>
+                        <strong>{entry.name}</strong>
+                    </f:else>
+                </f:if>
+                <span class="text-muted">
+                    <f:if condition="{entry.tstamp}">
+                        <f:then>
+                           <f:format.date format="M d,Y">{entry.tstamp}</f:format.date> <f:translate key="list.at" />  <f:format.date format="H:i">{entry.tstamp}</f:format.date>
+                        </f:then>
+                    </f:if>
+                </span>
+            </div>
+        </div>
+
+        <div class="comment-content">
+            <f:format.raw>{entry.message}</f:format.raw>
+
+            <br />
+
+            <div class="website">
+                <f:if condition="{entry.website}">
+                    <f:format.html> <f:translate key="tx_entry_domain_model_entry.website" /> : <a target="_blank" href="{entry.website}"> {entry.website}</a></f:format.html>
+                </f:if>
+            </div>
+
+        </div>
+    </div>
+</div>
+

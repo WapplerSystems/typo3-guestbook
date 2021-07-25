@@ -2,6 +2,7 @@
 
 namespace WapplerSystems\WsGuestbook\Controller;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Extbase\Validation\Validator\EmailAddressValidator;
@@ -14,6 +15,8 @@ use TYPO3\CMS\Form\Domain\Model\FormElements\GridRow;
 use TYPO3\CMS\Form\Domain\Model\FormElements\Section;
 use TYPO3\CMS\Form\Domain\Renderer\FluidFormRenderer;
 use WapplerSystems\WsGuestbook\Domain\Repository\EntryRepository;
+use TYPO3\CMS\Core\Mail\MailMessage;
+use TYPO3\CMS\Fluid\View\StandaloneView;
 
 
 /**
@@ -40,14 +43,13 @@ class GuestbookController extends ActionController
 
 
     /**
-     * action list
      *
      * @return void
      */
     public function listAction()
     {
-        $wsguestbooks = $this->entryRepository->findSorted($this->settings);
-        $this->view->assign('wsguestbooks', $wsguestbooks);
+        $entries = $this->entryRepository->findSorted($this->settings);
+        $this->view->assign('entries', $entries);
         $this->view->assign('settings', $this->settings);
     }
 
@@ -117,7 +119,7 @@ class GuestbookController extends ActionController
             'message' => LocalizationUtility::translate('msg.pleaseConfirmEmailAddress', 'ws_guestbook'),
             'templateName' => 'Confirmation',
             'templateRootPaths' => [
-                10 => 'EXT:ws_guestbook/Resources/Private/Templates/Wsguestbook/',
+                10 => 'EXT:ws_guestbook/Resources/Private/Templates/Guestbook/',
             ]
         ]);
 
@@ -184,7 +186,6 @@ class GuestbookController extends ActionController
         $element->addValidator(new StringLengthValidator(['minimum' => 50, 'maximum' => 2000]));
 
         return $formDefinition;
-
     }
 
     public function reviewAction() {
@@ -216,8 +217,8 @@ class GuestbookController extends ActionController
     )
     {
 
-        /** @var \TYPO3\CMS\Fluid\View\StandaloneView $emailView */
-        $emailView = $this->objectManager->get('TYPO3\\CMS\\Fluid\\View\\StandaloneView');
+        /** @var StandaloneView $emailView */
+        $emailView = $this->objectManager->get(StandaloneView::class);
 
         /*For use of Localize value */
         $extensionName = $this->request->getControllerExtensionName();
@@ -225,22 +226,17 @@ class GuestbookController extends ActionController
 
         /*For use of Localize value */
         $extbaseFrameworkConfiguration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
-        $templateRootPath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($extbaseFrameworkConfiguration['view']['templateRootPaths']['0']);
+        $templateRootPath = GeneralUtility::getFileAbsFileName($extbaseFrameworkConfiguration['view']['templateRootPaths']['0']);
         $templatePathAndFilename = $templateRootPath . 'Email/' . $templateName . '.html';
         $emailView->setTemplatePathAndFilename($templatePathAndFilename);
         $emailView->assignMultiple($variables);
         $emailBody = $emailView->render();
         /** @var $message \TYPO3\CMS\Core\Mail\MailMessage */
-        $message = $this->objectManager->get('TYPO3\\CMS\\Core\\Mail\\MailMessage');
+        $message = $this->objectManager->get(MailMessage::class);
         $message->setTo($recipient)
             ->setFrom($sender)
             ->setSubject($subject);
-        // HTML Email
-        if (version_compare(TYPO3_version, '10.0', '>')) {
-            $message->html($emailBody);
-        } else {
-            $message->setBody($emailBody, 'text/html');
-        }
+        $message->html($emailBody);
 
         $status = 0;
         $message->send();

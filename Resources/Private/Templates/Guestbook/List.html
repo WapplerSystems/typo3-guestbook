@@ -1,22 +1,17 @@
 <f:layout name="Default" />
 <f:section name="main">
     <f:flashMessages />
-    <f:if condition="{wsguestbooks}">
+    <f:if condition="{entries}">
         <f:then>
-            <div class="ns-news-comment-wrapper">
-                <div class="ns-headline">
-                    <h2><f:translate key="CommentsandResponses"/></h2>
-                </div>
-                <div class="comments-container">
-                    <ul class="comments-list" id="comments-list">
-                        <f:for each="{wsguestbooks}" as="wsguestbook">
-                            <li id="comments-{wsguestbook.uid}">
-                                <f:render partial="Wsguestbook/Comment" arguments="{wsguestbook:wsguestbook}" />
+
+                    <ul class="comments-list">
+                        <f:for each="{entries}" as="entry">
+                            <li id="comments-{entry.uid}">
+                                <f:render partial="Entry/Comment" arguments="{entry:entry}" />
                             </li>
                         </f:for>
                     </ul>
-                </div>
-            </div>
+
         </f:then>
         <f:else>
             <div class="no-comment">
