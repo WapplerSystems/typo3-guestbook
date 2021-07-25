@@ -22,7 +22,7 @@ plugin.tx_wsguestbook {
 
 
     paginate {
-      itemsPerPage = 2
+      itemsPerPage = 10
       insertAbove = 1
       insertBelow = 1
       prevNextHeaderTags = 1

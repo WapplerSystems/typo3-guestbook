@@ -16,6 +16,9 @@
 			<trans-unit id="website">
 				<source>Website</source>
 			</trans-unit>
+			<trans-unit id="xFromY" xml:space="preserve">
+				<source>%1$s from %2$s</source>
+			</trans-unit>
 
 			<!-- Mail template -->
 			<trans-unit id="mail.title">

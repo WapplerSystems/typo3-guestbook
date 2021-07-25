@@ -7,9 +7,9 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
-                    <settings.totalnumber>
+                    <settings.paginate.itemsPerPage>
                         <TCEforms>
-                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.totalnumber</label>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.itemsPerPage</label>
                             <config>
                                 <type>input</type>
                                 <size>40</size>
@@ -17,7 +17,7 @@
                                 <eval>trim,num</eval>
                             </config>
                         </TCEforms>
-                    </settings.totalnumber>
+                    </settings.paginate.itemsPerPage>
                     <settings.sorting>
                         <TCEforms>
                             <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.sorting</label>

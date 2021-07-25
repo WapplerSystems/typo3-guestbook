@@ -43,8 +43,8 @@
 			<trans-unit id="flexform.emailSubject">
 				<target>E-Mail Betreff</target>
 			</trans-unit>
-			<trans-unit id="flexform.totalnumber">
-				<target>Anzahl der Zeilen anzeigen</target>
+			<trans-unit id="flexform.itemsPerPage">
+				<target>Anzahl der Einträge pro Seite anzeigen</target>
 			</trans-unit>
 			<trans-unit id="flexform.sorting">
 				<target>Sortierung</target>

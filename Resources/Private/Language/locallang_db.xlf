@@ -25,19 +25,19 @@
 				<source>Terms accepted</source>
 			</trans-unit>
 			<trans-unit id="flexform.thankyouPageId">
-				<source>Thankyou Page Id</source>
+				<source>"Thank you" page id</source>
 			</trans-unit>
 			<trans-unit id="flexform.adminEmail">
-				<source>Admin Email</source>
+				<source>Admin email</source>
 			</trans-unit>
 			<trans-unit id="flexform.adminName">
-				<source>Admin Name</source>
+				<source>Admin name</source>
 			</trans-unit>
 			<trans-unit id="flexform.emailSubject">
-				<source>Email Subject</source>
+				<source>Email subject</source>
 			</trans-unit>
-			<trans-unit id="flexform.totalnumber">
-				<source>Show Number of Rows</source>
+			<trans-unit id="flexform.itemsPerPage">
+				<source>Show number of entries per page</source>
 			</trans-unit>
 			<trans-unit id="flexform.sorting">
 				<source>Sorting</source>

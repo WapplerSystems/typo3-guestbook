@@ -19,23 +19,7 @@ class EntryRepository extends Repository
         } else {
             $query->setOrderings(['crdate' => QueryInterface::ORDER_ASCENDING]);
         }
-        if ($settings['totalnumber']) {
-            $query->setLimit((int)$settings['totalnumber']);
-        }
-        $query = $query->execute();
-        return $query;
+        return $query->execute();
     }
 
-    public function findLatestSorted($settings)
-    {
-        $query = $this->createQuery();
-
-        $query->setOrderings(['crdate' => QueryInterface::ORDER_DESCENDING]);
-
-        if ($settings['totalnumber']) {
-            $query->setLimit((int)$settings['totalnumber']);
-        }
-        $query = $query->execute();
-        return $query;
-    }
 }

@@ -7,13 +7,13 @@
             <f:if condition="{settings.hidePagination}">
                 <f:then>
                     <f:for each="{entries}" as="entry" iteration="iterator">
-                        <f:render partial="Entry/Entry" arguments="{entry:entry,settings:settings,iterator:iterator}" />
+                        <f:render partial="Entry/Entry" section="Default" arguments="{entry:entry,settings:settings,iterator:iterator}" />
                     </f:for>
                 </f:then>
                 <f:else>
                     <f:render partial="Pagination" arguments="{pagination:pagination,paginator:paginator,pages:pages,configuration:settings.paginate}" contentAs="content">
                         <f:for each="{entries}" as="entry" iteration="iterator">
-                            <f:render partial="Entry/Entry" arguments="{entry:entry,settings:settings,iterator:iterator}" />
+                            <f:render partial="Entry/Entry" section="Default" arguments="{entry:entry,settings:settings,iterator:iterator}" />
                         </f:for>
                     </f:render>
                 </f:else>

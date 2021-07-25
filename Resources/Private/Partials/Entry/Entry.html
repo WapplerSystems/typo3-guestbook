@@ -1,17 +1,16 @@
-<div class="comment-main-level">
 
-
+<f:section name="Default">
     <div class="card mb-4">
         <div class="card-header">
             <f:if condition="{entry.website}">
-            <f:if condition="{entry.city}">
                 <f:then>
-                    <strong>{entry.name} aus {entry.city}</strong>
+                    <a class="float-left" target="_blank" href="{entry.website}">
+                        <f:render section="Header" arguments="{_all}" />
+                    </a>
                 </f:then>
                 <f:else>
-                    <strong>{entry.name}</strong>
+                    <f:render section="Header" arguments="{_all}" />
                 </f:else>
-            </f:if>
             </f:if>
 
             <f:if condition="{entry.tstamp}">
@@ -23,17 +22,20 @@
         </div>
 
         <div class="card-body">
-            <f:format.raw>{entry.message}</f:format.raw>
-
-            <br />
-
-            <div class="website">
-                <f:if condition="{entry.website}">
-                    <f:format.html><f:translate key="LLL:EXT:ws_guestbook/Resources/Private/Language/locallang.xlf:website" />: <a target="_blank" href="{entry.website}"> {entry.website}</a></f:format.html>
-                </f:if>
-            </div>
-
+            <f:format.html>{entry.message -> f:format.nl2br()}</f:format.html>
         </div>
     </div>
-</div>
+</f:section>
 
+<f:section name="Header">
+    <strong>
+        <f:if condition="{entry.city}">
+            <f:then>
+                <f:translate key="xFromY" arguments="{0:entry.name, 1:entry.city}" />
+            </f:then>
+            <f:else>
+                {entry.name}
+            </f:else>
+        </f:if>
+    </strong>
+</f:section>
