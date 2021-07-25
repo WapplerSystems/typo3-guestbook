@@ -1,21 +1,28 @@
-<f:layout name="Default" />
+<f:layout name="Default"/>
 <f:section name="main">
-    <f:flashMessages />
+    <f:flashMessages/>
     <f:if condition="{entries}">
         <f:then>
 
-                    <ul class="comments-list">
-                        <f:for each="{entries}" as="entry">
-                            <li id="comments-{entry.uid}">
-                                <f:render partial="Entry/Comment" arguments="{entry:entry}" />
-                            </li>
+            <f:if condition="{settings.hidePagination}">
+                <f:then>
+                    <f:for each="{entries}" as="entry" iteration="iterator">
+                        <f:render partial="Entry/Entry" arguments="{entry:entry,settings:settings,iterator:iterator}" />
+                    </f:for>
+                </f:then>
+                <f:else>
+                    <f:render partial="Pagination" arguments="{pagination:pagination,paginator:paginator,pages:pages,configuration:settings.paginate}" contentAs="content">
+                        <f:for each="{entries}" as="entry" iteration="iterator">
+                            <f:render partial="Entry/Entry" arguments="{entry:entry,settings:settings,iterator:iterator}" />
                         </f:for>
-                    </ul>
+                    </f:render>
+                </f:else>
+            </f:if>
 
         </f:then>
         <f:else>
             <div class="no-comment">
-                <f:translate key="emptymsg" />
+                <f:translate key="emptymsg"/>
             </div>
         </f:else>
     </f:if>

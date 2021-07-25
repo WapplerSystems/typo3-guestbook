@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_guestbook">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z"
+		  product-name="ws_guestbook">
 		<header/>
 		<body>
-			<trans-unit id="tx_wsguestbook_domain_model_entry">
-				<source>Wsguestbook</source>
-			</trans-unit>
 			<trans-unit id="tx_wsguestbook_domain_model_entry.name">
 				<source>Name</source>
 			</trans-unit>
@@ -15,17 +13,8 @@
 			<trans-unit id="tx_wsguestbook_domain_model_entry.email">
 				<source>Email</source>
 			</trans-unit>
-			<trans-unit id="tx_wsguestbook_domain_model_entry.website">
-				<source>My Website</source>
-			</trans-unit>
-			<trans-unit id="tx_wsguestbook_domain_model_entry.message">
-				<source>Message</source>
-			</trans-unit>
-			<trans-unit id="tx_wsguestbook_domain_model_entry.captcha">
-				<source>Captcha</source>
-			</trans-unit>
-			<trans-unit id="tx_wsguestbook_domain_model_entry.terms">
-				<source>Terms accepted</source>
+			<trans-unit id="website">
+				<source>Website</source>
 			</trans-unit>
 
 			<!-- Mail template -->
@@ -121,13 +110,13 @@
 
 			<!-- Error messages -->
 			<trans-unit id="validator.newWsguestbook.name.1221560718">
-			    <source>Field name is required.</source>
+				<source>Field name is required.</source>
 			</trans-unit>
 			<trans-unit id="validator.newWsguestbook.email.1221560718">
-			    <source>Field email is required.</source>
+				<source>Field email is required.</source>
 			</trans-unit>
 			<trans-unit id="validator.newWsguestbook.email.1221559976">
-			    <source>Invalid Email Address</source>
+				<source>Invalid Email Address</source>
 			</trans-unit>
 			<!-- Error messages -->
 
@@ -191,6 +180,17 @@
 				<source>E-Mail format is not valid.</source>
 			</trans-unit>
 			<!-- Flex form labels -->
+
+
+			<trans-unit id="paginate_overall" xml:space="preserve">
+				<source>Page %s of %s.</source>
+			</trans-unit>
+			<trans-unit id="paginate_next" xml:space="preserve">
+				<source>Next</source>
+			</trans-unit>
+			<trans-unit id="paginate_previous" xml:space="preserve">
+				<source>Previous</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

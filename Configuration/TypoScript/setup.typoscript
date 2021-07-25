@@ -19,18 +19,23 @@ plugin.tx_wsguestbook {
 
   settings {
     autoaprrove = {$plugin.tx_wsguestbook.settings.autoaprrove}
-    sitekey = {$plugin.tx_wsguestbook.settings.sitekey}
-    secretkey = {$plugin.tx_wsguestbook.settings.secretkey}
+
+
+    paginate {
+      itemsPerPage = 2
+      insertAbove = 1
+      insertBelow = 1
+      prevNextHeaderTags = 1
+      maximumNumberOfLinks = 3
+    }
+
   }
 
-  mvc {
-    callDefaultActionIfActionCantBeResolved = 1
-  }
 }
 
 page {
   includeCSS {
-    1000 = EXT:ws_guestbook/Resources/Public/css/custom.css
+    1000 = EXT:ws_guestbook/Resources/Public/CSS/styles.css
   }
 
 

@@ -1,0 +1,39 @@
+<div class="comment-main-level">
+
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <f:if condition="{entry.website}">
+            <f:if condition="{entry.city}">
+                <f:then>
+                    <strong>{entry.name} aus {entry.city}</strong>
+                </f:then>
+                <f:else>
+                    <strong>{entry.name}</strong>
+                </f:else>
+            </f:if>
+            </f:if>
+
+            <f:if condition="{entry.tstamp}">
+                <small class="text-muted float-right">
+                   <f:format.date format="M d,Y">{entry.tstamp}</f:format.date> <f:translate key="list.at" />  <f:format.date format="H:i">{entry.tstamp}</f:format.date>
+                </small>
+            </f:if>
+
+        </div>
+
+        <div class="card-body">
+            <f:format.raw>{entry.message}</f:format.raw>
+
+            <br />
+
+            <div class="website">
+                <f:if condition="{entry.website}">
+                    <f:format.html><f:translate key="LLL:EXT:ws_guestbook/Resources/Private/Language/locallang.xlf:website" />: <a target="_blank" href="{entry.website}"> {entry.website}</a></f:format.html>
+                </f:if>
+            </div>
+
+        </div>
+    </div>
+</div>
+

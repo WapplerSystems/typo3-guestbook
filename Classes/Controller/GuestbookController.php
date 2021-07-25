@@ -2,8 +2,10 @@
 
 namespace WapplerSystems\WsGuestbook\Controller;
 
+use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Extbase\Validation\Validator\EmailAddressValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator;
@@ -44,13 +46,35 @@ class GuestbookController extends ActionController
 
     /**
      *
+     * @param int $currentPage
      * @return void
      */
-    public function listAction()
+    public function listAction(int $currentPage = 1)
     {
         $entries = $this->entryRepository->findSorted($this->settings);
-        $this->view->assign('entries', $entries);
-        $this->view->assign('settings', $this->settings);
+
+        $assignedValues = [
+            'settings' => $this->settings
+        ];
+
+        if ((int)$this->settings['hidePagination'] === 1) {
+            $assignedValues['entries'] = $entries->toArray();
+        } else {
+
+            $paginator = new QueryResultPaginator($entries, $currentPage, $this->settings['paginate']['itemsPerPage'] ?? 10);
+
+            $pagination = new SimplePagination($paginator);
+            $assignedValues = array_merge($assignedValues,[
+                'paginator' => $paginator,
+                'pagination' => $pagination,
+                'entries' => $paginator->getPaginatedItems(),
+            ]);
+        }
+
+
+        $assignedValues = $this->emitActionSignal(self::class, __FUNCTION__, $assignedValues);
+
+        $this->view->assignMultiple($assignedValues);
     }
 
     /**
@@ -185,6 +209,13 @@ class GuestbookController extends ActionController
         $element->addValidator(new NotEmptyValidator());
         $element->addValidator(new StringLengthValidator(['minimum' => 50, 'maximum' => 2000]));
 
+
+        /** @var GenericFormElement $element */
+        $element = $fieldset->createElement('Captcha', 'Captcha');
+        $element->setLabel('Captcha');
+        $element->addValidator(new NotEmptyValidator());
+
+
         return $formDefinition;
     }
 
@@ -262,6 +293,22 @@ class GuestbookController extends ActionController
         return $errormsg;
     }
 
+
+
+    /**
+     * Emits signal for various actions
+     *
+     * @param string $class the class name
+     * @param string $signalName name of the signal slot
+     * @param array $signalArguments arguments for the signal slot
+     *
+     * @return array
+     */
+    protected function emitActionSignal($class, $signalName, array $signalArguments)
+    {
+        $signalArguments['extendedVariables'] = [];
+        return $this->signalSlotDispatcher->dispatch($class, $signalName, $signalArguments);
+    }
 
 
 }
