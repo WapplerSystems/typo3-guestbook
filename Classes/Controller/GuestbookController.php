@@ -2,65 +2,42 @@
 
 namespace WapplerSystems\WsGuestbook\Controller;
 
-use TYPO3\CMS\Core\Utility\DebugUtility;
-use TYPO3\CMS\Extbase\Annotation\Inject as inject;
-use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
-use TYPO3\CMS\Form\Domain\Model\FormDefinition;
-use TYPO3\CMS\Form\Domain\Renderer\FluidFormRenderer;
-use TYPO3\CMS\Form\Domain\Configuration\ConfigurationService;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
-
-use GuzzleHttp\Exception\ConnectException;
-use LiNear\LinearDownloadManager\Domain\Model\FrontendUser;
-use LiNear\LinearDownloadManager\Service\KeycloakConnector;
-use LiNear\LinearDownloadManager\Validation\Validator\UsernameAlreadyTakenValidator;
-use TYPO3\CMS\Core\Messaging\AbstractMessage;
-use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Extbase\Validation\Validator\EmailAddressValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator;
+use TYPO3\CMS\Form\Domain\Configuration\ConfigurationService;
+use TYPO3\CMS\Form\Domain\Model\FormDefinition;
 use TYPO3\CMS\Form\Domain\Model\FormElements\GenericFormElement;
 use TYPO3\CMS\Form\Domain\Model\FormElements\GridRow;
 use TYPO3\CMS\Form\Domain\Model\FormElements\Section;
+use TYPO3\CMS\Form\Domain\Renderer\FluidFormRenderer;
+use WapplerSystems\WsGuestbook\Domain\Repository\EntryRepository;
 
-/***************************************************************
- *
- *  Copyright notice
- *
- *  (c) 2018
- *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
 
 /**
- * WsguestbookController
+ *
  */
-class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class GuestbookController extends ActionController
 {
 
     /**
-     * wsguestbookRepository
      *
-     * @var \WapplerSystems\WsGuestbook\Domain\Repository\WsguestbookRepository
-     * @inject
+     * @var \WapplerSystems\WsGuestbook\Domain\Repository\EntryRepository
      */
-    protected $wsguestbookRepository = null;
+    protected $entryRepository;
+
+
+    /**
+     * @param \WapplerSystems\WsGuestbook\Domain\Repository\EntryRepository $entryRepository
+     * @internal
+     */
+    public function injectEntryRepository(EntryRepository $entryRepository)
+    {
+        $this->entryRepository = $entryRepository;
+    }
+
 
     /**
      * action list
@@ -69,7 +46,7 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
     public function listAction()
     {
-        $wsguestbooks = $this->wsguestbookRepository->findSorted($this->settings);
+        $wsguestbooks = $this->entryRepository->findSorted($this->settings);
         $this->view->assign('wsguestbooks', $wsguestbooks);
         $this->view->assign('settings', $this->settings);
     }
@@ -104,7 +81,7 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
         $saveToDatabaseFinisher = $formDefinition->createFinisher('SaveToDatabase');
         $saveToDatabaseFinisher->setOptions([
-            'table' => 'tx_wsguestbook_domain_model_wsguestbook',
+            'table' => 'tx_wsguestbook_domain_model_entry',
             'mode' => 'insert',
             'databaseColumnMappings' => [
                 'pid' => [
@@ -259,7 +236,7 @@ class WsguestbookController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
             ->setFrom($sender)
             ->setSubject($subject);
         // HTML Email
-        if (version_compare(TYPO3_branch, '10.0', '>')) {
+        if (version_compare(TYPO3_version, '10.0', '>')) {
             $message->html($emailBody);
         } else {
             $message->setBody($emailBody, 'text/html');

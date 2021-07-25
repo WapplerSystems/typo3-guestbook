@@ -33,20 +33,5 @@ page {
         1000 = EXT:ws_guestbook/Resources/Public/css/custom.css
     }
 
-    includeJSLibs {
-        nsfjquery = EXT:ws_guestbook/Resources/Public/js/jquery-2.1.0.js
-        nsfjquery.if.isTrue = {$plugin.tx_wsguestbook.settings.jQuery}
-    }
 
-    includeJS {
-        1000 = https://www.google.com/recaptcha/api.js
-        1000.external = 1
-        1005 = EXT:ws_guestbook/Resources/Public/ckeditor/ckeditor.js
-        1005.disableCompression = 1
-        1005.excludeFromConcatenation = 1
-    }
-
-    includeJSFooter {
-        1010 = EXT:ws_guestbook/Resources/Public/js/custom.js
-    }
 }

@@ -3,31 +3,31 @@
 	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-11-08T11:15:02Z" product-name="ws_guestbook">
 		<header/>
 		<body>
-			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook">
+			<trans-unit id="tx_wsguestbook_domain_model_entry">
 				<target>WapplerSystems Gästebuch</target>
 			</trans-unit>
-			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.name">
+			<trans-unit id="tx_wsguestbook_domain_model_entry.name">
 				<target>Name</target>
 			</trans-unit>
-			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.city">
+			<trans-unit id="tx_wsguestbook_domain_model_entry.city">
 				<target>Stadt</target>
 			</trans-unit>
-			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.email">
+			<trans-unit id="tx_wsguestbook_domain_model_entry.email">
 				<target>Email</target>
 			</trans-unit>
-			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.website">
+			<trans-unit id="tx_wsguestbook_domain_model_entry.website">
 				<target>Meine Website</target>
 			</trans-unit>
-			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.message">
+			<trans-unit id="tx_wsguestbook_domain_model_entry.message">
 				<target>Botschaft</target>
 			</trans-unit>
-			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.captcha">
+			<trans-unit id="tx_wsguestbook_domain_model_entry.captcha">
 				<target>Captcha</target>
 			</trans-unit>
-			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.terms">
+			<trans-unit id="tx_wsguestbook_domain_model_entry.terms">
 				<target>Captcha</target>
 			</trans-unit>
-			<trans-unit id="tx_wsguestbook_domain_model_wsguestbook.terms">
+			<trans-unit id="tx_wsguestbook_domain_model_entry.terms">
 				<target>AGB akzeptiert</target>
 			</trans-unit>
 			<trans-unit id="flexform.thankyouPageId">
@@ -62,9 +62,6 @@
 			</trans-unit>
 			<trans-unit id="flexform.backpage">
 				<target>Wählen Sie Rückseite</target>
-			</trans-unit>
-			<trans-unit id="flexform.maintitle">
-				<target>Überschrift</target>
 			</trans-unit>
 			<trans-unit id="flexform.storagepage">
 				<target>Speicherseite auswählen</target>

@@ -1,8 +1,8 @@
 <?php
 
-$temp = [
+return [
     'ctrl' => [
-        'title'	=> 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_wsguestbook',
+        'title'	=> 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_entry',
         'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -20,7 +20,7 @@ $temp = [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'name,city,email,website,message,terms,',
-        'iconfile' => 'EXT:ws_guestbook/Resources/Public/Icons/tx_wsguestbook_domain_model_wsguestbook.gif'
+        'iconfile' => 'EXT:ws_guestbook/Resources/Public/Icons/tx_wsguestbook_domain_model_entry.gif'
     ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, city, email, website, message, terms',
@@ -61,8 +61,8 @@ $temp = [
                 'items' => [
                     ['', 0],
                 ],
-                'foreign_table' => 'tx_wsguestbook_domain_model_wsguestbook',
-                'foreign_table_where' => 'AND tx_wsguestbook_domain_model_wsguestbook.pid=###CURRENT_PID### AND tx_wsguestbook_domain_model_wsguestbook.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_wsguestbook_domain_model_entry',
+                'foreign_table_where' => 'AND tx_wsguestbook_domain_model_entry.pid=###CURRENT_PID### AND tx_wsguestbook_domain_model_entry.sys_language_uid IN (-1,0)',
             ],
         ],
         'l10n_diffsource' => [
@@ -79,55 +79,55 @@ $temp = [
                 'max' => 255,
             ]
         ],
-
         'hidden' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
-            ],
+                'renderType' => 'checkboxToggle',
+                'default' => 1,
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                        'invertStateDisplay' => false
+                    ]
+                ],
+            ]
         ],
         'starttime' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'size' => 13,
-                'eval' => 'datetime',
-                'checkbox' => 0,
+                'eval' => 'datetime,int',
                 'default' => 0,
-                'range' => [
-                    'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ],
                 'behaviour' => [
                     'allowLanguageSynchronization' => true
-                ],
-
-            ],
+                ]
+            ]
         ],
         'endtime' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'size' => 13,
-                'eval' => 'datetime',
-                'checkbox' => 0,
+                'eval' => 'datetime,int',
                 'default' => 0,
                 'range' => [
-                    'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
+                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
                 ],
                 'behaviour' => [
                     'allowLanguageSynchronization' => true
-                ],
-            ],
+                ]
+            ]
         ],
 
         'name' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_wsguestbook.name',
+            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_entry.name',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -136,7 +136,7 @@ $temp = [
         ],
         'city' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_wsguestbook.city',
+            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_entry.city',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -145,7 +145,7 @@ $temp = [
         ],
         'email' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_wsguestbook.email',
+            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_entry.email',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -154,7 +154,7 @@ $temp = [
         ],
         'website' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_wsguestbook.website',
+            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_entry.website',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -163,7 +163,7 @@ $temp = [
         ],
         'message' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_wsguestbook.message',
+            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_entry.message',
             'config' => [
                      'type' => 'text',
                      'enableRichtext' => true,
@@ -171,7 +171,7 @@ $temp = [
         ],
         'terms' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_wsguestbook.terms',
+            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_entry.terms',
             'config' => [
                 'type' => 'check',
                 'readOnly' => 1,
@@ -179,13 +179,3 @@ $temp = [
         ],
     ],
 ];
-
-if (version_compare(TYPO3_branch, '7.0', '<')) {
-    $temp['columns']['message']['config']['type'] = 'text';
-    $temp['columns']['message']['config']['cols'] = '80';
-    $temp['columns']['message']['config']['rows'] = '3';
-    $temp['columns']['message']['config']['softref'] = 'typolink_tag,images,email[subst],url';
-    $temp['columns']['message']['defaultExtras'] = 'richtext[]:rte_transform[mode=tx_examples_transformation-ts_css]';
-}
-
-return $temp;

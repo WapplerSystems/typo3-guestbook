@@ -7,16 +7,6 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
-                    <settings.maintitle>
-                        <TCEforms>
-                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.maintitle</label>
-                            <config>
-                                <type>input</type>
-                                <size>40</size>
-                                <eval>trim</eval>
-                            </config>
-                        </TCEforms>
-                    </settings.maintitle>
                     <settings.totalnumber>
                         <TCEforms>
                             <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.totalnumber</label>
