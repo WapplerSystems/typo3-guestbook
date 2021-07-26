@@ -19,6 +19,12 @@
 			<trans-unit id="xFromY" xml:space="preserve">
 				<source>%1$s from %2$s</source>
 			</trans-unit>
+			<trans-unit id="dateTimeText" xml:space="preserve">
+				<source>%1$s at %2$s</source>
+			</trans-unit>
+			<trans-unit id="dateTimeFormat" xml:space="preserve">
+				<source>%m/%d/%Y at %H:%M</source>
+			</trans-unit>
 
 			<!-- Mail template -->
 			<trans-unit id="mail.title">
@@ -194,6 +200,8 @@
 			<trans-unit id="paginate_previous" xml:space="preserve">
 				<source>Previous</source>
 			</trans-unit>
+
+
 		</body>
 	</file>
 </xliff>

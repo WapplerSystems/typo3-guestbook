@@ -1,21 +1,20 @@
-
 <f:section name="Default">
     <div class="card mb-4">
         <div class="card-header">
             <f:if condition="{entry.website}">
                 <f:then>
                     <a class="float-left" target="_blank" href="{entry.website}">
-                        <f:render section="Header" arguments="{_all}" />
+                        <f:render section="Header" arguments="{_all}"/>
                     </a>
                 </f:then>
                 <f:else>
-                    <f:render section="Header" arguments="{_all}" />
+                    <f:render section="Header" arguments="{_all}"/>
                 </f:else>
             </f:if>
 
             <f:if condition="{entry.tstamp}">
                 <small class="text-muted float-right">
-                   <f:format.date format="M d,Y">{entry.tstamp}</f:format.date> <f:translate key="list.at" />  <f:format.date format="H:i">{entry.tstamp}</f:format.date>
+                    <f:format.date format="{f:translate(key:'dateTimeFormat')}">{entry.tstamp}</f:format.date>
                 </small>
             </f:if>
 
@@ -31,11 +30,15 @@
     <strong>
         <f:if condition="{entry.city}">
             <f:then>
-                <f:translate key="xFromY" arguments="{0:entry.name, 1:entry.city}" />
+                <f:translate key="xFromY" arguments="{0:entry.name, 1:entry.city}"/>
             </f:then>
             <f:else>
                 {entry.name}
             </f:else>
         </f:if>
     </strong>
+</f:section>
+
+<f:section name="Datetime">
+
 </f:section>

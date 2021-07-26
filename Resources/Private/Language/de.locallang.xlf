@@ -23,6 +23,9 @@
 				<source>%1$s from %2$s</source>
 				<target>%1$s aus %2$s</target>
 			</trans-unit>
+			<trans-unit id="dateTimeFormat" xml:space="preserve">
+				<target>%d.%m.%Y um %H:%M Uhr</target>
+			</trans-unit>
 
 			<!-- Mail template -->
 			<trans-unit id="mail.title">
@@ -201,6 +204,15 @@
 			</trans-unit>
 
 
+			<trans-unit id="paginate_overall" xml:space="preserve">
+				<target>Seite %s von %s.</target>
+			</trans-unit>
+			<trans-unit id="paginate_next" xml:space="preserve">
+				<target>Nächste</target>
+			</trans-unit>
+			<trans-unit id="paginate_previous" xml:space="preserve">
+				<target>Vorherige</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
