@@ -35,8 +35,11 @@ plugin.tx_wsguestbook {
 
 page {
   includeCSS {
-    1000 = EXT:ws_guestbook/Resources/Public/CSS/styles.css
+    11232 = EXT:ws_guestbook/Resources/Public/CSS/styles.css
   }
 
+  includeJSFooter {
+    11232 = EXT:ws_guestbook/Resources/Public/JavaScript/jquery.bsTextCounter.js
+  }
 
 }

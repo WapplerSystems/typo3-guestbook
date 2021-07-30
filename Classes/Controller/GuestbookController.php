@@ -97,7 +97,7 @@ class GuestbookController extends ActionController
     {
         /** @var ConfigurationService $configurationService */
         $configurationService = $this->objectManager->get(ConfigurationService::class);
-        $prototypeConfiguration = $configurationService->getPrototypeConfiguration('standard');
+        $prototypeConfiguration = $configurationService->getPrototypeConfiguration('guestbook');
 
         /** @var FormDefinition $formDefinition */
         $formDefinition = $this->objectManager->get(FormDefinition::class, 'guestbookEntryForm', $prototypeConfiguration);
@@ -206,14 +206,25 @@ class GuestbookController extends ActionController
         $element = $fieldset->createElement('message', 'Textarea');
         $element->setLabel('Message');
         $element->setProperty('rows', '4');
+        $element->setProperty('elementClassAttribute', 'form-control-bstextcounter');
+        $element->setProperty('fluidAdditionalAttributes',['data-maximum-chars' => 2000, 'data-maximum-message' => '', 'data-exceed-message' => '']);
         $element->addValidator(new NotEmptyValidator());
         $element->addValidator(new StringLengthValidator(['minimum' => 50, 'maximum' => 2000]));
+
+
+        $element = $fieldset->createElement('message2', 'Textarea');
+        $element->setLabel('Message 2');
+        $element->setProperty('rows', '4');
+        $element->setProperty('elementClassAttribute', 'form-control-bstextcounter');
+        $element->setProperty('fluidAdditionalAttributes',['data-maximum-chars' => 1000, 'data-maximum-message' => '', 'data-exceed-message' => '']);
+        $element->addValidator(new NotEmptyValidator());
+        $element->addValidator(new StringLengthValidator(['minimum' => 50, 'maximum' => 1000]));
 
 
         /** @var GenericFormElement $element */
         $element = $fieldset->createElement('Captcha', 'Captcha');
         $element->setLabel('Captcha');
-        $element->addValidator(new NotEmptyValidator());
+        //$element->addValidator(new NotEmptyValidator());
 
 
         return $formDefinition;
