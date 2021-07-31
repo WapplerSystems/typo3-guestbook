@@ -8,7 +8,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MailUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\Exception;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
@@ -28,7 +27,7 @@ use WapplerSystems\WsGuestbook\Domain\Repository\EntryRepository;
 /**
  *
  */
-class GuestbookController extends ActionController
+class GuestbookController extends AbstractController
 {
 
     /**
@@ -56,6 +55,8 @@ class GuestbookController extends ActionController
     public function listAction(int $currentPage = 1)
     {
         $entries = $this->entryRepository->findSorted($this->settings);
+
+        throw new Exception('No storagePid set',1627773938);
 
         $assignedValues = [
             'settings' => $this->settings
@@ -118,7 +119,6 @@ class GuestbookController extends ActionController
         if (empty($frameworkConfiguration['persistence']['storagePid'])) {
             throw new Exception('No storagePid set');
         }
-
 
         $saveToDatabaseFinisher = $formDefinition->createFinisher('SaveToDatabase');
         $saveToDatabaseFinisher->setOptions([
@@ -268,6 +268,8 @@ class GuestbookController extends ActionController
     }
 
 
+
+
     /**
      * @param array $recipient recipient of the email in the format array('recipient@domain.tld' => 'Recipient Name')
      * @param array $sender sender of the email in the format array('sender@domain.tld' => 'Sender Name')
@@ -292,13 +294,13 @@ class GuestbookController extends ActionController
         $emailView->getRequest()->setControllerExtensionName($extensionName);
 
         /*For use of Localize value */
-        $extbaseFrameworkConfiguration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+        $extbaseFrameworkConfiguration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
         $templateRootPath = GeneralUtility::getFileAbsFileName($extbaseFrameworkConfiguration['view']['templateRootPaths']['0']);
         $templatePathAndFilename = $templateRootPath . 'Email/' . $templateName . '.html';
         $emailView->setTemplatePathAndFilename($templatePathAndFilename);
         $emailView->assignMultiple($variables);
         $emailBody = $emailView->render();
-        /** @var $message \TYPO3\CMS\Core\Mail\MailMessage */
+        /** @var $message MailMessage */
         $message = $this->objectManager->get(MailMessage::class);
         $message->setTo($recipient)
             ->setFrom($sender)
@@ -322,7 +324,7 @@ class GuestbookController extends ActionController
      */
     protected function getErrorFlashMessage()
     {
-        $errormsg = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+        $errormsg = LocalizationUtility::translate(
             'controller.insertError.msg',
             'ws_guestbook'
         );
