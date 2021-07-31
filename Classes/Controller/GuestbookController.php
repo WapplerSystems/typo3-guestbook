@@ -2,14 +2,20 @@
 
 namespace WapplerSystems\WsGuestbook\Controller;
 
+use TYPO3\CMS\Core\Mail\MailMessage;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\MailUtility;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Mvc\Exception;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Extbase\Validation\Validator\EmailAddressValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator;
+use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3\CMS\Form\Domain\Configuration\ConfigurationService;
 use TYPO3\CMS\Form\Domain\Model\FormDefinition;
 use TYPO3\CMS\Form\Domain\Model\FormElements\GenericFormElement;
@@ -17,8 +23,6 @@ use TYPO3\CMS\Form\Domain\Model\FormElements\GridRow;
 use TYPO3\CMS\Form\Domain\Model\FormElements\Section;
 use TYPO3\CMS\Form\Domain\Renderer\FluidFormRenderer;
 use WapplerSystems\WsGuestbook\Domain\Repository\EntryRepository;
-use TYPO3\CMS\Core\Mail\MailMessage;
-use TYPO3\CMS\Fluid\View\StandaloneView;
 
 
 /**
@@ -105,13 +109,24 @@ class GuestbookController extends ActionController
         $formDefinition->setRenderingOption('controllerAction', 'new');
         $formDefinition->setRenderingOption('submitButtonLabel', 'Submit');
 
+
+        /** @var ConfigurationManager $configurationManager */
+        $configurationManager = $this->objectManager->get(
+            ConfigurationManagerInterface::class
+        );
+        $frameworkConfiguration = $configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+        if (empty($frameworkConfiguration['persistence']['storagePid'])) {
+            throw new Exception('No storagePid set');
+        }
+
+
         $saveToDatabaseFinisher = $formDefinition->createFinisher('SaveToDatabase');
         $saveToDatabaseFinisher->setOptions([
             'table' => 'tx_wsguestbook_domain_model_entry',
             'mode' => 'insert',
             'databaseColumnMappings' => [
                 'pid' => [
-                    'value' => $this->settings['storagePid'],
+                    'value' => $frameworkConfiguration['persistence']['storagePid'],
                 ],
                 'tstamp' => [
                     'value' => time(),
@@ -147,19 +162,36 @@ class GuestbookController extends ActionController
             ]
         ]);
 
+        $recipients = [];
+        $recipientsFlexform = $this->settings['verification']['recipients'];
+        foreach ($recipientsFlexform as $recipient) {
+            $recipients[$recipient['container']['address']] = $recipient['container']['name'];
+        }
+
+        if (count($recipients) === 0) {
+            throw new Exception('No recipients set');
+        }
+
+        $defaultFrom = MailUtility::getSystemFrom();
+        if (isset($defaultFrom[0])) {
+            $defaultFrom = [$defaultFrom[0] => 'no sendername'];
+        }
+
+        if (!empty($this->settings['verification']['email']['senderEmailAddress'])) {
+            $defaultFrom = [$this->settings['verification']['email']['senderEmailAddress'] => $this->settings['verification']['email']['senderName']];
+        }
+
         $emailFinisher = $formDefinition->createFinisher('EmailToReceiver');
         $emailFinisher->setOptions([
-            'subject' => $this->settings['emailSubject'],
-            'recipientAddress' => $this->settings['adminEmail'],
-            'recipientName' => $this->settings['adminName'],
-            'senderAddress' => $this->settings['adminEmail'],
+            'subject' => $this->settings['verification']['email']['subject'],
+            'recipients' => $recipients,
+            'senderName' => $defaultFrom[array_key_first($defaultFrom)],
+            'senderAddress' => array_key_first($defaultFrom),
             'useFluidEmail' => true,
             'templateName' => 'Notification',
             'templateRootPaths' => [
                 50 => 'EXT:ws_guestbook/Resources/Private/Templates/Email/',
             ]
-
-
         ]);
 
         $page = $formDefinition->createPage('page1');
@@ -190,11 +222,13 @@ class GuestbookController extends ActionController
         /** @var GenericFormElement $element */
         $element = $fieldset->createElement('email', 'Text');
         $element->setLabel('E-Mail');
+        $element->setProperty('fluidAdditionalAttributes',['placeholder' => 'mail@mail.de']);
         $element->addValidator(new EmailAddressValidator());
 
         /** @var GenericFormElement $element */
         $element = $fieldset->createElement('website', 'Text');
         $element->setLabel('Website');
+        $element->setProperty('fluidAdditionalAttributes',['placeholder' => 'https://www.website.de']);
         $element->addValidator(new StringLengthValidator(['maximum' => 200]));
 
         /** @var GenericFormElement $element */
@@ -211,10 +245,11 @@ class GuestbookController extends ActionController
         $element->addValidator(new NotEmptyValidator());
         $element->addValidator(new StringLengthValidator(['minimum' => 50, 'maximum' => 2000]));
 
-        /** @var GenericFormElement $element */
-        $element = $fieldset->createElement('Captcha', 'Captcha');
-        $element->setLabel('Captcha');
-        //$element->addValidator(new NotEmptyValidator());
+        if ($this->settings['captcha'] === '1') {
+            /** @var GenericFormElement $element */
+            $element = $fieldset->createElement('Captcha', 'Captcha');
+            $element->setLabel('Captcha');
+        }
 
 
         return $formDefinition;

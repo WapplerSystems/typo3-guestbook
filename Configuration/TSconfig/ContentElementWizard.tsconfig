@@ -3,8 +3,8 @@ mod.wizards.newContentElement.wizardItems.plugins {
 		WsGuestbookForm {
 			icon = ../typo3conf/ext/ws_guestbook/Resources/Public/Icons/user_plugin_guestbook.svg
 			iconIdentifier = ext-ws-guestbook-icon
-			title = LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:be_lable
-			description = LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:be_desctiption
+			title = LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:be_label
+			description = LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:be_description
 			tt_content_defValues {
 				CType = list
 				list_type = wsguestbook_form

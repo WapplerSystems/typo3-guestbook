@@ -13,7 +13,7 @@
                             <config>
                                 <type>input</type>
                                 <size>40</size>
-                                <default>5</default>
+                                <default>10</default>
                                 <eval>trim,num</eval>
                             </config>
                         </TCEforms>
@@ -27,15 +27,15 @@
                                 <items>
                                     <numIndex index="1">
                                         <numIndex index="0">
-                                            LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.newfirst
+                                            LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.newFirst
                                         </numIndex>
-                                        <numIndex index="1">DESCENDING</numIndex>
+                                        <numIndex index="1">DESC</numIndex>
                                     </numIndex>
                                     <numIndex index="2">
                                         <numIndex index="0">
-                                            LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.oldfirst
+                                            LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.oldFirst
                                         </numIndex>
-                                        <numIndex index="1">ASCENDING</numIndex>
+                                        <numIndex index="1">ASC</numIndex>
                                     </numIndex>
                                 </items>
                             </config>

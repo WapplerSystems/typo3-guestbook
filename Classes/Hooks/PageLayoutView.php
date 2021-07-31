@@ -2,6 +2,7 @@
 namespace WapplerSystems\WsGuestbook\Hooks;
 
 use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
+use TYPO3\CMS\Core\Service\FlexFormService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
@@ -11,14 +12,19 @@ class PageLayoutView implements PageLayoutViewDrawItemHookInterface
     public function preProcess(\TYPO3\CMS\Backend\View\PageLayoutView &$parentObject, &$drawItem, &$headerContent, &$itemContent, array &$row)
     {
         $extKey = 'ws_guestbook';
-        if ($row['CType'] === 'list' && $row['list_type'] === 'wsguestbook_form') {
+        if ($row['CType'] === 'list' && ($row['list_type'] === 'wsguestbook_form' || $row['list_type'] === 'wsguestbook_list')) {
             $drawItem = false;
             $headerContent = '';
             // template
-            $view = $this->getFluidTemplate($extKey, 'GuestPreview');
+            $templateFilename = 'FormPreview';
+            if ($row['list_type'] === 'wsguestbook_list') {
+                $templateFilename = 'ListPreview';
+            }
+
+            $view = $this->getFluidTemplate($extKey, $templateFilename);
 
             if (!empty($row['pi_flexform'])) {
-                $flexFormService = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Service\FlexFormService::class);
+                $flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
             }
 
             // assign all to view

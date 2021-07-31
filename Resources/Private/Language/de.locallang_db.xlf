@@ -5,7 +5,7 @@
 		<header/>
 		<body>
 			<trans-unit id="tx_wsguestbook_domain_model_entry">
-				<target>Gästebuch-Eintrag</target>
+				<target>Gästebuch</target>
 			</trans-unit>
 			<trans-unit id="tx_wsguestbook_domain_model_entry.name">
 				<target>Name</target>
@@ -34,14 +34,18 @@
 			<trans-unit id="flexform.thankyouPageId">
 				<target>Danke Seiten-ID</target>
 			</trans-unit>
-			<trans-unit id="flexform.adminEmail">
-				<target>Administrator-E-Mail</target>
+			<trans-unit id="flexform.auditor.emailaddress">
+				<target>E-Mail</target>
 			</trans-unit>
-			<trans-unit id="flexform.adminName">
-				<target>Administratorname</target>
+			<trans-unit id="flexform.auditor.name">
+				<target>Name</target>
 			</trans-unit>
 			<trans-unit id="flexform.emailSubject">
 				<target>E-Mail Betreff</target>
+			</trans-unit>
+			<trans-unit id="flexform.automaticApproval">
+				<source>Automatic approval (not recommended)</source>
+				<target>Automatische Bestätigung (nicht empfohlen)</target>
 			</trans-unit>
 			<trans-unit id="flexform.itemsPerPage">
 				<target>Anzahl der Einträge pro Seite anzeigen</target>
@@ -49,64 +53,51 @@
 			<trans-unit id="flexform.sorting">
 				<target>Sortierung</target>
 			</trans-unit>
-			<trans-unit id="flexform.newfirst">
+			<trans-unit id="flexform.newFirst">
 				<target>Das neuste zuerst</target>
 			</trans-unit>
-			<trans-unit id="flexform.oldfirst">
+			<trans-unit id="flexform.oldFirst">
 				<target>Die ältesten zu erst</target>
 			</trans-unit>
-			<trans-unit id="flexform.detailpage">
-				<target>Detailseite</target>
+			<trans-unit id="be_label">
+				<target>WapplerSystems Gästebuch</target>
 			</trans-unit>
-			<trans-unit id="flexform.newformpage">
-				<target>Gastformularseite</target>
-			</trans-unit>
-			<trans-unit id="flexform.backpage">
-				<target>Wählen Sie Rückseite</target>
-			</trans-unit>
-			<trans-unit id="flexform.storagepage">
-				<target>Speicherseite auswählen</target>
-			</trans-unit>
-			<trans-unit id="be_lable">
-				<target>WapplerSystems Guestbook</target>
-			</trans-unit>
-			<trans-unit id="be_desctiption">
+			<trans-unit id="be_description">
 				<target>Diese Erweiterung hilft Ihnen dabei, Bewertungen vom Gast zu sammeln.</target>
 			</trans-unit>
-			<trans-unit id="flexform.select">
-				<target>Wähle eine Option</target>
+			<trans-unit id="flexform.verification.email.senderName">
+				<target>Absendername der Bestätigungs-eMail</target>
 			</trans-unit>
-			<trans-unit id="flexform.disLtsList">
-				<target>Neueste Nachrichtenliste</target>
-			</trans-unit>
-			<trans-unit id="flexform.disList">
-				<target>Nachrichtenliste</target>
-			</trans-unit>
-			<trans-unit id="flexform.disForm">
-				<target>Bilden</target>
-			</trans-unit>
-			<trans-unit id="flexform.selectMenu">
-				<target>Wählen</target>
-			</trans-unit>
-			<trans-unit id="flexform.disDetail">
-				<target>Detail</target>
+			<trans-unit id="flexform.verification.email.senderEmailAddress">
+				<target>Absender-eMail-Adresse der Bestätigungs-eMail</target>
 			</trans-unit>
 
-			<trans-unit id="flexform.Wsguestbook->latest;Wsguestbook->show;">
-				<target>Neueste Nachrichtenliste</target>
-			</trans-unit>
-			<trans-unit id="flexform.Wsguestbook->list;Wsguestbook->show;">
-				<target>Nachrichtenliste</target>
-			</trans-unit>
-			<trans-unit id="flexform.Wsguestbook->new;Wsguestbook->create;">
-				<target>Bilden</target>
-			</trans-unit>
-			<trans-unit id="flexform.Wsguestbook->show;Wsguestbook->list;Wsguestbook->latest;">
-				<target>Detail</target>
-			</trans-unit>
 
 			<trans-unit id="flexform.function">
 				<target>Funktion</target>
+			</trans-unit>
+			<trans-unit id="flexform.function.list">
+				<target>Liste</target>
+			</trans-unit>
+			<trans-unit id="flexform.function.form">
+				<target>Formular</target>
+			</trans-unit>
+			<trans-unit id="flexform.captcha">
+				<source>Enable Captcha</source>
+				<target>Captcha aktivieren</target>
+			</trans-unit>
+			<trans-unit id="flexform.storagePid">
+				<source>Storage Page ID</source>
+				<target>Ordner zur Speicherung der Einträge</target>
+			</trans-unit>
+
+			<trans-unit id="flexform.verification.recipients">
+				<source>Recipients for checking the new entries</source>
+				<target>Die Empfänger zur Prüfung der neuen Einträge</target>
+			</trans-unit>
+			<trans-unit id="flexform.verification.recipient">
+				<source>Recipient</source>
+				<target>Empfänger</target>
 			</trans-unit>
 		</body>
 	</file>

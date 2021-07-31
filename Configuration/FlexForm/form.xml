@@ -7,27 +7,40 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
-                    <settings.adminName>
-                        <TCEforms>
-                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.adminName</label>
-                            <config>
-                                <type>input</type>
-                                <size>40</size>
-                                <eval>trim,required</eval>
-                            </config>
-                        </TCEforms>
-                    </settings.adminName>
-                    <settings.adminEmail>
-                        <TCEforms>
-                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.adminEmail</label>
-                            <config>
-                                <type>input</type>
-                                <size>40</size>
-                                <eval>trim,required</eval>
-                            </config>
-                        </TCEforms>
-                    </settings.adminEmail>
-                    <settings.emailSubject>
+                    <settings.verification.recipients>
+                        <section>1</section>
+                        <type>array</type>
+                        <title>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.verification.recipients</title>
+                        <el>
+                            <container>
+                                <title>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.verification.recipient</title>
+                                <type>array</type>
+                                <el>
+                                    <address>
+                                        <TCEforms>
+                                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.auditor.emailaddress</label>
+                                            <config>
+                                                <type>input</type>
+                                                <size>40</size>
+                                                <eval>trim,email,required</eval>
+                                            </config>
+                                        </TCEforms>
+                                    </address>
+                                    <name>
+                                        <TCEforms>
+                                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.auditor.name</label>
+                                            <config>
+                                                <type>input</type>
+                                                <size>40</size>
+                                                <eval>trim,required</eval>
+                                            </config>
+                                        </TCEforms>
+                                    </name>
+                                </el>
+                            </container>
+                        </el>
+                    </settings.verification.recipients>
+                    <settings.verification.email.subject>
                         <TCEforms>
                             <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.emailSubject</label>
                             <config>
@@ -36,7 +49,36 @@
                                 <eval>trim,required</eval>
                             </config>
                         </TCEforms>
-                    </settings.emailSubject>
+                    </settings.verification.email.subject>
+                    <settings.verification.email.senderName>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.verification.email.senderName</label>
+                            <config>
+                                <type>input</type>
+                                <size>40</size>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.verification.email.senderName>
+                    <settings.verification.email.senderEmailAddress>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.verification.email.senderEmailAddress</label>
+                            <config>
+                                <type>input</type>
+                                <size>40</size>
+                                <eval>trim,email</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.verification.email.senderEmailAddress>
+                    <settings.automaticApproval>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.automaticApproval</label>
+                            <config>
+                                <type>check</type>
+                                <default>0</default>
+                            </config>
+                        </TCEforms>
+                    </settings.automaticApproval>
                     <settings.captcha>
                         <TCEforms>
                             <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.captcha</label>
@@ -53,7 +95,7 @@
                                 <type>group</type>
                                 <internal_type>db</internal_type>
                                 <allowed>pages</allowed>
-                                <size>3</size>
+                                <size>1</size>
                                 <maxitems>1</maxitems>
                                 <minitems>1</minitems>
                             </config>
