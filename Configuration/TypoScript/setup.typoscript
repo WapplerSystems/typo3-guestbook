@@ -18,8 +18,6 @@ plugin.tx_wsguestbook {
   }
 
   settings {
-    autoaprrove = {$plugin.tx_wsguestbook.settings.autoaprrove}
-
 
     paginate {
       itemsPerPage = 10

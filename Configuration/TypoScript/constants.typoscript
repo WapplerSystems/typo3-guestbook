@@ -9,18 +9,7 @@ plugin.tx_wsguestbook {
   }
 
   settings {
-    # cat=plugin.tx_wsguestbook_form//b; type=string; label=Sitekey for captcha
-    sitekey =
-    # cat=plugin.tx_wsguestbook_form//c; type=string; label=Secretkey for captcha
-    secretkey =
-    #cat=plugin.tx_wsguestbook_form//d; type=boolean; label=Set auto approve to new comment
-    autoaprrove = 0
 
-    form {
-
-
-
-    }
 
 
   }
