@@ -9,6 +9,7 @@ use TYPO3\CMS\Core\SysLog\Error as SystemLogErrorClassification;
 use TYPO3\CMS\Core\SysLog\Type as SystemLogType;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use WapplerSystems\WsGuestbook\Exception\MissingConfigurationException;
 use WapplerSystems\WsGuestbook\View\ErrorView;
 
 class AbstractController extends ActionController implements \Psr\Log\LoggerAwareInterface
@@ -20,7 +21,7 @@ class AbstractController extends ActionController implements \Psr\Log\LoggerAwar
     {
         try {
             parent::callActionMethod();
-        } catch (\Exception $exception) {
+        } catch (MissingConfigurationException $exception) {
 
             /** @var ErrorView $view */
             $view = $this->objectManager->get(ErrorView::class);

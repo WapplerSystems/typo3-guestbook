@@ -8,7 +8,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MailUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use TYPO3\CMS\Extbase\Mvc\Exception;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Extbase\Validation\Validator\EmailAddressValidator;
@@ -22,6 +21,7 @@ use TYPO3\CMS\Form\Domain\Model\FormElements\GridRow;
 use TYPO3\CMS\Form\Domain\Model\FormElements\Section;
 use TYPO3\CMS\Form\Domain\Renderer\FluidFormRenderer;
 use WapplerSystems\WsGuestbook\Domain\Repository\EntryRepository;
+use WapplerSystems\WsGuestbook\Exception\MissingConfigurationException;
 
 
 /**
@@ -55,8 +55,6 @@ class GuestbookController extends AbstractController
     public function listAction(int $currentPage = 1)
     {
         $entries = $this->entryRepository->findSorted($this->settings);
-
-        throw new Exception('No storagePid set',1627773938);
 
         $assignedValues = [
             'settings' => $this->settings
@@ -117,7 +115,7 @@ class GuestbookController extends AbstractController
         );
         $frameworkConfiguration = $configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
         if (empty($frameworkConfiguration['persistence']['storagePid'])) {
-            throw new Exception('No storagePid set');
+            throw new MissingConfigurationException('No storagePid set', 1627843908);
         }
 
         $saveToDatabaseFinisher = $formDefinition->createFinisher('SaveToDatabase');
@@ -169,7 +167,7 @@ class GuestbookController extends AbstractController
         }
 
         if (count($recipients) === 0) {
-            throw new Exception('No recipients set');
+            throw new MissingConfigurationException('No recipients set', 1627843942);
         }
 
         $defaultFrom = MailUtility::getSystemFrom();
