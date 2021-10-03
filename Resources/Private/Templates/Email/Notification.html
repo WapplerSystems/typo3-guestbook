@@ -1,45 +1,59 @@
 <f:layout name="SystemEmail" />
 <f:section name="Title">{title}</f:section>
 <f:section name="Main">
+
     <table>
-        <formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
-            <tr>
-                <f:if condition="{formValue.isSection}">
-                    <f:then>
-                        <td colspan="2"><b>{formvh:translateElementProperty(element: formValue.element, property: 'label')}</b></td>
-                    </f:then>
-                    <f:else>
-                        <td valign="top" align="left">{formvh:translateElementProperty(element: formValue.element, property: 'label')}</td>
-                        <td valign="top" align="left">
-                            <f:if condition="{formValue.value}">
-                                <f:then>
-                                    <f:if condition="{formValue.isMultiValue}">
-                                        <f:then>
-                                            <table cellspacing="0" border="0">
-                                                <f:for each="{formValue.processedValue}" as="value">
-                                                    <tr>
-                                                        <td>{value}</td>
-                                                    </tr>
-                                                </f:for>
-                                            </table>
-                                        </f:then>
-                                        <f:else>
-                                            <table cellspacing="0" border="0">
-                                                <tr>
-                                                    <td><f:format.nl2br>{formValue.processedValue}</f:format.nl2br></td>
-                                                </tr>
-                                            </table>
-                                        </f:else>
-                                    </f:if>
-                                </f:then>
-                                <f:else>
-                                    -
-                                </f:else>
-                            </f:if>
-                        </td>
-                    </f:else>
-                </f:if>
-            </tr>
-        </formvh:renderAllFormValues>
+        <formvh:renderFormValue renderable="{form.formDefinition.elements.name}" as="formValue">
+            <f:if condition="{formValue.processedValue}">
+                <tr>
+                    <th style="padding-right: 20px">{formvh:translateElementProperty(element: form.formDefinition.elements.name, property: 'label')}</th>
+                    <td>
+                        {formValue.processedValue}
+                    </td>
+                </tr>
+            </f:if>
+        </formvh:renderFormValue>
+        <formvh:renderFormValue renderable="{form.formDefinition.elements.email}" as="formValue">
+            <f:if condition="{formValue.processedValue}">
+                <tr>
+                    <th style="padding-right: 20px">{formvh:translateElementProperty(element: form.formDefinition.elements.email, property: 'label')}</th>
+                    <td>
+                        {formValue.processedValue}
+                    </td>
+                </tr>
+            </f:if>
+        </formvh:renderFormValue>
+        <formvh:renderFormValue renderable="{form.formDefinition.elements.city}" as="formValue">
+            <f:if condition="{formValue.processedValue}">
+                <tr>
+                    <th style="padding-right: 20px">{formvh:translateElementProperty(element: form.formDefinition.elements.city, property: 'label')}</th>
+                    <td>
+                        {formValue.processedValue}
+                    </td>
+                </tr>
+            </f:if>
+        </formvh:renderFormValue>
+        <formvh:renderFormValue renderable="{form.formDefinition.elements.website}" as="formValue">
+            <f:if condition="{formValue.processedValue}">
+                <tr>
+                    <th style="padding-right: 20px">{formvh:translateElementProperty(element: form.formDefinition.elements.website, property: 'label')}</th>
+                    <td>
+                        {formValue.processedValue}
+                    </td>
+                </tr>
+            </f:if>
+        </formvh:renderFormValue>
     </table>
+
+    <h4 style="margin-top: 20px">{formvh:translateElementProperty(element: form.formDefinition.elements.message, property: 'label')}</h4>
+
+    <formvh:renderFormValue renderable="{form.formDefinition.elements.message}" as="formValue">
+        <f:if condition="{formValue.processedValue}">
+            <p>{formValue.processedValue -> f:format.raw()}</p>
+        </f:if>
+    </formvh:renderFormValue>
+
+    <hr />
+    <a href="{confirmationLink}" ><f:translate key="LLL:EXT:ws_guestbook/Resources/Private/Language/locallang.xlf" /></a>
+
 </f:section>

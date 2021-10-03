@@ -19,14 +19,14 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'name,city,email,website,message,terms,',
+        'searchFields' => 'name,city,email,website,message,',
         'iconfile' => 'EXT:ws_guestbook/Resources/Public/Icons/tx_wsguestbook_domain_model_entry.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, city, email, website, message, terms',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, city, email, website, message, action_key',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tstamp, name, city, email, website, message, terms, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tstamp, name, city, email, website, message, action_key, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'palettes' => [
         '1' => ['showitem' => ''],
@@ -143,6 +143,14 @@ return [
                 'eval' => 'trim,required'
             ],
         ],
+        'action_key' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_entry.action_key',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+            ],
+        ],
         'city' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_entry.city',
@@ -177,14 +185,6 @@ return [
                      'type' => 'text',
                      'enableRichtext' => true,
              ],
-        ],
-        'terms' => [
-            'exclude' => 0,
-            'label' => 'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tx_wsguestbook_domain_model_entry.terms',
-            'config' => [
-                'type' => 'check',
-                'readOnly' => 1,
-            ],
         ],
     ],
 ];

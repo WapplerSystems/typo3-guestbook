@@ -16,6 +16,7 @@
 			<trans-unit id="website">
 				<source>Website</source>
 			</trans-unit>
+
 			<trans-unit id="xFromY" xml:space="preserve">
 				<source>%1$s from %2$s</source>
 			</trans-unit>
@@ -56,65 +57,9 @@
 			</trans-unit>
 			<!-- Mail template -->
 
-			<!-- Controller msg -->
-			<trans-unit id="controller.checkcaptcha.msg">
-				<source>Please check the the captcha form.</source>
-			</trans-unit>
-			<trans-unit id="controller.wrongcaptcha.msg">
-				<source>Sorry, Wrong captcha!</source>
-			</trans-unit>
-			<trans-unit id="controller.thanks.msg">
-				<source>Your feedback is saved successfully! Thank you!</source>
-			</trans-unit>
-			<trans-unit id="controller.insertError.msg">
-				<source>Please Insert following valid Information.</source>
-			</trans-unit>
-			<trans-unit id="controller.requireFields">
-				<source>Please fill the require(*) fields</source>
-			</trans-unit>
-			<!-- Controller msg -->
 
-			<!-- Latest file -->
-			<trans-unit id="latest.heading">
-				<source>Guestbook</source>
-			</trans-unit>
-			<trans-unit id="latest.visit">
-				<source>Visit guestbook</source>
-			</trans-unit>
-			<!-- Latest file -->
-
-			<!-- list file -->
-			<trans-unit id="list.from">
-				<source>from</source>
-			</trans-unit>
-			<trans-unit id="list.wroteon">
-				<source>Wrote on</source>
-			</trans-unit>
-			<trans-unit id="list.at">
-				<source>at</source>
-			</trans-unit>
-			<!-- list file -->
-
-			<!-- New file -->
-			<trans-unit id="new.heading">
-				<source>New guestbook</source>
-			</trans-unit>
-			<trans-unit id="new.create">
-				<source>Send Feedback</source>
-			</trans-unit>
-			<!-- New file -->
-
-			<!-- Show File -->
-			<trans-unit id="show.heading">
-				<source>Single View for guestbook</source>
-			</trans-unit>
-			<trans-unit id="show.back">
-				<source>Back to list</source>
-			</trans-unit>
-			<!-- Show File -->
-
-			<trans-unit id="emptymsg">
-				<source>No records found!!</source>
+			<trans-unit id="no_records">
+				<source>No entries found.</source>
 			</trans-unit>
 
 			<!-- Error messages -->
@@ -125,64 +70,12 @@
 				<source>Field email is required.</source>
 			</trans-unit>
 			<trans-unit id="validator.newWsguestbook.email.1221559976">
-				<source>Invalid Email Address</source>
+				<source>Invalid Email address</source>
 			</trans-unit>
 			<!-- Error messages -->
 
-			<!-- Flex form labels -->
-			<trans-unit id="flexform.thankyouPageId">
-				<source>Thankyou Page Id</source>
-			</trans-unit>
-			<trans-unit id="flexform.adminEmail">
-				<source>Admin Email</source>
-			</trans-unit>
-			<trans-unit id="flexform.adminName">
-				<source>Admin Name</source>
-			</trans-unit>
-			<trans-unit id="flexform.emailSubject">
-				<source>Email Subject</source>
-			</trans-unit>
-			<trans-unit id="flexform.totalnumber">
-				<source>Show Number of Rows</source>
-			</trans-unit>
-			<trans-unit id="flexform.sorting">
-				<source>Sorting</source>
-			</trans-unit>
-			<trans-unit id="flexform.newfirst">
-				<source>Newest First</source>
-			</trans-unit>
-			<trans-unit id="flexform.oldfirst">
-				<source>Oldest First</source>
-			</trans-unit>
-			<trans-unit id="flexform.detailpage">
-				<source>Detail page</source>
-			</trans-unit>
-			<trans-unit id="flexform.newformpage">
-				<source>Guest form page</source>
-			</trans-unit>
-			<trans-unit id="flexform.backpage">
-				<source>Select Back page</source>
-			</trans-unit>
-			<trans-unit id="flexform.storagepage">
-				<source>Select Storage page</source>
-			</trans-unit>
-			<trans-unit id="wsguestbook_form">
-				<source>Guestbook: Form</source>
-			</trans-unit>
-			<trans-unit id="wsguestbook_list">
-				<source>Guestbook: List</source>
-			</trans-unit>
-			<trans-unit id="wsguestbook_messages">
-				<source>Guestbook: Messages</source>
-			</trans-unit>
-			<trans-unit id="wsguestbook_detailpage">
-				<source>Guestbook: Show Detail</source>
-			</trans-unit>
-			<trans-unit id="wsguestbook_latestmessages">
-				<source>Guestbook: Latest Messages</source>
-			</trans-unit>
 
-			<trans-unit id="require">
+			<trans-unit id="required">
 				<source>* These fields are required.</source>
 			</trans-unit>
 			<trans-unit id="controller.mailfrmt">
@@ -202,11 +95,23 @@
 			</trans-unit>
 
 
-			<trans-unit id="validator.captcha.notvalid" resname="validator.captcha.notvalid">
+			<trans-unit id="validator.captcha.notvalid">
 				<source>The entered captcha is not correct.</source>
 			</trans-unit>
-			<trans-unit id="formEditor.elements.Captcha" resname="formEditor.elements.Captcha">
+			<trans-unit id="formEditor.elements.captcha">
 				<source>Captcha</source>
+			</trans-unit>
+
+
+			<trans-unit id="element.privacyPolicyCheckbox.properties.label">
+				<source><![CDATA[I have read and accepted the <a href="%s">privacy policy</a>.]]></source>
+			</trans-unit>
+
+			<trans-unit id="msg.entryDone">
+				<source>It may take a while until your guestbook entry appears in the list.</source>
+			</trans-unit>
+			<trans-unit id="hdl.entryDone">
+				<source>Thank you for the guestbook entry</source>
 			</trans-unit>
 
 		</body>

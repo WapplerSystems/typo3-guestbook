@@ -17,6 +17,7 @@ TYPO3:
               160: 'EXT:ws_guestbook/Resources/Private/Language/locallang.xlf'
             formEditorPartials:
               FormElement-Captcha: 'Stage/SimpleTemplate'
+              FormElement-PrivacyPolicyCheckbox: 'Stage/SimpleTemplate'
 
           formElementsDefinition:
             Form:
@@ -72,6 +73,32 @@ TYPO3:
                         label: formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.numbersOfColumnsToUse.label
                         propertyPath: 'properties.gridColumnClassAutoConfiguration.viewPorts.{@viewPortIdentifier}.numbersOfColumnsToUse'
                         fieldExplanationText: formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.numbersOfColumnsToUse.fieldExplanationText
+
+            PrivacyPolicyCheckbox:
+              __inheritances:
+                10: 'TYPO3.CMS.Form.prototypes.standard.formElementsDefinition.Checkbox'
+              formEditor:
+                label: 'formEditor.elements.privacyPolicyCheckbox.label'
+                group: select
+                groupSorting: 100
+                iconIdentifier: 't3-form-icon-checkbox'
+                editors:
+                  660:
+                    identifier: 'pageUid'
+                    templateName: 'Inspector-Typo3WinBrowserEditor'
+                    label: 'Privacy policy page'
+                    buttonLabel: 'formEditor.elements.Form.finisher.Redirect.editor.pageUid.buttonLabel'
+                    browsableType: pages
+                    propertyPath: 'properties.privacyPolicyUid'
+                    propertyValidatorsMode: 'OR'
+                    propertyValidators:
+                      10: 'Integer'
+                      20: 'FormElementIdentifierWithinCurlyBracesExclusive'
+              properties:
+                elementErrorClassAttribute: is-invalid
+                elementClassAttribute: 'form-check-input'
+                containerClassAttribute: ''
+                labelClassAttribute: 'form-check-label'
 
           validatorsDefinition:
             Captcha:

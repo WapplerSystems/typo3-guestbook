@@ -2,6 +2,7 @@
 
 namespace WapplerSystems\WsGuestbook\Controller;
 
+use TYPO3\CMS\Core\Crypto\Random;
 use TYPO3\CMS\Core\Mail\MailMessage;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -20,6 +21,7 @@ use TYPO3\CMS\Form\Domain\Model\FormElements\GenericFormElement;
 use TYPO3\CMS\Form\Domain\Model\FormElements\GridRow;
 use TYPO3\CMS\Form\Domain\Model\FormElements\Section;
 use TYPO3\CMS\Form\Domain\Renderer\FluidFormRenderer;
+use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use WapplerSystems\WsGuestbook\Domain\Repository\EntryRepository;
 use WapplerSystems\WsGuestbook\Exception\MissingConfigurationException;
 
@@ -118,6 +120,8 @@ class GuestbookController extends AbstractController
             throw new MissingConfigurationException('No storagePid set', 1627843908);
         }
 
+        $actionKey = GeneralUtility::makeInstance(Random::class)->generateRandomHexString(30);
+
         $saveToDatabaseFinisher = $formDefinition->createFinisher('SaveToDatabase');
         $saveToDatabaseFinisher->setOptions([
             'table' => 'tx_wsguestbook_domain_model_entry',
@@ -128,7 +132,16 @@ class GuestbookController extends AbstractController
                 ],
                 'tstamp' => [
                     'value' => time(),
-                ]
+                ],
+                'crdate' => [
+                    'value' => time(),
+                ],
+                'action_key' => [
+                    'value' => $actionKey,
+                ],
+                'hidden' => [
+                    'value' => 1,
+                ],
             ],
 
             'elements' => [
@@ -151,15 +164,6 @@ class GuestbookController extends AbstractController
         ]);
 
 
-        $confirmationFinisher = $formDefinition->createFinisher('Confirmation');
-        $confirmationFinisher->setOptions([
-            'message' => LocalizationUtility::translate('msg.pleaseConfirmEmailAddress', 'ws_guestbook'),
-            'templateName' => 'Confirmation',
-            'templateRootPaths' => [
-                10 => 'EXT:ws_guestbook/Resources/Private/Templates/Guestbook/',
-            ]
-        ]);
-
         $recipients = [];
         $recipientsFlexform = $this->settings['verification']['recipients'];
         foreach ($recipientsFlexform as $recipient) {
@@ -179,6 +183,15 @@ class GuestbookController extends AbstractController
             $defaultFrom = [$this->settings['verification']['email']['senderEmailAddress'] => $this->settings['verification']['email']['senderName']];
         }
 
+        $confirmationLink = $this->uriBuilder->reset()->setTargetPageUid($this->getTypoScriptFrontendController()->id)->setArgumentPrefix('tx_wsguestbook_form')->setArguments([
+            'action' => 'confirm',
+            'action_key' => $actionKey,
+        ])->buildFrontendUri();
+
+        $declineLink = $this->uriBuilder->reset()->setTargetPageUid($this->getTypoScriptFrontendController()->id)->setArguments([
+
+        ])->buildFrontendUri();
+
         $emailFinisher = $formDefinition->createFinisher('EmailToReceiver');
         $emailFinisher->setOptions([
             'subject' => $this->settings['verification']['email']['subject'],
@@ -189,15 +202,26 @@ class GuestbookController extends AbstractController
             'templateName' => 'Notification',
             'templateRootPaths' => [
                 50 => 'EXT:ws_guestbook/Resources/Private/Templates/Email/',
+            ],
+            'variables' => [
+                'confirmationLink' => $confirmationLink,
+                'declineLink' => $declineLink,
             ]
         ]);
+
+
+        $redirectFinisher = $formDefinition->createFinisher('Redirect');
+        $redirectFinisher->setOptions([
+            'pageUid' => $this->getTypoScriptFrontendController()->id,
+            'additionalParameters' => 'tx_wsguestbook_form[action]=done',
+        ]);
+
 
         $page = $formDefinition->createPage('page1');
 
 
         /** @var GridRow $row */
         $row = $page->createElement('row1', 'GridRow');
-
 
         /** @var Section $fieldset */
         $fieldset = $row->createElement('fieldsetEntry', 'Fieldset');
@@ -217,40 +241,66 @@ class GuestbookController extends AbstractController
         $element->addValidator(new StringLengthValidator(['maximum' => 50]));
         $element->addValidator(new NotEmptyValidator());
 
-        /** @var GenericFormElement $element */
-        $element = $fieldset->createElement('email', 'Text');
-        $element->setLabel('E-Mail');
-        $element->setProperty('fluidAdditionalAttributes',['placeholder' => 'mail@mail.de']);
-        $element->addValidator(new EmailAddressValidator());
+        if ($this->settings['fields']['email']['enable'] === '1') {
+            /** @var GenericFormElement $element */
+            $element = $fieldset->createElement('email', 'Text');
+            $element->setLabel('E-Mail');
+            $element->setProperty('fluidAdditionalAttributes', ['placeholder' => 'mail@mail.de']);
+            $element->addValidator(new EmailAddressValidator());
+            if ($this->settings['fields']['email']['mandatory'] === '1') {
+                $element->addValidator(new NotEmptyValidator());
+            }
+        }
 
-        /** @var GenericFormElement $element */
-        $element = $fieldset->createElement('website', 'Text');
-        $element->setLabel('Website');
-        $element->setProperty('fluidAdditionalAttributes',['placeholder' => 'https://www.website.de']);
-        $element->addValidator(new StringLengthValidator(['maximum' => 200]));
+        if ($this->settings['fields']['website']['enable'] === '1') {
+            /** @var GenericFormElement $element */
+            $element = $fieldset->createElement('website', 'Text');
+            $element->setLabel('Website');
+            $element->setProperty('fluidAdditionalAttributes', ['placeholder' => 'https://www.website.de']);
+            $element->addValidator(new StringLengthValidator(['maximum' => 200]));
+            if ($this->settings['fields']['website']['mandatory'] === '1') {
+                $element->addValidator(new NotEmptyValidator());
+            }
+        }
 
-        /** @var GenericFormElement $element */
-        $element = $fieldset->createElement('city', 'Text');
-        $element->setLabel('City');
-        $element->addValidator(new StringLengthValidator(['maximum' => 100]));
+        if ($this->settings['fields']['city']['enable'] === '1') {
+            /** @var GenericFormElement $element */
+            $element = $fieldset->createElement('city', 'Text');
+            $element->setLabel('City');
+            $element->addValidator(new StringLengthValidator(['maximum' => 100]));
+            if ($this->settings['fields']['city']['mandatory'] === '1') {
+                $element->addValidator(new NotEmptyValidator());
+            }
+        }
 
         /** @var GenericFormElement $element */
         $element = $fieldset->createElement('message', 'Textarea');
         $element->setLabel('Message');
         $element->setProperty('rows', '4');
         $element->setProperty('elementClassAttribute', 'form-control-bstextcounter');
-        $element->setProperty('fluidAdditionalAttributes',['data-maximum-chars' => 2000]);
+        $element->setProperty('fluidAdditionalAttributes',['data-maximum-chars' => (int)$this->settings['fields']['message']['maxCharacters']]);
         $element->addValidator(new NotEmptyValidator());
-        $element->addValidator(new StringLengthValidator(['minimum' => 50, 'maximum' => 2000]));
+        $element->addValidator(new StringLengthValidator(['minimum' => 50, 'maximum' => (int)$this->settings['fields']['message']['maxCharacters']]));
 
-        if ($this->settings['captcha'] === '1') {
+        if ($this->settings['fields']['captcha']['enable'] === '1') {
             /** @var GenericFormElement $element */
-            $element = $fieldset->createElement('Captcha', 'Captcha');
+            $element = $fieldset->createElement('captcha', 'Captcha');
             $element->setLabel('Captcha');
         }
 
+        if ($this->settings['fields']['privacyPolicy']['enable'] === '1') {
+            /** @var GenericFormElement $element */
+            $element = $fieldset->createElement('privacyPolicy', 'PrivacyPolicyCheckbox');
+            $element->setLabel('I agree to the privacy policy');
+            $element->setProperty('privacyPolicyUid',$this->settings['fields']['privacyPolicy']['page'] ?? '');
+            $element->addValidator(new NotEmptyValidator());
+        }
 
         return $formDefinition;
+    }
+
+    public function doneAction() {
+
     }
 
     public function reviewAction() {
@@ -266,6 +316,13 @@ class GuestbookController extends AbstractController
     }
 
 
+    /**
+     * @return TypoScriptFrontendController
+     */
+    protected function getTypoScriptFrontendController()
+    {
+        return $GLOBALS['TSFE'];
+    }
 
 
     /**

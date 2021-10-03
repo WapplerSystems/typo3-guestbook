@@ -5,13 +5,13 @@ call_user_func(function () {
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
         'WapplerSystems.ws_guestbook',
         'List',
-        'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang.xlf:wsguestbook_list'
+        'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:wsguestbook_list'
     );
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
         'WapplerSystems.ws_guestbook',
         'Form',
-        'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang.xlf:wsguestbook_form'
+        'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:wsguestbook_form'
     );
 
     /* Flexform setting  */

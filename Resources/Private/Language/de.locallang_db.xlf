@@ -26,13 +26,28 @@
 				<target>Captcha</target>
 			</trans-unit>
 			<trans-unit id="tx_wsguestbook_domain_model_entry.terms">
-				<target>Captcha</target>
-			</trans-unit>
-			<trans-unit id="tx_wsguestbook_domain_model_entry.terms">
 				<target>AGB akzeptiert</target>
 			</trans-unit>
+
+			<trans-unit id="wsguestbook_form">
+				<target>Gästebuch: Formular</target>
+			</trans-unit>
+			<trans-unit id="wsguestbook_list">
+				<target>Gästebuch: Liste</target>
+			</trans-unit>
+
+
+			<trans-unit id="flexforms_tab.general">
+				<source>General settings</source>
+				<target>Allgemeine Einstellungen</target>
+			</trans-unit>
+			<trans-unit id="flexforms_tab.fields">
+				<source>Form fields</source>
+				<target>Formularfelder</target>
+			</trans-unit>
+
 			<trans-unit id="flexform.thankyouPageId">
-				<target>Danke Seiten-ID</target>
+				<target>"Danke" Seiten-ID</target>
 			</trans-unit>
 			<trans-unit id="flexform.auditor.emailaddress">
 				<target>E-Mail</target>
@@ -66,12 +81,51 @@
 				<target>Diese Erweiterung hilft Ihnen dabei, Bewertungen vom Gast zu sammeln.</target>
 			</trans-unit>
 			<trans-unit id="flexform.verification.email.senderName">
-				<target>Absendername der Bestätigungs-eMail</target>
+				<target>Absendername der Bestätigungs-E-Mail</target>
 			</trans-unit>
 			<trans-unit id="flexform.verification.email.senderEmailAddress">
-				<target>Absender-eMail-Adresse der Bestätigungs-eMail</target>
+				<target>Absender-E-Mail-Adresse der Bestätigungs-eMail</target>
 			</trans-unit>
-
+			<trans-unit id="flexform.fields.email.enable">
+				<source>Enable the email field</source>
+				<target>E-Mail Feld aktivieren</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.email.mandatory">
+				<source>The email field is mandatory</source>
+				<target>E-Mail-Feld ist ein Pflichtfeld</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.city.enable">
+				<source>Enable the city field</source>
+				<target>Stadt-Feld aktivieren</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.city.mandatory">
+				<source>The city field is mandatory</source>
+				<target>Stadt-Feld ist ein Pflichtfeld</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.website.enable">
+				<source>Enable the website field</source>
+				<target>Website-Feld aktivieren</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.website.mandatory">
+				<source>The website field is mandatory</source>
+				<target>Website-Feld ist ein Pflichtfeld</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.captcha.enable">
+				<source>Enable the captcha field</source>
+				<target>Captcha-Feld aktivieren</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.privacyPolicy.enable">
+				<source>Enable the privacy policy field</source>
+				<target>Datenschutz-Feld aktivieren</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.privacyPolicy.page">
+				<source>Privacy policy page</source>
+				<target>Datenschutz-Seite</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.message.maxCharacters">
+				<source>Maximum characters in message field</source>
+				<target>Maximale Anzahl von Zeichen im Nachricht-Feld</target>
+			</trans-unit>
 
 			<trans-unit id="flexform.function">
 				<target>Funktion</target>
@@ -82,15 +136,10 @@
 			<trans-unit id="flexform.function.form">
 				<target>Formular</target>
 			</trans-unit>
-			<trans-unit id="flexform.captcha">
-				<source>Enable Captcha</source>
-				<target>Captcha aktivieren</target>
-			</trans-unit>
 			<trans-unit id="flexform.storagePid">
 				<source>Storage Page ID</source>
 				<target>Ordner zur Speicherung der Einträge</target>
 			</trans-unit>
-
 			<trans-unit id="flexform.verification.recipients">
 				<source>Recipients for checking the new entries</source>
 				<target>Die Empfänger zur Prüfung der neuen Einträge</target>
@@ -99,6 +148,7 @@
 				<source>Recipient</source>
 				<target>Empfänger</target>
 			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

@@ -3,7 +3,7 @@
         <sDEF>
             <ROOT>
                 <TCEforms>
-                    <sheetTitle>Function</sheetTitle>
+                    <sheetTitle>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexforms_tab.general</sheetTitle>
                 </TCEforms>
                 <type>array</type>
                 <el>
@@ -79,15 +79,6 @@
                             </config>
                         </TCEforms>
                     </settings.automaticApproval>
-                    <settings.captcha>
-                        <TCEforms>
-                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.captcha</label>
-                            <config>
-                                <type>check</type>
-                                <default>1</default>
-                            </config>
-                         </TCEforms>
-                    </settings.captcha>
                     <persistence.storagePid>
                         <TCEforms>
                             <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.storagePid</label>
@@ -104,5 +95,123 @@
                 </el>
             </ROOT>
         </sDEF>
+
+        <fields>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexforms_tab.fields</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+
+                    <settings.fields.email.enable>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.fields.email.enable</label>
+                            <config>
+                                <type>check</type>
+                                <default>1</default>
+                            </config>
+                        </TCEforms>
+                    </settings.fields.email.enable>
+
+                    <settings.fields.email.mandatory>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.fields.email.mandatory</label>
+                            <config>
+                                <type>check</type>
+                                <default>0</default>
+                            </config>
+                        </TCEforms>
+                    </settings.fields.email.mandatory>
+
+                    <settings.fields.city.enable>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.fields.city.enable</label>
+                            <config>
+                                <type>check</type>
+                                <default>1</default>
+                            </config>
+                        </TCEforms>
+                    </settings.fields.city.enable>
+
+                    <settings.fields.city.mandatory>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.fields.city.mandatory</label>
+                            <config>
+                                <type>check</type>
+                                <default>0</default>
+                            </config>
+                        </TCEforms>
+                    </settings.fields.city.mandatory>
+
+                    <settings.fields.website.enable>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.fields.website.enable</label>
+                            <config>
+                                <type>check</type>
+                                <default>1</default>
+                            </config>
+                        </TCEforms>
+                    </settings.fields.website.enable>
+
+                    <settings.fields.website.mandatory>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.fields.website.mandatory</label>
+                            <config>
+                                <type>check</type>
+                                <default>0</default>
+                            </config>
+                        </TCEforms>
+                    </settings.fields.website.mandatory>
+
+                    <settings.fields.captcha.enable>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.fields.captcha.enable</label>
+                            <config>
+                                <type>check</type>
+                                <default>1</default>
+                            </config>
+                        </TCEforms>
+                    </settings.fields.captcha.enable>
+
+                    <settings.fields.privacyPolicy.enable>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.fields.privacyPolicy.enable</label>
+                            <config>
+                                <type>check</type>
+                                <default>1</default>
+                            </config>
+                        </TCEforms>
+                    </settings.fields.privacyPolicy.enable>
+
+                    <settings.fields.privacyPolicy.page>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.fields.privacyPolicy.page</label>
+                            <config>
+                                <type>group</type>
+                                <internal_type>db</internal_type>
+                                <allowed>pages</allowed>
+                                <size>1</size>
+                                <maxitems>1</maxitems>
+                                <minitems>0</minitems>
+                            </config>
+                        </TCEforms>
+                    </settings.fields.privacyPolicy.page>
+
+                    <settings.fields.message.maxCharacters>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:flexform.fields.message.maxCharacters</label>
+                            <config>
+                                <type>input</type>
+                                <eval>int</eval>
+                                <min>100</min>
+                                <max>65535</max>
+                                <default>2000</default>
+                            </config>
+                        </TCEforms>
+                    </settings.fields.message.maxCharacters>
+                </el>
+            </ROOT>
+        </fields>
     </sheets>
 </T3DataStructure>

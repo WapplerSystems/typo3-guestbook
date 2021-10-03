@@ -18,6 +18,7 @@ class FormElementCaptchaHook
         if ($renderable->getType() === 'Captcha') {
 
             // build captcha and add to template
+
             $builder = new CaptchaBuilder();
             $builder->build();
             $renderable->setProperty('captcha', $builder->inline());

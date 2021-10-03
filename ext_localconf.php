@@ -5,7 +5,7 @@ defined('TYPO3_MODE') or die();
     'ws_guestbook',
     'List',
     [
-        \WapplerSystems\WsGuestbook\Controller\GuestbookController::class => 'list,review,decline,confirm',
+        \WapplerSystems\WsGuestbook\Controller\GuestbookController::class => 'list',
     ],
     [
     ]
@@ -15,10 +15,10 @@ defined('TYPO3_MODE') or die();
     'ws_guestbook',
     'Form',
     [
-        \WapplerSystems\WsGuestbook\Controller\GuestbookController::class => 'new',
+        \WapplerSystems\WsGuestbook\Controller\GuestbookController::class => 'new,done,review,decline,confirm',
     ],
     [
-        \WapplerSystems\WsGuestbook\Controller\GuestbookController::class => 'new',
+        \WapplerSystems\WsGuestbook\Controller\GuestbookController::class => 'new,done,review,decline,confirm',
     ]
 );
 

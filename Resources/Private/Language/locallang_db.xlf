@@ -24,8 +24,28 @@
 			<trans-unit id="tx_wsguestbook_domain_model_entry.terms">
 				<source>Terms accepted</source>
 			</trans-unit>
+			<trans-unit id="tx_wsguestbook_domain_model_entry.action_key">
+				<source>Action key</source>
+			</trans-unit>
+
+			<trans-unit id="wsguestbook_form">
+				<source>Guestbook: Form</source>
+			</trans-unit>
+			<trans-unit id="wsguestbook_list">
+				<source>Guestbook: List</source>
+			</trans-unit>
+
+
+			<trans-unit id="be_label">
+				<source>WapplerSystems Guestbook</source>
+			</trans-unit>
+			<trans-unit id="be_description">
+				<source>This extension will help you to collect review from guest.</source>
+			</trans-unit>
+
+
 			<trans-unit id="flexform.thankyouPageId">
-				<source>"Thank you" page id</source>
+				<source>"Thank you" page</source>
 			</trans-unit>
 			<trans-unit id="flexform.verification.recipients">
 				<source>Recipients for checking the new entries</source>
@@ -57,17 +77,47 @@
 			<trans-unit id="flexform.automaticApproval">
 				<source>Automatic approval (not recommended)</source>
 			</trans-unit>
-			<trans-unit id="be_label">
-				<source>WapplerSystems Guestbook</source>
-			</trans-unit>
-			<trans-unit id="be_description">
-				<source>This extension will help you to collect review from guest.</source>
-			</trans-unit>
 			<trans-unit id="flexform.verification.email.senderName">
 				<source>Sender name of verification email</source>
 			</trans-unit>
 			<trans-unit id="flexform.verification.email.senderEmailAddress">
 				<source>Sender email address of verification email</source>
+			</trans-unit>
+			<trans-unit id="flexforms_tab.general">
+				<source>General settings</source>
+			</trans-unit>
+			<trans-unit id="flexforms_tab.fields">
+				<source>Form fields</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.email.enable">
+				<source>Enable the email field</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.email.mandatory">
+				<source>The email field is mandatory</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.city.enable">
+				<source>Enable the city field</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.city.mandatory">
+				<source>The city field is mandatory</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.website.enable">
+				<source>Enable the website field</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.website.mandatory">
+				<source>The website field is mandatory</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.captcha.enable">
+				<source>Enable the captcha field</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.privacyPolicy.enable">
+				<source>Enable the privacy policy field</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.privacyPolicy.page">
+				<source>Privacy policy page</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.message.maxCharacters">
+				<source>Maximum characters in message field</source>
 			</trans-unit>
 
 
@@ -79,9 +129,6 @@
 			</trans-unit>
 			<trans-unit id="flexform.function.form">
 				<source>Form</source>
-			</trans-unit>
-			<trans-unit id="flexform.captcha">
-				<source>Enable Captcha</source>
 			</trans-unit>
 			<trans-unit id="flexform.storagePid">
 				<source>Storage Page ID</source>

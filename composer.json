@@ -24,8 +24,7 @@
 		}
 	],
 	"require": {
-		"typo3/cms-core": "^10 || ^11",
-		"gregwar/captcha": "^1.1"
+		"typo3/cms-core": "^10 || ^11"
 	},
 	"autoload": {
 		"psr-4": {
