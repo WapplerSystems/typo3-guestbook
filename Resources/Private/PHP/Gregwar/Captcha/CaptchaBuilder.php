@@ -2,7 +2,7 @@
 
 namespace Gregwar\Captcha;
 
-use \Exception;
+use Exception;
 
 /**
  * Builds a new captcha image
@@ -140,7 +140,7 @@ class CaptchaBuilder implements CaptchaBuilderInterface
         } else {
             $this->builder = $builder;
         }
-        
+
         $this->phrase = is_string($phrase) ? $phrase : $this->builder->build($phrase);
     }
 
@@ -404,7 +404,7 @@ class CaptchaBuilder implements CaptchaBuilderInterface
     /**
      * Generate the image
      */
-    public function build($width = 150, $height = 40, $font = null, $fingerprint = null)
+    public function build($width = 150, $height = 50, $font = null, $fingerprint = null)
     {
         if (null !== $fingerprint) {
             $this->fingerprint = $fingerprint;
@@ -415,7 +415,7 @@ class CaptchaBuilder implements CaptchaBuilderInterface
         }
 
         if ($font === null) {
-            $font = __DIR__ . '/Font/captcha'.$this->rand(0, 5).'.ttf';
+            $font = __DIR__ . '/Font/captcha'.$this->rand(0, 4).'.ttf';
         }
 
         if (empty($this->backgroundImages)) {

@@ -21,7 +21,7 @@ class PhraseBuilder implements PhraseBuilderInterface
     /**
      * Constructs a PhraseBuilder with given parameters
      */
-    public function __construct($length = 5, $charset = 'abcdefghijklmnpqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+    public function __construct($length = 5, $charset = 'abcdefghijklmnpqrstuvwxyz123456789')
     {
         $this->length = $length;
         $this->charset = $charset;
@@ -56,7 +56,7 @@ class PhraseBuilder implements PhraseBuilderInterface
     {
         return self::doNiceize($str);
     }
-    
+
     /**
      * A static helper to niceize
      */
