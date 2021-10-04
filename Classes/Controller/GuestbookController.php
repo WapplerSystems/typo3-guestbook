@@ -78,7 +78,7 @@ class GuestbookController extends AbstractController
             $assignedValues['entries'] = $entries->toArray();
         } else {
 
-            $paginator = new QueryResultPaginator($entries, $currentPage, $this->settings['paginate']['itemsPerPage'] ?? 10);
+            $paginator = new QueryResultPaginator($entries, $currentPage, (int)($this->settings['paginate']['itemsPerPage'] ?? 10));
 
             $pagination = new SimplePagination($paginator);
             $assignedValues = array_merge($assignedValues, [
