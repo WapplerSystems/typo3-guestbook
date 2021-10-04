@@ -36,11 +36,18 @@
 			</trans-unit>
 
 
-			<trans-unit id="be_label">
-				<source>WapplerSystems Guestbook</source>
+			<trans-unit id="tsconfig.wizard.WsGuestbookForm.title">
+				<source>WapplerSystems Guestbook - Form</source>
 			</trans-unit>
-			<trans-unit id="be_description">
-				<source>This extension will help you to collect review from guest.</source>
+			<trans-unit id="tsconfig.wizard.WsGuestbookForm.description">
+				<source>This allows the visitor to write a new entry.</source>
+			</trans-unit>
+
+			<trans-unit id="tsconfig.wizard.WsGuestbookList.title">
+				<source>WapplerSystems Guestbook - List</source>
+			</trans-unit>
+			<trans-unit id="tsconfig.wizard.WsGuestbookList.description">
+				<source>This outputs the entries.</source>
 			</trans-unit>
 
 

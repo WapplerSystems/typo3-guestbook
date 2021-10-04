@@ -74,12 +74,6 @@
 			<trans-unit id="flexform.oldFirst">
 				<target>Die ältesten zu erst</target>
 			</trans-unit>
-			<trans-unit id="be_label">
-				<target>WapplerSystems Gästebuch</target>
-			</trans-unit>
-			<trans-unit id="be_description">
-				<target>Diese Erweiterung hilft Ihnen dabei, Bewertungen vom Gast zu sammeln.</target>
-			</trans-unit>
 			<trans-unit id="flexform.verification.email.senderName">
 				<target>Absendername der Bestätigungs-E-Mail</target>
 			</trans-unit>
@@ -147,6 +141,25 @@
 			<trans-unit id="flexform.verification.recipient">
 				<source>Recipient</source>
 				<target>Empfänger</target>
+			</trans-unit>
+
+
+			<trans-unit id="tsconfig.wizard.WsGuestbookForm.title">
+				<source>WapplerSystems Guestbook - Form</source>
+				<target>WapplerSystems Gästebuch - Formular</target>
+			</trans-unit>
+			<trans-unit id="tsconfig.wizard.WsGuestbookForm.description">
+				<source>This allows the visitor to write a new entry.</source>
+				<target>Dies ermöglicht dem Besucher, einen neuen Eintrag zu schreiben.</target>
+			</trans-unit>
+
+			<trans-unit id="tsconfig.wizard.WsGuestbookList.title">
+				<source>WapplerSystems Guestbook - List</source>
+				<target>WapplerSystems Gästebuch - Liste</target>
+			</trans-unit>
+			<trans-unit id="tsconfig.wizard.WsGuestbookList.description">
+				<source>This outputs the entries.</source>
+				<target>Dies gibt die Einträge.</target>
 			</trans-unit>
 
 		</body>

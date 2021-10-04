@@ -1,16 +1,25 @@
 mod.wizards.newContentElement.wizardItems.plugins {
-	elements {
-		WsGuestbookForm {
-			icon = ../typo3conf/ext/ws_guestbook/Resources/Public/Icons/user_plugin_guestbook.svg
-			iconIdentifier = ext-ws-guestbook-icon
-			title = LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:be_label
-			description = LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:be_description
-			tt_content_defValues {
-				CType = list
-				list_type = wsguestbook_form
-			}
-		}
-	}
-	show = *
-}
+  elements {
+    WsGuestbookForm {
+      iconIdentifier = ext-ws-guestbook-icon
+      title = LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tsconfig.wizard.WsGuestbookForm.title
+      description = LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tsconfig.wizard.WsGuestbookForm.description
+      tt_content_defValues {
+        CType = list
+        list_type = wsguestbook_form
+      }
+    }
 
+    WsGuestbookList {
+      iconIdentifier = ext-ws-guestbook-icon
+      title = LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tsconfig.wizard.WsGuestbookList.title
+      description = LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:tsconfig.wizard.WsGuestbookList.description
+      tt_content_defValues {
+        CType = list
+        list_type = wsguestbook_list
+      }
+    }
+  }
+
+  show = *
+}
