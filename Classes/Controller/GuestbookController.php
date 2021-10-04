@@ -3,20 +3,29 @@
 namespace WapplerSystems\WsGuestbook\Controller;
 
 use TYPO3\CMS\Core\Crypto\Random;
-use TYPO3\CMS\Core\Mail\MailMessage;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MailUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Configuration\Exception\InvalidConfigurationTypeException;
+use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
+use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
+use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
-use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+use TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotException;
+use TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotReturnException;
+use TYPO3\CMS\Extbase\Validation\Exception\InvalidValidationOptionsException;
 use TYPO3\CMS\Extbase\Validation\Validator\EmailAddressValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator;
-use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3\CMS\Form\Domain\Configuration\ConfigurationService;
+use TYPO3\CMS\Form\Domain\Configuration\Exception\PrototypeNotFoundException;
+use TYPO3\CMS\Form\Domain\Exception\RenderingException;
+use TYPO3\CMS\Form\Domain\Exception\TypeDefinitionNotFoundException;
+use TYPO3\CMS\Form\Domain\Exception\TypeDefinitionNotValidException;
+use TYPO3\CMS\Form\Domain\Model\Exception\FinisherPresetNotFoundException;
 use TYPO3\CMS\Form\Domain\Model\FormDefinition;
 use TYPO3\CMS\Form\Domain\Model\FormElements\GenericFormElement;
 use TYPO3\CMS\Form\Domain\Model\FormElements\GridRow;
@@ -35,16 +44,16 @@ class GuestbookController extends AbstractController
 
     /**
      *
-     * @var \WapplerSystems\WsGuestbook\Domain\Repository\EntryRepository
+     * @var EntryRepository
      */
     protected $entryRepository;
 
 
     /**
-     * @param \WapplerSystems\WsGuestbook\Domain\Repository\EntryRepository $entryRepository
+     * @param EntryRepository $entryRepository
      * @internal
      */
-    public function injectEntryRepository(EntryRepository $entryRepository)
+    public function injectEntryRepository(EntryRepository $entryRepository): void
     {
         $this->entryRepository = $entryRepository;
     }
@@ -55,7 +64,7 @@ class GuestbookController extends AbstractController
      * @param int $currentPage
      * @return void
      */
-    public function listAction(int $currentPage = 1)
+    public function listAction(int $currentPage = 1): void
     {
         $entries = $this->entryRepository->findSorted($this->settings);
 
@@ -77,7 +86,6 @@ class GuestbookController extends AbstractController
             ]);
         }
 
-
         $assignedValues = $this->emitActionSignal(self::class, __FUNCTION__, $assignedValues);
 
         $this->view->assignMultiple($assignedValues);
@@ -87,8 +95,16 @@ class GuestbookController extends AbstractController
      * action new
      *
      * @return void
+     * @throws MissingConfigurationException
+     * @throws InvalidConfigurationTypeException
+     * @throws InvalidValidationOptionsException
+     * @throws PrototypeNotFoundException
+     * @throws RenderingException
+     * @throws TypeDefinitionNotFoundException
+     * @throws TypeDefinitionNotValidException
+     * @throws FinisherPresetNotFoundException
      */
-    public function newAction()
+    public function newAction(): void
     {
         $formDefinition = $this->buildGuestbookEntryForm();
         $form = $formDefinition->bind($this->request, $this->response);
@@ -99,7 +115,16 @@ class GuestbookController extends AbstractController
         ]);
     }
 
-    public function buildGuestbookEntryForm()
+    /**
+     * @throws FinisherPresetNotFoundException
+     * @throws MissingConfigurationException
+     * @throws TypeDefinitionNotFoundException
+     * @throws InvalidValidationOptionsException
+     * @throws InvalidConfigurationTypeException
+     * @throws PrototypeNotFoundException
+     * @throws TypeDefinitionNotValidException
+     */
+    public function buildGuestbookEntryForm(): FormDefinition
     {
         /** @var ConfigurationService $configurationService */
         $configurationService = $this->objectManager->get(ConfigurationService::class);
@@ -163,7 +188,6 @@ class GuestbookController extends AbstractController
                 ],
             ]
         ]);
-
 
         $recipients = [];
         $recipientsFlexform = $this->settings['verification']['recipients'];
@@ -232,9 +256,7 @@ class GuestbookController extends AbstractController
             'additionalParameters' => 'tx_wsguestbook_form[action]=done',
         ]);
 
-
         $page = $formDefinition->createPage('page1');
-
 
         /** @var GridRow $row */
         $row = $page->createElement('row1', 'GridRow');
@@ -315,18 +337,18 @@ class GuestbookController extends AbstractController
         return $formDefinition;
     }
 
-    public function doneAction()
+    public function doneAction(): void
     {
 
     }
 
     /**
-     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     * @param string $action_key
+     * @throws StopActionException
+     * @throws IllegalObjectTypeException
      */
-    public function declineAction(string $action_key)
+    public function declineAction(string $action_key): void
     {
-
         $entry = $this->entryRepository->findOneByActionKey($action_key);
 
         if ($entry === null) {
@@ -337,28 +359,22 @@ class GuestbookController extends AbstractController
             $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
             $persistenceManager->persistAll();
         }
-
-
-
     }
 
 
     /**
-     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
-     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     * @param string $action_key
+     * @throws StopActionException
+     * @throws IllegalObjectTypeException
+     * @throws UnknownObjectException
      */
-    public function confirmAction(string $action_key)
+    public function confirmAction(string $action_key): void
     {
-
         $entry = $this->entryRepository->findOneByActionKey($action_key);
 
         if ($entry === null) {
-
             $this->forward('entryNotFound');
-
         } else {
-
             $entry->setHidden(0);
             $this->entryRepository->update($entry);
             $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
@@ -368,80 +384,17 @@ class GuestbookController extends AbstractController
     }
 
 
-    public function entryNotFoundAction() {
-
+    public function entryNotFoundAction(): void
+    {
 
     }
-
 
     /**
      * @return TypoScriptFrontendController
      */
-    protected function getTypoScriptFrontendController()
+    protected function getTypoScriptFrontendController(): TypoScriptFrontendController
     {
         return $GLOBALS['TSFE'];
-    }
-
-
-    /**
-     * @param array $recipient recipient of the email in the format array('recipient@domain.tld' => 'Recipient Name')
-     * @param array $sender sender of the email in the format array('sender@domain.tld' => 'Sender Name')
-     * @param string $subject subject of the email
-     * @param string $templateName template name (UpperCamelCase)
-     * @param array $variables variables to be passed to the Fluid view
-     */
-    protected function sendTemplateEmail(
-        array $recipient,
-        array $sender,
-              $subject,
-              $templateName,
-        array $variables = []
-    )
-    {
-
-        /** @var StandaloneView $emailView */
-        $emailView = $this->objectManager->get(StandaloneView::class);
-
-        /*For use of Localize value */
-        $extensionName = $this->request->getControllerExtensionName();
-        $emailView->getRequest()->setControllerExtensionName($extensionName);
-
-        /*For use of Localize value */
-        $extbaseFrameworkConfiguration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
-        $templateRootPath = GeneralUtility::getFileAbsFileName($extbaseFrameworkConfiguration['view']['templateRootPaths']['0']);
-        $templatePathAndFilename = $templateRootPath . 'Email/' . $templateName . '.html';
-        $emailView->setTemplatePathAndFilename($templatePathAndFilename);
-        $emailView->assignMultiple($variables);
-        $emailBody = $emailView->render();
-        /** @var $message MailMessage */
-        $message = $this->objectManager->get(MailMessage::class);
-        $message->setTo($recipient)
-            ->setFrom($sender)
-            ->setSubject($subject);
-        $message->html($emailBody);
-
-        $status = 0;
-        $message->send();
-        $status = $message->isSent();
-
-        return $status;
-    }
-
-    /**
-     * A template method for displaying custom error flash messages, or to
-     * display no flash message at all on errors. Override this to customize
-     * the flash message in your action controller.
-     *
-     * @return string|bool The flash message or FALSE if no flash message should be set
-     * @api
-     */
-    protected function getErrorFlashMessage()
-    {
-        $errormsg = LocalizationUtility::translate(
-            'controller.insertError.msg',
-            'ws_guestbook'
-        );
-        return $errormsg;
     }
 
 
@@ -453,12 +406,13 @@ class GuestbookController extends AbstractController
      * @param array $signalArguments arguments for the signal slot
      *
      * @return array
+     * @throws InvalidSlotException
+     * @throws InvalidSlotReturnException
      */
-    protected function emitActionSignal($class, $signalName, array $signalArguments)
+    protected function emitActionSignal($class, $signalName, array $signalArguments): array
     {
         $signalArguments['extendedVariables'] = [];
         return $this->signalSlotDispatcher->dispatch($class, $signalName, $signalArguments);
     }
-
 
 }

@@ -3,6 +3,7 @@
 namespace WapplerSystems\WsGuestbook\Controller;
 
 use Psr\Log\LoggerAwareTrait;
+use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\SysLog\Action as SystemLogGenericAction;
 use TYPO3\CMS\Core\SysLog\Error as SystemLogErrorClassification;
@@ -17,7 +18,7 @@ class AbstractController extends ActionController implements \Psr\Log\LoggerAwar
 
     use LoggerAwareTrait;
 
-    protected function callActionMethod()
+    protected function callActionMethod() : void
     {
         try {
             parent::callActionMethod();
@@ -94,9 +95,9 @@ class AbstractController extends ActionController implements \Psr\Log\LoggerAwar
     }
 
     /**
-     * @return \TYPO3\CMS\Core\Authentication\BackendUserAuthentication
+     * @return BackendUserAuthentication
      */
-    protected function getBackendUser()
+    protected function getBackendUser(): BackendUserAuthentication
     {
         return $GLOBALS['BE_USER'];
     }
