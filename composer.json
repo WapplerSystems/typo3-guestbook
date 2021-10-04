@@ -42,9 +42,6 @@
 			"WapplerSystems\\WsGuestbook\\": "Classes/"
 		}
 	},
-	"replace": {
-		"WapplerSystems/WsGuestbook": "self.version"
-	},
 	"extra": {
 		"typo3/cms": {
 			"extension-key": "ws_guestbook"
