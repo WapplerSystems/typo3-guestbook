@@ -114,6 +114,30 @@
 				<source>Thank you for the guestbook entry</source>
 			</trans-unit>
 
+			<trans-unit id="msg.entryNotFound">
+				<source>Perhaps this has already been deleted or confirmed.</source>
+			</trans-unit>
+			<trans-unit id="hdl.entryNotFound">
+				<source>The entry was unfortunately not found</source>
+			</trans-unit>
+
+
+			<trans-unit id="hdl.entryConfirmed">
+				<source>The entry was confirmed</source>
+			</trans-unit>
+
+			<trans-unit id="hdl.entryDeclined">
+				<source>The entry was declined</source>
+			</trans-unit>
+
+
+			<trans-unit id="btn.confirm">
+				<source>Confirm</source>
+			</trans-unit>
+			<trans-unit id="btn.decline">
+				<source>Decline</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

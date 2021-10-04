@@ -233,6 +233,36 @@
 				<source>Thank you for the guestbook entry</source>
 				<target>Danke für den Gästebucheintrag</target>
 			</trans-unit>
+
+			<trans-unit id="msg.entryNotFound">
+				<source>Perhaps this has already been deleted or confirmed.</source>
+				<target>Vielleicht wurde dieser bereits gelöscht oder bestätigt.</target>
+			</trans-unit>
+			<trans-unit id="hdl.entryNotFound">
+				<source>The entry was unfortunately not found</source>
+				<target>Dieser Eintrag wurde leider nicht gefunden.</target>
+			</trans-unit>
+
+
+			<trans-unit id="hdl.entryConfirmed">
+				<source>The entry was confirmed</source>
+				<target>Der Eintrag wurde bestätigt</target>
+			</trans-unit>
+
+			<trans-unit id="hdl.entryDeclined">
+				<source>The entry was declined</source>
+				<target>Der Eintrag wurde erfolgreich gelöscht</target>
+			</trans-unit>
+
+
+			<trans-unit id="btn.confirm">
+				<source>Confirm</source>
+				<target>Bestätigen</target>
+			</trans-unit>
+			<trans-unit id="btn.decline">
+				<source>Decline</source>
+				<target>Ablehnen</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

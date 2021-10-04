@@ -10,6 +10,7 @@ use TYPO3\CMS\Core\Utility\MailUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
+use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Extbase\Validation\Validator\EmailAddressValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator;
@@ -69,7 +70,7 @@ class GuestbookController extends AbstractController
             $paginator = new QueryResultPaginator($entries, $currentPage, $this->settings['paginate']['itemsPerPage'] ?? 10);
 
             $pagination = new SimplePagination($paginator);
-            $assignedValues = array_merge($assignedValues,[
+            $assignedValues = array_merge($assignedValues, [
                 'paginator' => $paginator,
                 'pagination' => $pagination,
                 'entries' => $paginator->getPaginatedItems(),
@@ -183,14 +184,29 @@ class GuestbookController extends AbstractController
             $defaultFrom = [$this->settings['verification']['email']['senderEmailAddress'] => $this->settings['verification']['email']['senderName']];
         }
 
-        $confirmationLink = $this->uriBuilder->reset()->setTargetPageUid($this->getTypoScriptFrontendController()->id)->setArgumentPrefix('tx_wsguestbook_form')->setArguments([
-            'action' => 'confirm',
-            'action_key' => $actionKey,
-        ])->buildFrontendUri();
+        $confirmationUrl = $this->uriBuilder->reset()
+            ->setTargetPageUid($this->getTypoScriptFrontendController()->id)
+            ->setCreateAbsoluteUri(true)
+            ->setArguments([
+                'tx_wsguestbook_form' => [
+                    'action' => 'confirm',
+                    'controller' => 'Guestbook',
+                    'action_key' => $actionKey,
+                ],
+            ])
+            ->buildFrontendUri();
 
-        $declineLink = $this->uriBuilder->reset()->setTargetPageUid($this->getTypoScriptFrontendController()->id)->setArguments([
-
-        ])->buildFrontendUri();
+        $declineUrl = $this->uriBuilder->reset()
+            ->setTargetPageUid($this->getTypoScriptFrontendController()->id)
+            ->setCreateAbsoluteUri(true)
+            ->setArguments([
+                'tx_wsguestbook_form' => [
+                    'action' => 'decline',
+                    'controller' => 'Guestbook',
+                    'action_key' => $actionKey,
+                ],
+            ])
+            ->buildFrontendUri();
 
         $emailFinisher = $formDefinition->createFinisher('EmailToReceiver');
         $emailFinisher->setOptions([
@@ -204,8 +220,8 @@ class GuestbookController extends AbstractController
                 50 => 'EXT:ws_guestbook/Resources/Private/Templates/Email/',
             ],
             'variables' => [
-                'confirmationLink' => $confirmationLink,
-                'declineLink' => $declineLink,
+                'confirmationUrl' => $confirmationUrl,
+                'declineUrl' => $declineUrl,
             ]
         ]);
 
@@ -278,7 +294,7 @@ class GuestbookController extends AbstractController
         $element->setLabel('Message');
         $element->setProperty('rows', '4');
         $element->setProperty('elementClassAttribute', 'form-control-bstextcounter');
-        $element->setProperty('fluidAdditionalAttributes',['data-maximum-chars' => (int)$this->settings['fields']['message']['maxCharacters']]);
+        $element->setProperty('fluidAdditionalAttributes', ['data-maximum-chars' => (int)$this->settings['fields']['message']['maxCharacters']]);
         $element->addValidator(new NotEmptyValidator());
         $element->addValidator(new StringLengthValidator(['minimum' => 50, 'maximum' => (int)$this->settings['fields']['message']['maxCharacters']]));
 
@@ -292,26 +308,68 @@ class GuestbookController extends AbstractController
             /** @var GenericFormElement $element */
             $element = $fieldset->createElement('privacyPolicy', 'PrivacyPolicyCheckbox');
             $element->setLabel('I agree to the privacy policy');
-            $element->setProperty('privacyPolicyUid',$this->settings['fields']['privacyPolicy']['page'] ?? '');
+            $element->setProperty('privacyPolicyUid', $this->settings['fields']['privacyPolicy']['page'] ?? '');
             $element->addValidator(new NotEmptyValidator());
         }
 
         return $formDefinition;
     }
 
-    public function doneAction() {
+    public function doneAction()
+    {
 
     }
 
-    public function reviewAction() {
+    /**
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     */
+    public function declineAction(string $action_key)
+    {
+
+        $entry = $this->entryRepository->findOneByActionKey($action_key);
+
+        if ($entry === null) {
+            $this->forward('entryNotFound');
+        } else {
+
+            $this->entryRepository->remove($entry);
+            $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
+            $persistenceManager->persistAll();
+        }
+
+
 
     }
 
-    public function declineAction() {
+
+    /**
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     */
+    public function confirmAction(string $action_key)
+    {
+
+        $entry = $this->entryRepository->findOneByActionKey($action_key);
+
+        if ($entry === null) {
+
+            $this->forward('entryNotFound');
+
+        } else {
+
+            $entry->setHidden(0);
+            $this->entryRepository->update($entry);
+            $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
+            $persistenceManager->persistAll();
+        }
 
     }
 
-    public function confirmAction() {
+
+    public function entryNotFoundAction() {
+
 
     }
 
@@ -335,8 +393,8 @@ class GuestbookController extends AbstractController
     protected function sendTemplateEmail(
         array $recipient,
         array $sender,
-        $subject,
-        $templateName,
+              $subject,
+              $templateName,
         array $variables = []
     )
     {
@@ -385,7 +443,6 @@ class GuestbookController extends AbstractController
         );
         return $errormsg;
     }
-
 
 
     /**

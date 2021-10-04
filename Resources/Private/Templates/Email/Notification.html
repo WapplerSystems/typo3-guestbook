@@ -54,6 +54,11 @@
     </formvh:renderFormValue>
 
     <hr />
-    <a href="{confirmationLink}" ><f:translate key="LLL:EXT:ws_guestbook/Resources/Private/Language/locallang.xlf" /></a>
+
+    <a href="{declineUrl}" style="border-radius: 5px; text-decoration: none; padding: 0 20px; line-height: 30px; float: left; border: 1px solid red; background: red; color: #fff;"><f:translate key="LLL:EXT:ws_guestbook/Resources/Private/Language/locallang.xlf:btn.decline" /></a>
+
+    <a href="{confirmationUrl}" style="border-radius: 5px; text-decoration: none; padding: 0 20px; line-height: 30px; float: right; border: 1px solid green; background: green; color: #fff;"><f:translate key="LLL:EXT:ws_guestbook/Resources/Private/Language/locallang.xlf:btn.confirm" /></a>
+
+
 
 </f:section>
