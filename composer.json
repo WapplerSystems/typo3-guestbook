@@ -39,7 +39,8 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"WapplerSystems\\WsGuestbook\\": "Classes/"
+			"WapplerSystems\\WsGuestbook\\": "Classes/",
+			"Gregwar\\Captcha\\": "Resources/Private/PHP/Gregwar/"
 		}
 	},
 	"extra": {
