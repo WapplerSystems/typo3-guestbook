@@ -40,7 +40,7 @@
 	"autoload": {
 		"psr-4": {
 			"WapplerSystems\\WsGuestbook\\": "Classes/",
-			"Gregwar\\Captcha\\": "Resources/Private/PHP/Gregwar/"
+			"Gregwar\\Captcha\\": "Resources/Private/PHP/"
 		}
 	},
 	"extra": {
