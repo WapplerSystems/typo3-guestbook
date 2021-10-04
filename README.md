@@ -3,10 +3,13 @@
 ## Features
 
 - Based on extbase & fluid, implementing best practices from TYPO3 CMS
-- Frontend template variant based on Twitter Bootstrap (v4)
--
-- Different types of records with different fields: Address, company, person
-- Flexible layouts in each plugins. Addable via TSconfig.
+- Frontend template based on Twitter Bootstrap (v4)
+- Uses form extension
+- Adjustable privacy page
+- Simple captcha can be added
+- Honeypot with the help of the form extension
+- Adjustable mandatory fields
+- Confirm/Decline of new entries by frontend too
 
 ## Usage
 
