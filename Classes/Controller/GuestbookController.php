@@ -63,6 +63,8 @@ class GuestbookController extends AbstractController
      *
      * @param int $currentPage
      * @return void
+     * @throws InvalidSlotException
+     * @throws InvalidSlotReturnException
      */
     public function listAction(int $currentPage = 1): void
     {
@@ -103,6 +105,7 @@ class GuestbookController extends AbstractController
      * @throws TypeDefinitionNotFoundException
      * @throws TypeDefinitionNotValidException
      * @throws FinisherPresetNotFoundException
+     * @SuppressWarnings("UnusedElement")
      */
     public function newAction(): void
     {
@@ -409,7 +412,7 @@ class GuestbookController extends AbstractController
      * @throws InvalidSlotException
      * @throws InvalidSlotReturnException
      */
-    protected function emitActionSignal($class, $signalName, array $signalArguments): array
+    protected function emitActionSignal(string $class, string $signalName, array $signalArguments): array
     {
         $signalArguments['extendedVariables'] = [];
         return $this->signalSlotDispatcher->dispatch($class, $signalName, $signalArguments);
