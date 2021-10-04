@@ -35,4 +35,3 @@ Download and install the extension with the extension manager module.
 * Franziska Krug
 
 [1]: https://getcomposer.org/
-[2]: https://github.com/georgringer/news
