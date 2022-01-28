@@ -58,7 +58,7 @@ if (!function_exists('gregwar_captcha_php_autoload') && !\TYPO3\CMS\Core\Core\En
 }
 
 // register cache table
-if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['wsguestbookcaptcha'])) {
+if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['wsguestbookcaptcha'] ?? null)) {
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['wsguestbookcaptcha'] = [];
 }
 
