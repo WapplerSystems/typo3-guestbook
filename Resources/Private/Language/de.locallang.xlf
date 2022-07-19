@@ -57,6 +57,11 @@
 			</trans-unit>
 			<!-- Mail template -->
 
+			<trans-unit id="no_records">
+				<source>No entries found.</source>
+				<target>Es wurden keine Einträge gefunden.</target>
+			</trans-unit>
+
 			<!-- Controller msg -->
 			<trans-unit id="controller.checkcaptcha.msg">
 				<target>Bitte überprüfen Sie das Captcha-Formular.</target>

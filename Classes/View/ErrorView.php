@@ -4,20 +4,15 @@ namespace WapplerSystems\WsGuestbook\View;
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Mvc\Exception;
-use TYPO3\CMS\Extbase\Mvc\View\AbstractView;
-use TYPO3\CMS\Extbase\Mvc\Web\Request;
 
 /**
- * The not found view - a special case.
- * @internal only to be used within Extbase, not part of TYPO3 Core API.
  */
-class ErrorView extends AbstractView
+class ErrorView
 {
     /**
      * @var array
      */
-    protected $variablesMarker = ['errorMessage' => 'ERROR_MESSAGE','errorCode' => 'ERROR_CODE'];
+    protected $variablesMarker = ['errorMessage' => 'ERROR_MESSAGE', 'errorCode' => 'ERROR_CODE'];
 
     /**
      * Renders the not found view
@@ -27,14 +22,11 @@ class ErrorView extends AbstractView
      */
     public function render()
     {
-        if (!is_object($this->controllerContext->getRequest())) {
-            throw new Exception('Can\'t render view without request object.', 1192450280);
-        }
+
         $template = file_get_contents($this->getTemplatePathAndFilename());
         $template = is_string($template) ? $template : '';
-        if ($this->controllerContext->getRequest() instanceof Request) {
-            $template = str_replace('###BASEURI###', GeneralUtility::getIndpEnv('TYPO3_SITE_URL'), $template);
-        }
+        $template = str_replace('###BASEURI###', GeneralUtility::getIndpEnv('TYPO3_SITE_URL'), $template);
+
         foreach ($this->variablesMarker as $variableName => $marker) {
             $variableValue = $this->variables[$variableName] ?? '';
             $template = str_replace('###' . $marker . '###', $variableValue, $template);
@@ -65,5 +57,34 @@ class ErrorView extends AbstractView
      */
     public function __call($methodName, array $arguments)
     {
+    }
+
+
+    /**
+     * Add a variable to $this->viewData.
+     * Can be chained, so $this->view->assign(..., ...)->assign(..., ...); is possible
+     *
+     * @param string $key Key of variable
+     * @param mixed $value Value of object
+     * @return ErrorView an instance of $this, to enable chaining
+     */
+    public function assign($key, $value)
+    {
+        $this->variables[$key] = $value;
+        return $this;
+    }
+
+    /**
+     * Add multiple variables to $this->viewData.
+     *
+     * @param array $values array in the format array(key1 => value1, key2 => value2).
+     * @return ErrorView an instance of $this, to enable chaining
+     */
+    public function assignMultiple(array $values)
+    {
+        foreach ($values as $key => $value) {
+            $this->assign($key, $value);
+        }
+        return $this;
     }
 }

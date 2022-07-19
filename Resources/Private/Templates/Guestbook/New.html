@@ -1,8 +1,12 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://typo3.org/ns/fluid/ViewHelpers"
+      xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default"/>
 <f:section name="main">
 
-    {form -> f:format.raw()}
+    <formvh:render overrideConfiguration="{settings}" factoryClass="WapplerSystems\WsGuestbook\Form\Factory\GuestbookFormFactory"/>
 
     <span>{f:translate(key:':required')}</span>
 
 </f:section>
+</html>

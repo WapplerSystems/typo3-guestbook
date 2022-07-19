@@ -2,6 +2,8 @@
 
 namespace WapplerSystems\WsGuestbook\Controller;
 
+use Psr\Http\Message\ResponseInterface;
+use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -10,31 +12,29 @@ use TYPO3\CMS\Core\SysLog\Error as SystemLogErrorClassification;
 use TYPO3\CMS\Core\SysLog\Type as SystemLogType;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Mvc\RequestInterface;
 use WapplerSystems\WsGuestbook\Exception\MissingConfigurationException;
 use WapplerSystems\WsGuestbook\View\ErrorView;
 
-class AbstractController extends ActionController implements \Psr\Log\LoggerAwareInterface
+class AbstractController extends ActionController implements LoggerAwareInterface
 {
 
     use LoggerAwareTrait;
 
-    protected function callActionMethod() : void
+    protected function callActionMethod(RequestInterface $request): ResponseInterface
     {
         try {
-            parent::callActionMethod();
+            return parent::callActionMethod($request);
         } catch (MissingConfigurationException $exception) {
 
             /** @var ErrorView $view */
-            $view = $this->objectManager->get(ErrorView::class);
+            $view = GeneralUtility::makeInstance(ErrorView::class);
             $view->assignMultiple(['errorCode' => $exception->getCode(), 'errorMessage' => $exception->getMessage()]);
-            $view->setControllerContext($this->controllerContext);
             if (method_exists($view, 'injectSettings')) {
                 $view->injectSettings($this->settings);
             }
-            $this->response->appendContent($view->render());
-            $this->response->setStatus(500);
 
-            $errorMessage = "ws_guestbook; ".$exception->getCode()."; ".$exception->getMessage()."; ".$this->request->getRequestUri();
+            $errorMessage = "ws_guestbook; " . $exception->getCode() . "; " . $exception->getMessage() . "; " . $this->request->getRequestUri();
             $this->logger->error($errorMessage);
 
             if ($GLOBALS['TYPO3_CONF_VARS']['SYS']['belogErrorReporting']) {
@@ -43,6 +43,8 @@ class AbstractController extends ActionController implements \Psr\Log\LoggerAwar
                 } catch (\Exception $e) {
                 }
             }
+
+            return $this->htmlResponse($view->render())->withStatus(500);
 
         }
     }
