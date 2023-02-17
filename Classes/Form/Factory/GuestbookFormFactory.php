@@ -191,7 +191,7 @@ class GuestbookFormFactory extends AbstractFormFactory
             $element->setLabel('E-Mail');
             $element->setProperty('fluidAdditionalAttributes', ['placeholder' => 'mail@mail.de']);
             $element->addValidator(new EmailAddressValidator());
-            if ($$configuration['fields']['email']['mandatory'] === '1') {
+            if ($configuration['fields']['email']['mandatory'] === '1') {
                 $element->addValidator(new NotEmptyValidator());
             }
         }
