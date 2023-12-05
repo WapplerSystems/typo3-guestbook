@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
-  <file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_guestbook" target-language="de">
+  <file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_guestbook" target-language="ca">
     <header/>
     <body>
       <trans-unit id="tx_wsguestbook_domain_model_entry">
@@ -45,19 +45,19 @@
       </trans-unit>
       <trans-unit id="tsconfig.wizard.WsGuestbookForm.title">
         <source>WapplerSystems Guestbook - Form</source>
-        <target state="translated">WapplerSystems Gästebuch - Formular</target>
+        <target state="needs-translation">WapplerSystems Guestbook - Form</target>
       </trans-unit>
       <trans-unit id="tsconfig.wizard.WsGuestbookForm.description">
         <source>This allows the visitor to write a new entry.</source>
-        <target state="translated">Dies ermöglicht dem Besucher, einen neuen Eintrag zu schreiben.</target>
+        <target state="needs-translation">This allows the visitor to write a new entry.</target>
       </trans-unit>
       <trans-unit id="tsconfig.wizard.WsGuestbookList.title">
         <source>WapplerSystems Guestbook - List</source>
-        <target state="translated">WapplerSystems Gästebuch - Liste</target>
+        <target state="needs-translation">WapplerSystems Guestbook - List</target>
       </trans-unit>
       <trans-unit id="tsconfig.wizard.WsGuestbookList.description">
         <source>This outputs the entries.</source>
-        <target state="translated">Dies gibt die Einträge.</target>
+        <target state="needs-translation">This outputs the entries.</target>
       </trans-unit>
       <trans-unit id="flexform.thankyouPageId">
         <source>"Thank you" page</source>
@@ -65,11 +65,11 @@
       </trans-unit>
       <trans-unit id="flexform.verification.recipients">
         <source>Recipients for checking the new entries</source>
-        <target state="translated">Die Empfänger zur Prüfung der neuen Einträge</target>
+        <target state="needs-translation">Recipients for checking the new entries</target>
       </trans-unit>
       <trans-unit id="flexform.verification.recipient">
         <source>Recipient</source>
-        <target state="translated">Empfänger</target>
+        <target state="needs-translation">Recipient</target>
       </trans-unit>
       <trans-unit id="flexform.auditor.emailaddress">
         <source>Email</source>
@@ -101,7 +101,7 @@
       </trans-unit>
       <trans-unit id="flexform.automaticApproval">
         <source>Automatic approval (not recommended)</source>
-        <target state="translated">Automatische Bestätigung (nicht empfohlen)</target>
+        <target state="needs-translation">Automatic approval (not recommended)</target>
       </trans-unit>
       <trans-unit id="flexform.verification.email.senderName">
         <source>Sender name of verification email</source>
@@ -113,51 +113,51 @@
       </trans-unit>
       <trans-unit id="flexforms_tab.general">
         <source>General settings</source>
-        <target state="translated">Allgemeine Einstellungen</target>
+        <target state="needs-translation">General settings</target>
       </trans-unit>
       <trans-unit id="flexforms_tab.fields">
         <source>Form fields</source>
-        <target state="translated">Formularfelder</target>
+        <target state="needs-translation">Form fields</target>
       </trans-unit>
       <trans-unit id="flexform.fields.email.enable">
         <source>Enable the email field</source>
-        <target state="translated">E-Mail Feld aktivieren</target>
+        <target state="needs-translation">Enable the email field</target>
       </trans-unit>
       <trans-unit id="flexform.fields.email.mandatory">
         <source>The email field is mandatory</source>
-        <target state="translated">E-Mail-Feld ist ein Pflichtfeld</target>
+        <target state="needs-translation">The email field is mandatory</target>
       </trans-unit>
       <trans-unit id="flexform.fields.city.enable">
         <source>Enable the city field</source>
-        <target state="translated">Stadt-Feld aktivieren</target>
+        <target state="needs-translation">Enable the city field</target>
       </trans-unit>
       <trans-unit id="flexform.fields.city.mandatory">
         <source>The city field is mandatory</source>
-        <target state="translated">Stadt-Feld ist ein Pflichtfeld</target>
+        <target state="needs-translation">The city field is mandatory</target>
       </trans-unit>
       <trans-unit id="flexform.fields.website.enable">
         <source>Enable the website field</source>
-        <target state="translated">Website-Feld aktivieren</target>
+        <target state="needs-translation">Enable the website field</target>
       </trans-unit>
       <trans-unit id="flexform.fields.website.mandatory">
         <source>The website field is mandatory</source>
-        <target state="translated">Website-Feld ist ein Pflichtfeld</target>
+        <target state="needs-translation">The website field is mandatory</target>
       </trans-unit>
       <trans-unit id="flexform.fields.captcha.enable">
         <source>Enable the captcha field</source>
-        <target state="translated">Captcha-Feld aktivieren</target>
+        <target state="needs-translation">Enable the captcha field</target>
       </trans-unit>
       <trans-unit id="flexform.fields.privacyPolicy.enable">
         <source>Enable the privacy policy field</source>
-        <target state="translated">Datenschutz-Feld aktivieren</target>
+        <target state="needs-translation">Enable the privacy policy field</target>
       </trans-unit>
       <trans-unit id="flexform.fields.privacyPolicy.page">
         <source>Privacy policy page</source>
-        <target state="translated">Datenschutz-Seite</target>
+        <target state="needs-translation">Privacy policy page</target>
       </trans-unit>
       <trans-unit id="flexform.fields.message.maxCharacters">
         <source>Maximum characters in message field</source>
-        <target state="translated">Maximale Anzahl von Zeichen im Nachricht-Feld</target>
+        <target state="needs-translation">Maximum characters in message field</target>
       </trans-unit>
       <trans-unit id="flexform.function">
         <source>Function</source>
@@ -173,7 +173,7 @@
       </trans-unit>
       <trans-unit id="flexform.storagePid">
         <source>Storage Page ID</source>
-        <target state="translated">Ordner zur Speicherung der Einträge</target>
+        <target state="needs-translation">Storage Page ID</target>
       </trans-unit>
     </body>
   </file>
