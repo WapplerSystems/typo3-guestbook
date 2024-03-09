@@ -36,7 +36,8 @@
 	],
 	"require": {
 		"typo3/cms-core": "^12",
-		"typo3/cms-form": "^12"
+		"typo3/cms-form": "^12",
+		"derhansen/form_crshield": "^1.0"
 	},
 	"autoload": {
 		"psr-4": {

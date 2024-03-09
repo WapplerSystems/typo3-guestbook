@@ -13,6 +13,7 @@ $EM_CONF['ws_guestbook'] = [
     'constraints' => [
         'depends' => [
             'typo3' => '12.4.0-12.4.99',
+            'form_crshield' => '1.0.0',
         ],
         'conflicts' => [
         ],
