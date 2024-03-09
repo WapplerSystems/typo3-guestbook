@@ -16,14 +16,14 @@ class Entry extends AbstractEntity
      * @var string
      *
      */
-    protected $name = '';
+    protected string $name = '';
 
     /**
      * city
      *
      * @var string
      */
-    protected $city = '';
+    protected string $city = '';
 
     /**
      * email
@@ -31,34 +31,34 @@ class Entry extends AbstractEntity
      * @var string
      *
      */
-    protected $email = '';
+    protected string $email = '';
 
     /**
      * website
      *
      * @var string
      */
-    protected $website = '';
+    protected string $website = '';
 
     /**
      * message
      *
      * @var string
      */
-    protected $message = '';
+    protected string $message = '';
 
     /**
      * tstamp
      *
      * @var int
      */
-    protected $tstamp;
+    protected int $tstamp;
 
     /**
      * hidden
      * @var bool
      */
-    protected $hidden;
+    protected bool $hidden;
 
     /**
      * @return int $tstamp

@@ -2,16 +2,14 @@
 
 namespace WapplerSystems\WsGuestbook\Controller;
 
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\FrontendConfigurationManager;
-use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
-use TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotException;
-use TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotReturnException;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use WapplerSystems\WsGuestbook\Domain\Repository\EntryRepository;
 
@@ -22,31 +20,18 @@ use WapplerSystems\WsGuestbook\Domain\Repository\EntryRepository;
 class GuestbookController extends AbstractController
 {
 
-    /**
-     *
-     * @var EntryRepository
-     */
-    protected $entryRepository;
 
-
-    /**
-     * @param EntryRepository $entryRepository
-     * @internal
-     */
-    public function injectEntryRepository(EntryRepository $entryRepository): void
+    public function __construct(readonly EntryRepository $entryRepository)
     {
-        $this->entryRepository = $entryRepository;
     }
 
 
     /**
      *
      * @param int $currentPage
-     * @return void
-     * @throws InvalidSlotException
-     * @throws InvalidSlotReturnException
+     * @return ResponseInterface
      */
-    public function listAction(int $currentPage = 1): void
+    public function listAction(int $currentPage = 1): ResponseInterface
     {
         $entries = $this->entryRepository->findSorted($this->settings);
 
@@ -71,14 +56,16 @@ class GuestbookController extends AbstractController
         $assignedValues = $this->emitActionSignal(self::class, __FUNCTION__, $assignedValues);
 
         $this->view->assignMultiple($assignedValues);
+
+        return $this->htmlResponse();
     }
 
     /**
      * action new
      *
-     * @return void
+     * @return ResponseInterface
      */
-    public function newAction(): void
+    public function newAction(): ResponseInterface
     {
 
         $configurationManager = GeneralUtility::makeInstance(FrontendConfigurationManager::class);
@@ -88,20 +75,22 @@ class GuestbookController extends AbstractController
         $this->view->assignMultiple([
             'settings' => $this->settings,
         ]);
+
+        return $this->htmlResponse();
     }
 
 
-    public function doneAction(): void
+    public function doneAction(): ResponseInterface
     {
-
+        return $this->htmlResponse();
     }
 
     /**
      * @param string $action_key
-     * @throws StopActionException
+     * @return ResponseInterface
      * @throws IllegalObjectTypeException
      */
-    public function declineAction(string $action_key): void
+    public function declineAction(string $action_key): ResponseInterface
     {
         $entry = $this->entryRepository->findOneByActionKey($action_key);
 
@@ -113,16 +102,18 @@ class GuestbookController extends AbstractController
             $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
             $persistenceManager->persistAll();
         }
+
+        return $this->htmlResponse();
     }
 
 
     /**
      * @param string $action_key
-     * @throws StopActionException
+     * @return ResponseInterface
      * @throws IllegalObjectTypeException
      * @throws UnknownObjectException
      */
-    public function confirmAction(string $action_key): void
+    public function confirmAction(string $action_key): ResponseInterface
     {
         $entry = $this->entryRepository->findOneByActionKey($action_key);
 
@@ -135,12 +126,13 @@ class GuestbookController extends AbstractController
             $persistenceManager->persistAll();
         }
 
+        return $this->htmlResponse();
     }
 
 
-    public function entryNotFoundAction(): void
+    public function entryNotFoundAction(): ResponseInterface
     {
-
+        return $this->htmlResponse();
     }
 
     /**
@@ -160,8 +152,6 @@ class GuestbookController extends AbstractController
      * @param array $signalArguments arguments for the signal slot
      *
      * @return array
-     * @throws InvalidSlotException
-     * @throws InvalidSlotReturnException
      */
     protected function emitActionSignal(string $class, string $signalName, array $signalArguments): array
     {

@@ -1,10 +1,10 @@
 <?php
-defined('TYPO3_MODE') || die('Access denied.');
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 call_user_func(function () {
 // Adding fields to the tt_content table definition in TCA
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+    ExtensionManagementUtility::addStaticFile(
         'ws_guestbook',
         'Configuration/TypoScript',
         'WapplerSystems Guestbook'

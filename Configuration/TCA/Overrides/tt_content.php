@@ -1,15 +1,14 @@
 <?php
-defined('TYPO3_MODE') or die();
 
 call_user_func(function () {
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-        'WapplerSystems.ws_guestbook',
+        'ws_guestbook',
         'List',
         'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:wsguestbook_list'
     );
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-        'WapplerSystems.ws_guestbook',
+        'ws_guestbook',
         'Form',
         'LLL:EXT:ws_guestbook/Resources/Private/Language/locallang_db.xlf:wsguestbook_form'
     );

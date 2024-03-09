@@ -226,12 +226,6 @@ class GuestbookFormFactory extends AbstractFormFactory
         $element->addValidator(new NotEmptyValidator());
         $element->addValidator(new StringLengthValidator(['minimum' => 50, 'maximum' => (int)$configuration['fields']['message']['maxCharacters']]));
 
-        if ($configuration['fields']['captcha']['enable'] === '1') {
-            /** @var GenericFormElement $element */
-            $element = $fieldset->createElement('captcha', 'Captcha');
-            $element->setLabel('Captcha');
-        }
-
         if ($configuration['fields']['privacyPolicy']['enable'] === '1') {
             /** @var GenericFormElement $element */
             $element = $fieldset->createElement('privacyPolicy', 'PrivacyPolicyCheckbox');
