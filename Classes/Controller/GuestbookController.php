@@ -2,6 +2,7 @@
 
 namespace WapplerSystems\WsGuestbook\Controller;
 
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -21,7 +22,7 @@ class GuestbookController extends AbstractController
 {
 
 
-    public function __construct(readonly EntryRepository $entryRepository)
+    public function __construct(readonly EntryRepository $entryRepository, EventDispatcherInterface $eventDispatcher)
     {
     }
 
@@ -52,8 +53,6 @@ class GuestbookController extends AbstractController
                 'entries' => $paginator->getPaginatedItems(),
             ]);
         }
-
-        $assignedValues = $this->emitActionSignal(self::class, __FUNCTION__, $assignedValues);
 
         $this->view->assignMultiple($assignedValues);
 
@@ -141,22 +140,6 @@ class GuestbookController extends AbstractController
     protected function getTypoScriptFrontendController(): TypoScriptFrontendController
     {
         return $GLOBALS['TSFE'];
-    }
-
-
-    /**
-     * Emits signal for various actions
-     *
-     * @param string $class the class name
-     * @param string $signalName name of the signal slot
-     * @param array $signalArguments arguments for the signal slot
-     *
-     * @return array
-     */
-    protected function emitActionSignal(string $class, string $signalName, array $signalArguments): array
-    {
-        $signalArguments['extendedVariables'] = [];
-        return $this->signalSlotDispatcher->dispatch($class, $signalName, $signalArguments);
     }
 
 }

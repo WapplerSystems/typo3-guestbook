@@ -40,12 +40,12 @@
                     <li class="page-item previous">
                         <f:if condition="{pagination.previousPageNumber} > 1">
                             <f:then>
-                                <f:link.action class="page-link" addQueryStringMethod="GET" arguments="{currentPage: pagination.previousPage}">
+                                <f:link.action class="page-link" arguments="{currentPage: pagination.previousPage}">
                                     <f:translate key="paginate_previous"/>
                                 </f:link.action>
                             </f:then>
                             <f:else>
-                                <f:link.action class="page-link" addQueryStringMethod="GET">
+                                <f:link.action class="page-link">
                                     <f:translate key="paginate_previous"/>
                                 </f:link.action>
                             </f:else>
@@ -54,7 +54,7 @@
                 </f:if>
                 <f:if condition="{pagination.displayRangeStart} > 1">
                     <li class="page-item first">
-                        <f:link.action class="page-link" addQueryStringMethod="GET">1</f:link.action>
+                        <f:link.action class="page-link">1</f:link.action>
                     </li>
                 </f:if>
                 <f:if condition="{pagination.hasLessPages}">
@@ -69,10 +69,10 @@
                             <li class="page-item">
                                 <f:if condition="{iterator.cycle} > 1">
                                     <f:then>
-                                        <f:link.action class="page-link" addQueryStringMethod="GET" arguments="{currentPage: iterator.cycle}">{iterator.cycle}</f:link.action>
+                                        <f:link.action class="page-link" arguments="{currentPage: iterator.cycle}">{iterator.cycle}</f:link.action>
                                     </f:then>
                                     <f:else>
-                                        <f:link.action class="page-link" addQueryStringMethod="GET">{iterator.cycle}</f:link.action>
+                                        <f:link.action class="page-link">{iterator.cycle}</f:link.action>
                                     </f:else>
                                 </f:if>
                             </li>
@@ -84,7 +84,7 @@
                 </f:if>
                 <f:if condition="{pagination.nextPageNumber}">
                     <li class="page-item last next">
-                        <f:link.action class="page-link" addQueryStringMethod="GET" arguments="{currentPage: pagination.nextPageNumber}">
+                        <f:link.action class="page-link" arguments="{currentPage: pagination.nextPageNumber}">
                             <f:translate key="paginate_next"/>
                         </f:link.action>
                     </li>
