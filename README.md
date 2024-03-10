@@ -3,10 +3,10 @@
 ## Features
 
 - Based on extbase & fluid, implementing best practices from TYPO3 CMS
-- Frontend template based on Twitter Bootstrap (v4)
+- Frontend template based on Twitter Bootstrap
 - Uses form extension
 - Adjustable privacy page
-- Simple captcha can be added
+- Uses form_crshield extension for spam protection
 - Honeypot with the help of the form extension
 - Adjustable mandatory fields
 - Confirm/Decline of new entries by frontend too
