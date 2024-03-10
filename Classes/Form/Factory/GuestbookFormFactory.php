@@ -182,7 +182,9 @@ class GuestbookFormFactory extends AbstractFormFactory
         $element = $fieldset->createElement('name', 'Text');
         $element->setLabel('Name');
         $element->setProperty('required', true);
-        $element->addValidator(new StringLengthValidator(['maximum' => 50]));
+        $stringLengthValidator = GeneralUtility::makeInstance(StringLengthValidator::class);
+        $stringLengthValidator->setOptions(['maximum' => 50]);
+        $element->addValidator($stringLengthValidator);
         $element->addValidator(new NotEmptyValidator());
 
         if ($configuration['fields']['email']['enable'] === '1') {
@@ -201,7 +203,9 @@ class GuestbookFormFactory extends AbstractFormFactory
             $element = $fieldset->createElement('website', 'Text');
             $element->setLabel('Website');
             $element->setProperty('fluidAdditionalAttributes', ['placeholder' => 'https://www.website.de']);
-            $element->addValidator(new StringLengthValidator(['maximum' => 200]));
+            $stringLengthValidator = GeneralUtility::makeInstance(StringLengthValidator::class);
+            $stringLengthValidator->setOptions(['maximum' => 200]);
+            $element->addValidator($stringLengthValidator);
             if ($configuration['fields']['website']['mandatory'] === '1') {
                 $element->addValidator(new NotEmptyValidator());
             }
@@ -211,7 +215,9 @@ class GuestbookFormFactory extends AbstractFormFactory
             /** @var GenericFormElement $element */
             $element = $fieldset->createElement('city', 'Text');
             $element->setLabel('City');
-            $element->addValidator(new StringLengthValidator(['maximum' => 100]));
+            $stringLengthValidator = GeneralUtility::makeInstance(StringLengthValidator::class);
+            $stringLengthValidator->setOptions(['maximum' => 100]);
+            $element->addValidator($stringLengthValidator);
             if ($configuration['fields']['city']['mandatory'] === '1') {
                 $element->addValidator(new NotEmptyValidator());
             }
@@ -224,7 +230,10 @@ class GuestbookFormFactory extends AbstractFormFactory
         $element->setProperty('elementClassAttribute', 'form-control-bstextcounter');
         $element->setProperty('fluidAdditionalAttributes', ['data-maximum-chars' => (int)$configuration['fields']['message']['maxCharacters']]);
         $element->addValidator(new NotEmptyValidator());
-        $element->addValidator(new StringLengthValidator(['minimum' => 50, 'maximum' => (int)$configuration['fields']['message']['maxCharacters']]));
+        $stringLengthValidator = GeneralUtility::makeInstance(StringLengthValidator::class);
+        $stringLengthValidator->setOptions(['minimum' => 50]);
+        $stringLengthValidator->setOptions(['maximum' => (int)$configuration['fields']['message']['maxCharacters']]);
+        $element->addValidator($stringLengthValidator);
 
         if ($configuration['fields']['privacyPolicy']['enable'] === '1') {
             /** @var GenericFormElement $element */
