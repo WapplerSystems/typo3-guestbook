@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
-  <file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_guestbook" target-language="de">
+  <file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_guestbook" target-language="da">
     <header/>
     <body>
-      <trans-unit id="tx_wsguestbook_domain_model_entry.name">
+      <trans-unit id="tx_wsguestbook_domain_model_entry.name" approved="yes">
         <source>Name</source>
-        <target state="needs-translation">Name</target>
+        <target state="final">Navn</target>
       </trans-unit>
-      <trans-unit id="tx_wsguestbook_domain_model_entry.city">
+      <trans-unit id="tx_wsguestbook_domain_model_entry.city" approved="yes">
         <source>City</source>
-        <target state="needs-translation">City</target>
+        <target state="final">By</target>
       </trans-unit>
-      <trans-unit id="tx_wsguestbook_domain_model_entry.email">
+      <trans-unit id="tx_wsguestbook_domain_model_entry.email" approved="yes">
         <source>Email</source>
-        <target state="needs-translation">Email</target>
+        <target state="final">E-mail</target>
       </trans-unit>
-      <trans-unit id="website">
+      <trans-unit id="website" approved="yes">
         <source>Website</source>
-        <target state="needs-translation">Website</target>
+        <target state="final">Webside</target>
       </trans-unit>
-      <trans-unit id="xFromY" xml:space="preserve">
+      <trans-unit id="xFromY" xml:space="preserve" approved="yes">
 				<source>%1$s from %2$s</source>
-			<target state="translated">%1$s aus %2$s</target></trans-unit>
-      <trans-unit id="dateTimeText" xml:space="preserve">
+			<target state="final">%1$s fra %2$s</target></trans-unit>
+      <trans-unit id="dateTimeText" xml:space="preserve" approved="yes">
 				<source>%1$s at %2$s</source>
-			<target state="needs-translation">%1$s at %2$s</target></trans-unit>
-      <trans-unit id="dateTimeFormat" xml:space="preserve">
+			<target state="final">%1$s ved %2$s</target></trans-unit>
+      <trans-unit id="dateTimeFormat" xml:space="preserve" approved="yes">
 				<source>%m/%d/%Y at %H:%M</source>
-			<target state="needs-translation">%m/%d/%Y at %H:%M</target></trans-unit>
+			<target state="final">%m/%d/%Y kl. %H:%M</target></trans-unit>
       <!-- Mail template -->
-      <trans-unit id="mail.title">
+      <trans-unit id="mail.title" approved="yes">
         <source>New Guest feedback</source>
-        <target state="needs-translation">New Guest feedback</target>
+        <target state="final">Ny gæst feedback</target>
       </trans-unit>
-      <trans-unit id="mail.hello">
+      <trans-unit id="mail.hello" approved="yes">
         <source>Hello</source>
-        <target state="needs-translation">Hello</target>
+        <target state="final">Hej</target>
       </trans-unit>
       <trans-unit id="mail.msg">
         <source>Following is new feedback information</source>
@@ -68,7 +68,7 @@
       <!-- Mail template -->
       <trans-unit id="no_records">
         <source>No entries found.</source>
-        <target state="translated">Es wurden keine Einträge gefunden.</target>
+        <target state="needs-translation">No entries found.</target>
       </trans-unit>
       <!-- Error messages -->
       <trans-unit id="validator.newWsguestbook.name.1221560718">
@@ -104,7 +104,7 @@
 			<target state="needs-translation">Previous</target></trans-unit>
       <trans-unit id="validator.captcha.notvalid">
         <source>The entered captcha is not correct.</source>
-        <target state="translated">Der eingegebene Text ist nicht korrekt.</target>
+        <target state="needs-translation">The entered captcha is not correct.</target>
       </trans-unit>
       <trans-unit id="formEditor.elements.captcha">
         <source>Captcha</source>
@@ -116,35 +116,35 @@
       </trans-unit>
       <trans-unit id="msg.entryDone">
         <source>It may take a while until your guestbook entry appears in the list.</source>
-        <target state="translated">Es kann etwas dauern, bis Ihr Gästebucheintrag in der Liste erscheint.</target>
+        <target state="needs-translation">It may take a while until your guestbook entry appears in the list.</target>
       </trans-unit>
       <trans-unit id="hdl.entryDone">
         <source>Thank you for the guestbook entry</source>
-        <target state="translated">Danke für den Gästebucheintrag</target>
+        <target state="needs-translation">Thank you for the guestbook entry</target>
       </trans-unit>
       <trans-unit id="msg.entryNotFound">
         <source>Perhaps this has already been deleted or confirmed.</source>
-        <target state="translated">Vielleicht wurde dieser bereits gelöscht oder bestätigt.</target>
+        <target state="needs-translation">Perhaps this has already been deleted or confirmed.</target>
       </trans-unit>
       <trans-unit id="hdl.entryNotFound">
         <source>The entry was unfortunately not found</source>
-        <target state="translated">Dieser Eintrag wurde leider nicht gefunden.</target>
+        <target state="needs-translation">The entry was unfortunately not found</target>
       </trans-unit>
       <trans-unit id="hdl.entryConfirmed">
         <source>The entry was confirmed</source>
-        <target state="translated">Der Eintrag wurde bestätigt</target>
+        <target state="needs-translation">The entry was confirmed</target>
       </trans-unit>
       <trans-unit id="hdl.entryDeclined">
         <source>The entry was declined</source>
-        <target state="translated">Der Eintrag wurde erfolgreich gelöscht</target>
+        <target state="needs-translation">The entry was declined</target>
       </trans-unit>
       <trans-unit id="btn.confirm">
         <source>Confirm</source>
-        <target state="translated">Bestätigen</target>
+        <target state="needs-translation">Confirm</target>
       </trans-unit>
       <trans-unit id="btn.decline">
         <source>Decline</source>
-        <target state="translated">Ablehnen</target>
+        <target state="needs-translation">Decline</target>
       </trans-unit>
     </body>
   </file>
