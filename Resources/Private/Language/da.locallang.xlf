@@ -3,39 +3,39 @@
   <file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_guestbook" target-language="da">
     <header/>
     <body>
-      <trans-unit id="tx_wsguestbook_domain_model_entry.name">
+      <trans-unit id="tx_wsguestbook_domain_model_entry.name" approved="yes">
         <source>Name</source>
-        <target state="needs-translation">Name</target>
+        <target state="final">Navn</target>
       </trans-unit>
-      <trans-unit id="tx_wsguestbook_domain_model_entry.city">
+      <trans-unit id="tx_wsguestbook_domain_model_entry.city" approved="yes">
         <source>City</source>
-        <target state="needs-translation">City</target>
+        <target state="final">By</target>
       </trans-unit>
-      <trans-unit id="tx_wsguestbook_domain_model_entry.email">
+      <trans-unit id="tx_wsguestbook_domain_model_entry.email" approved="yes">
         <source>Email</source>
-        <target state="needs-translation">Email</target>
+        <target state="final">E-mail</target>
       </trans-unit>
-      <trans-unit id="website">
+      <trans-unit id="website" approved="yes">
         <source>Website</source>
-        <target state="needs-translation">Website</target>
+        <target state="final">Webside</target>
       </trans-unit>
-      <trans-unit id="xFromY" xml:space="preserve">
+      <trans-unit id="xFromY" xml:space="preserve" approved="yes">
 				<source>%1$s from %2$s</source>
-			<target state="needs-translation">%1$s from %2$s</target></trans-unit>
-      <trans-unit id="dateTimeText" xml:space="preserve">
+			<target state="final">%1$s fra %2$s</target></trans-unit>
+      <trans-unit id="dateTimeText" xml:space="preserve" approved="yes">
 				<source>%1$s at %2$s</source>
-			<target state="needs-translation">%1$s at %2$s</target></trans-unit>
-      <trans-unit id="dateTimeFormat" xml:space="preserve">
+			<target state="final">%1$s ved %2$s</target></trans-unit>
+      <trans-unit id="dateTimeFormat" xml:space="preserve" approved="yes">
 				<source>%m/%d/%Y at %H:%M</source>
-			<target state="needs-translation">%m/%d/%Y at %H:%M</target></trans-unit>
+			<target state="final">%m/%d/%Y kl. %H:%M</target></trans-unit>
       <!-- Mail template -->
-      <trans-unit id="mail.title">
+      <trans-unit id="mail.title" approved="yes">
         <source>New Guest feedback</source>
-        <target state="needs-translation">New Guest feedback</target>
+        <target state="final">Ny gæst feedback</target>
       </trans-unit>
-      <trans-unit id="mail.hello">
+      <trans-unit id="mail.hello" approved="yes">
         <source>Hello</source>
-        <target state="needs-translation">Hello</target>
+        <target state="final">Hej</target>
       </trans-unit>
       <trans-unit id="mail.msg">
         <source>Following is new feedback information</source>
