@@ -143,10 +143,6 @@
         <source>The website field is mandatory</source>
         <target state="needs-translation">The website field is mandatory</target>
       </trans-unit>
-      <trans-unit id="flexform.fields.captcha.enable">
-        <source>Enable the captcha field</source>
-        <target state="needs-translation">Enable the captcha field</target>
-      </trans-unit>
       <trans-unit id="flexform.fields.privacyPolicy.enable">
         <source>Enable the privacy policy field</source>
         <target state="needs-translation">Enable the privacy policy field</target>
