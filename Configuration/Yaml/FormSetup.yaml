@@ -10,13 +10,9 @@ TYPO3:
           __inheritances:
             10: 'TYPO3.CMS.Form.prototypes.standard'
           formEditor:
-            dynamicRequireJsModules:
-              additionalViewModelModules:
-                1627574116: 'TYPO3/CMS/WsGuestbook/Backend/FormEditor/CaptchaViewModel'
             translationFiles:
               160: 'EXT:ws_guestbook/Resources/Private/Language/locallang.xlf'
             formEditorPartials:
-              FormElement-Captcha: 'Stage/SimpleTemplate'
               FormElement-PrivacyPolicyCheckbox: 'Stage/SimpleTemplate'
 
           formElementsDefinition:
@@ -54,7 +50,4 @@ TYPO3:
                 containerClassAttribute: ''
                 labelClassAttribute: 'form-check-label'
 
-          validatorsDefinition:
-            Captcha:
-              implementationClassName: 'WapplerSystems\WsGuestbook\Validation\Validator\CaptchaValidator'
 

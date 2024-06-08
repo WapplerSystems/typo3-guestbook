@@ -11,7 +11,8 @@ ExtensionUtility::configurePlugin(
         GuestbookController::class => 'list',
     ],
     [
-    ]
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
 ExtensionUtility::configurePlugin(
@@ -22,17 +23,14 @@ ExtensionUtility::configurePlugin(
     ],
     [
         GuestbookController::class => 'new,done,decline,confirm,entryNotFound',
-    ]
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
 
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['ws_guestbook'] = \WapplerSystems\WsGuestbook\Hooks\PageLayoutView::class;
 
 
-// register cache table
-if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['wsguestbookcaptcha'] ?? null)) {
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['wsguestbookcaptcha'] = [];
-}
 
 ExtensionManagementUtility::addTypoScriptSetup(
     'module.tx_form {

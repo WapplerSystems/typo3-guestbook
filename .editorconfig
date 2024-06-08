@@ -39,7 +39,7 @@ indent_size = 2
 
 # XLF-Files
 [*.xlf]
-indent_style = tab
+indent_style = space
 
 # SQL-Files
 [*.sql]

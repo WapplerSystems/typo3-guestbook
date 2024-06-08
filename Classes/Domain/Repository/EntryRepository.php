@@ -15,7 +15,7 @@ class EntryRepository extends Repository
     public function findSorted(array $settings)
     {
         $query = $this->createQuery();
-        if ($settings['sorting'] === 'DESC') {
+        if (($settings['sorting'] ?? '') === 'DESC') {
             $query->setOrderings(['crdate' => QueryInterface::ORDER_DESCENDING]);
         } else {
             $query->setOrderings(['crdate' => QueryInterface::ORDER_ASCENDING]);

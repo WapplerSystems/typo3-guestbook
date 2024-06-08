@@ -23,6 +23,9 @@
 		"Feedback",
 		"Review"
 	],
+	"suggest": {
+		"derhansen/form_crshield": "Protect the form from spam"
+	},
 	"authors": [
 		{
 			"name": "Sven Wappler",
