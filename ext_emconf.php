@@ -1,7 +1,7 @@
 <?php
 
 $EM_CONF['ws_guestbook'] = [
-    'title' => 'WapplerSystems Guestbook TYPO3 Plugin',
+    'title' => 'WapplerSystems Guestbook',
     'description' => 'Guestbook Extension',
     'category' => 'plugin',
     'author' => 'Sven Wappler, Franziska Krug',
