@@ -19,15 +19,18 @@
         <source>Website</source>
         <target state="final">Webside</target>
       </trans-unit>
-      <trans-unit id="xFromY" xml:space="preserve" approved="yes">
-				<source>%1$s from %2$s</source>
-			<target state="final">%1$s fra %2$s</target></trans-unit>
-      <trans-unit id="dateTimeText" xml:space="preserve" approved="yes">
-				<source>%1$s at %2$s</source>
-			<target state="final">%1$s ved %2$s</target></trans-unit>
-      <trans-unit id="dateTimeFormat" xml:space="preserve" approved="yes">
-				<source>%m/%d/%Y at %H:%M</source>
-			<target state="final">%m/%d/%Y kl. %H:%M</target></trans-unit>
+      <trans-unit id="xFromY" approved="yes">
+        <source>%1$s from %2$s</source>
+        <target state="final">%1$s fra %2$s</target>
+      </trans-unit>
+      <trans-unit id="dateTimeText" approved="yes">
+        <source>%1$s at %2$s</source>
+        <target state="final">%1$s ved %2$s</target>
+      </trans-unit>
+      <trans-unit id="dateTimeFormat" approved="yes">
+        <source>%m/%d/%Y at %H:%M</source>
+        <target state="final">%m/%d/%Y kl. %H:%M</target>
+      </trans-unit>
       <!-- Mail template -->
       <trans-unit id="mail.title" approved="yes">
         <source>New Guest feedback</source>
@@ -93,22 +96,17 @@
         <target state="needs-translation">E-Mail format is not valid.</target>
       </trans-unit>
       <!-- Flex form labels -->
-      <trans-unit id="paginate_overall" xml:space="preserve">
-				<source>Page %s of %s.</source>
-			<target state="needs-translation">Page %s of %s.</target></trans-unit>
-      <trans-unit id="paginate_next" xml:space="preserve">
-				<source>Next</source>
-			<target state="needs-translation">Next</target></trans-unit>
-      <trans-unit id="paginate_previous" xml:space="preserve">
-				<source>Previous</source>
-			<target state="needs-translation">Previous</target></trans-unit>
-      <trans-unit id="validator.captcha.notvalid">
-        <source>The entered captcha is not correct.</source>
-        <target state="needs-translation">The entered captcha is not correct.</target>
+      <trans-unit id="paginate_overall">
+        <source>Page %s of %s.</source>
+        <target state="needs-translation">Page %s of %s.</target>
       </trans-unit>
-      <trans-unit id="formEditor.elements.captcha">
-        <source>Captcha</source>
-        <target state="needs-translation">Captcha</target>
+      <trans-unit id="paginate_next">
+        <source>Next</source>
+        <target state="needs-translation">Next</target>
+      </trans-unit>
+      <trans-unit id="paginate_previous">
+        <source>Previous</source>
+        <target state="needs-translation">Previous</target>
       </trans-unit>
       <trans-unit id="element.privacyPolicyCheckbox.properties.label">
         <source><![CDATA[I have read and accepted the <a href="%s">privacy policy</a>.]]></source>
