@@ -4,7 +4,6 @@ declare(strict_types = 1);
 namespace WapplerSystems\WsGuestbook\Form\Factory;
 
 use TYPO3\CMS\Core\Crypto\Random;
-use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MailUtility;
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
@@ -141,21 +140,6 @@ class GuestbookFormFactory extends AbstractFormFactory
 
         $emailFinisher = $formDefinition->createFinisher('EmailToReceiver');
         $emailFinisher->setOptions([
-            'subject' => $configuration['verification']['email']['subject'],
-            'recipients' => $recipients,
-            'senderName' => $defaultFrom[array_key_first($defaultFrom)],
-            'senderAddress' => array_key_first($defaultFrom),
-            'useFluidEmail' => true,
-            'templateName' => 'Notification',
-            'templateRootPaths' => [
-                50 => 'EXT:ws_guestbook/Resources/Private/Templates/Email/',
-            ],
-            'variables' => [
-                'confirmationUrl' => $confirmationUrl,
-                'declineUrl' => $declineUrl,
-            ]
-        ]);
-        DebugUtility::debug([
             'subject' => $configuration['verification']['email']['subject'],
             'recipients' => $recipients,
             'senderName' => $defaultFrom[array_key_first($defaultFrom)],
