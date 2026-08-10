@@ -1,150 +1,150 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
-  <file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_guestbook" target-language="de">
+  <file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_guestbook" target-language="hu">
     <header/>
     <body>
       <trans-unit id="tx_wsguestbook_domain_model_entry.name">
         <source>Name</source>
-        <target state="needs-translation">Name</target>
+        <target state="translated">Név</target>
       </trans-unit>
       <trans-unit id="tx_wsguestbook_domain_model_entry.city">
         <source>City</source>
-        <target state="translated">Stadt</target>
+        <target state="translated">Város</target>
       </trans-unit>
       <trans-unit id="tx_wsguestbook_domain_model_entry.email">
         <source>Email</source>
-        <target state="needs-translation">Email</target>
+        <target state="translated">E-mail</target>
       </trans-unit>
       <trans-unit id="website">
         <source>Website</source>
-        <target state="needs-translation">Website</target>
+        <target state="translated">Weboldal</target>
       </trans-unit>
       <trans-unit id="xFromY" xml:space="preserve">
 				<source>%1$s from %2$s</source>
-			<target state="translated">%1$s aus %2$s</target></trans-unit>
+			<target state="translated">%1$s innen: %2$s</target></trans-unit>
       <trans-unit id="dateTimeText" xml:space="preserve">
 				<source>%1$s at %2$s</source>
-			<target state="needs-translation">%1$s at %2$s</target></trans-unit>
+			<target state="translated">%1$s ekkor: %2$s</target></trans-unit>
       <trans-unit id="dateTimeFormat" xml:space="preserve">
 				<source>%m/%d/%Y at %H:%M</source>
-			<target state="translated">%d.%m.%Y um %H:%M Uhr</target></trans-unit>
+			<target state="translated">%m/%d/%Y at %H:%M</target></trans-unit>
       <!-- Mail template -->
       <trans-unit id="mail.title">
         <source>New Guest feedback</source>
-        <target state="translated">Neues Gästefeedback</target>
+        <target state="translated">Új vendég visszajelzés</target>
       </trans-unit>
       <trans-unit id="mail.hello">
         <source>Hello</source>
-        <target state="translated">Hallo</target>
+        <target state="translated">Üdvözlet!</target>
       </trans-unit>
       <trans-unit id="mail.msg">
         <source>Following is new feedback information</source>
-        <target state="translated">Es folgen neue Feedback-Informationen</target>
+        <target state="translated">Az alábbiakban új visszajelzés olvasható.</target>
       </trans-unit>
       <trans-unit id="mail.Name">
         <source>Name</source>
-        <target state="needs-translation">Name</target>
+        <target state="translated">Név</target>
       </trans-unit>
       <trans-unit id="mail.City">
         <source>City</source>
-        <target state="translated">Stadt</target>
+        <target state="translated">Város</target>
       </trans-unit>
       <trans-unit id="mail.Email">
         <source>Email</source>
-        <target state="needs-translation">Email</target>
+        <target state="translated">E-mail</target>
       </trans-unit>
       <trans-unit id="mail.Website">
         <source>Website</source>
-        <target state="needs-translation">Website</target>
+        <target state="translated">Weboldal</target>
       </trans-unit>
       <trans-unit id="mail.Message">
         <source>Message</source>
-        <target state="needs-translation">Message</target>
+        <target state="translated">Üzenet</target>
       </trans-unit>
       <trans-unit id="mail.regards">
         <source>Regards.</source>
-        <target state="translated">Grüße.</target>
+        <target state="translated">Üdvözlettel.</target>
       </trans-unit>
       <!-- Mail template -->
       <trans-unit id="no_records">
         <source>No entries found.</source>
-        <target state="needs-translation">No entries found.</target>
+        <target state="translated">Nem találhatók bejegyzések.</target>
       </trans-unit>
       <!-- Error messages -->
       <trans-unit id="validator.newWsguestbook.name.1221560718">
         <source>Field name is required.</source>
-        <target state="translated">Feldname ist erforderlich.</target>
+        <target state="translated">A név mező kitöltése kötelező.</target>
       </trans-unit>
       <trans-unit id="validator.newWsguestbook.email.1221560718">
         <source>Field email is required.</source>
-        <target state="translated">Feld E-Mail ist erforderlich.</target>
+        <target state="translated">Az e-mail mező kitöltése kötelező.</target>
       </trans-unit>
       <trans-unit id="validator.newWsguestbook.email.1221559976">
         <source>Invalid Email address</source>
-        <target state="translated">Ungültige E-Mail-Adresse</target>
+        <target state="translated">Érvénytelen e-mail cím</target>
       </trans-unit>
       <!-- Error messages -->
       <trans-unit id="required">
         <source>* These fields are required.</source>
-        <target state="needs-translation">* These fields are required.</target>
+        <target state="translated">* Ezek a mezők kitöltése kötelező.</target>
       </trans-unit>
       <trans-unit id="controller.mailfrmt">
         <source>E-Mail format is not valid.</source>
-        <target state="needs-translation">E-Mail format is not valid.</target>
+        <target state="translated">Az e-mail formátuma nem érvényes.</target>
       </trans-unit>
       <!-- Flex form labels -->
       <trans-unit id="paginate_overall" xml:space="preserve">
 				<source>Page %s of %s.</source>
-			<target state="translated">Seite %s von %s.</target></trans-unit>
+			<target state="translated">%s. oldal / %s.</target></trans-unit>
       <trans-unit id="paginate_next" xml:space="preserve">
 				<source>Next</source>
-			<target state="translated">Nächste</target></trans-unit>
+			<target state="translated">Következő</target></trans-unit>
       <trans-unit id="paginate_previous" xml:space="preserve">
 				<source>Previous</source>
-			<target state="translated">Vorherige</target></trans-unit>
+			<target state="translated">Előző</target></trans-unit>
       <trans-unit id="validator.captcha.notvalid">
         <source>The entered captcha is not correct.</source>
-        <target state="translated">Der eingegebene Text ist nicht korrekt.</target>
+        <target state="translated">A megadott captcha nem helyes.</target>
       </trans-unit>
       <trans-unit id="formEditor.elements.captcha">
         <source>Captcha</source>
-        <target state="needs-translation">Captcha</target>
+        <target state="translated">Captcha</target>
       </trans-unit>
       <trans-unit id="element.privacyPolicyCheckbox.properties.label">
         <source><![CDATA[I have read and accepted the <a href="%s">privacy policy</a>.]]></source>
-        <target state="translated"><![CDATA[Ich habe die <a href="%s">Datenschutzbestimmungen</a> gelesen und akzeptiere sie.]]></target>
+        <target state="translated"><![CDATA[Elolvastam és elfogadom az <a href="%s">adatvédelmi irányelveket</a>.]]></target>
       </trans-unit>
       <trans-unit id="msg.entryDone">
         <source>It may take a while until your guestbook entry appears in the list.</source>
-        <target state="translated">Es kann etwas dauern, bis Ihr Gästebucheintrag in der Liste erscheint.</target>
+        <target state="translated">Eltarthat egy ideig, amíg a vendégkönyvi bejegyzésed megjelenik a listában.</target>
       </trans-unit>
       <trans-unit id="hdl.entryDone">
         <source>Thank you for the guestbook entry</source>
-        <target state="translated">Danke für den Gästebucheintrag</target>
+        <target state="translated">Köszönjük a vendégkönyvi bejegyzést</target>
       </trans-unit>
       <trans-unit id="msg.entryNotFound">
         <source>Perhaps this has already been deleted or confirmed.</source>
-        <target state="translated">Vielleicht wurde dieser bereits gelöscht oder bestätigt.</target>
+        <target state="translated">Lehetséges, hogy ezt már törölték vagy megerősítették.</target>
       </trans-unit>
       <trans-unit id="hdl.entryNotFound">
         <source>The entry was unfortunately not found</source>
-        <target state="translated">Dieser Eintrag wurde leider nicht gefunden.</target>
+        <target state="translated">A bejegyzés sajnos nem található</target>
       </trans-unit>
       <trans-unit id="hdl.entryConfirmed">
         <source>The entry was confirmed</source>
-        <target state="translated">Der Eintrag wurde bestätigt</target>
+        <target state="translated">A bejegyzés megerősítésre került.</target>
       </trans-unit>
       <trans-unit id="hdl.entryDeclined">
         <source>The entry was declined</source>
-        <target state="translated">Der Eintrag wurde erfolgreich gelöscht</target>
+        <target state="translated">A bejegyzés elutasításra került.</target>
       </trans-unit>
       <trans-unit id="btn.confirm">
         <source>Confirm</source>
-        <target state="translated">Bestätigen</target>
+        <target state="translated">Megerősítés</target>
       </trans-unit>
       <trans-unit id="btn.decline">
         <source>Decline</source>
-        <target state="translated">Ablehnen</target>
+        <target state="translated">Elutasítás</target>
       </trans-unit>
     </body>
   </file>
