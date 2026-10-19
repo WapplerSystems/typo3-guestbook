@@ -31,13 +31,3 @@ plugin.tx_wsguestbook {
 
 }
 
-page {
-  includeCSS {
-    11232 = EXT:ws_guestbook/Resources/Public/CSS/styles.css
-  }
-
-  includeJSFooter {
-    11232 = EXT:ws_guestbook/Resources/Public/JavaScript/jquery.bsTextCounter.js
-  }
-
-}

@@ -3,6 +3,9 @@
       xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default"/>
 <f:section name="main">
+    <f:comment>Assets only on pages with the guestbook form</f:comment>
+    <f:asset.css identifier="ws_guestbook" href="EXT:ws_guestbook/Resources/Public/CSS/styles.css" />
+    <f:asset.script identifier="ws_guestbook_text_counter" src="EXT:ws_guestbook/Resources/Public/JavaScript/text-counter.js" />
 
     <formvh:render overrideConfiguration="{settings}" factoryClass="WapplerSystems\WsGuestbook\Form\Factory\GuestbookFormFactory"/>
 
