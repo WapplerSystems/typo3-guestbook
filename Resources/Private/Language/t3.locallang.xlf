@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_guestbook" target-language="t3">
+    <header/>
+    <body>
+      <trans-unit id="tx_wsguestbook_domain_model_entry.name">
+        <source>Name</source>
+        <target>crwdns391542:0crwdne391542:0</target>
+      </trans-unit>
+      <trans-unit id="tx_wsguestbook_domain_model_entry.city">
+        <source>City</source>
+        <target>crwdns391544:0crwdne391544:0</target>
+      </trans-unit>
+      <trans-unit id="tx_wsguestbook_domain_model_entry.email">
+        <source>Email</source>
+        <target>crwdns391546:0crwdne391546:0</target>
+      </trans-unit>
+      <trans-unit id="website">
+        <source>Website</source>
+        <target>crwdns391548:0crwdne391548:0</target>
+      </trans-unit>
+      <trans-unit id="xFromY" xml:space="preserve">
+				<source>%1$s from %2$s</source>
+			<target>crwdns391550:0%1$scrwdnd391550:0%2$scrwdne391550:0</target></trans-unit>
+      <trans-unit id="dateTimeText" xml:space="preserve">
+				<source>%1$s at %2$s</source>
+			<target>crwdns391552:0%1$scrwdnd391552:0%2$scrwdne391552:0</target></trans-unit>
+      <trans-unit id="dateTimeFormat" xml:space="preserve">
+				<source>%m/%d/%Y at %H:%M</source>
+			<target>crwdns391554:0%mcrwdnd391554:0%dcrwdnd391554:0%Ycrwdnd391554:0%H:%Mcrwdne391554:0</target></trans-unit>
+      <!-- Mail template -->
+      <trans-unit id="mail.title">
+        <source>New Guest feedback</source>
+        <target>crwdns391556:0crwdne391556:0</target>
+      </trans-unit>
+      <trans-unit id="mail.hello">
+        <source>Hello</source>
+        <target>crwdns391558:0crwdne391558:0</target>
+      </trans-unit>
+      <trans-unit id="mail.msg">
+        <source>Following is new feedback information</source>
+        <target>crwdns391560:0crwdne391560:0</target>
+      </trans-unit>
+      <trans-unit id="mail.Name">
+        <source>Name</source>
+        <target>crwdns391562:0crwdne391562:0</target>
+      </trans-unit>
+      <trans-unit id="mail.City">
+        <source>City</source>
+        <target>crwdns391564:0crwdne391564:0</target>
+      </trans-unit>
+      <trans-unit id="mail.Email">
+        <source>Email</source>
+        <target>crwdns391566:0crwdne391566:0</target>
+      </trans-unit>
+      <trans-unit id="mail.Website">
+        <source>Website</source>
+        <target>crwdns391568:0crwdne391568:0</target>
+      </trans-unit>
+      <trans-unit id="mail.Message">
+        <source>Message</source>
+        <target>crwdns391570:0crwdne391570:0</target>
+      </trans-unit>
+      <trans-unit id="mail.regards">
+        <source>Regards.</source>
+        <target>crwdns391572:0crwdne391572:0</target>
+      </trans-unit>
+      <!-- Mail template -->
+      <trans-unit id="no_records">
+        <source>No entries found.</source>
+        <target>crwdns391574:0crwdne391574:0</target>
+      </trans-unit>
+      <!-- Error messages -->
+      <trans-unit id="validator.newWsguestbook.name.1221560718">
+        <source>Field name is required.</source>
+        <target>crwdns391576:0crwdne391576:0</target>
+      </trans-unit>
+      <trans-unit id="validator.newWsguestbook.email.1221560718">
+        <source>Field email is required.</source>
+        <target>crwdns391578:0crwdne391578:0</target>
+      </trans-unit>
+      <trans-unit id="validator.newWsguestbook.email.1221559976">
+        <source>Invalid Email address</source>
+        <target>crwdns391580:0crwdne391580:0</target>
+      </trans-unit>
+      <!-- Error messages -->
+      <trans-unit id="required">
+        <source>* These fields are required.</source>
+        <target>crwdns391582:0crwdne391582:0</target>
+      </trans-unit>
+      <trans-unit id="controller.mailfrmt">
+        <source>E-Mail format is not valid.</source>
+        <target>crwdns391584:0crwdne391584:0</target>
+      </trans-unit>
+      <!-- Flex form labels -->
+      <trans-unit id="paginate_overall" xml:space="preserve">
+				<source>Page %s of %s.</source>
+			<target>crwdns391586:0%scrwdnd391586:0%scrwdne391586:0</target></trans-unit>
+      <trans-unit id="paginate_next" xml:space="preserve">
+				<source>Next</source>
+			<target>crwdns391588:0crwdne391588:0</target></trans-unit>
+      <trans-unit id="paginate_previous" xml:space="preserve">
+				<source>Previous</source>
+			<target>crwdns391590:0crwdne391590:0</target></trans-unit>
+      <trans-unit id="validator.captcha.notvalid">
+        <source>The entered captcha is not correct.</source>
+        <target>crwdns391592:0crwdne391592:0</target>
+      </trans-unit>
+      <trans-unit id="formEditor.elements.captcha">
+        <source>Captcha</source>
+        <target>crwdns391594:0crwdne391594:0</target>
+      </trans-unit>
+      <trans-unit id="element.privacyPolicyCheckbox.properties.label">
+        <source><![CDATA[I have read and accepted the <a href="%s">privacy policy</a>.]]></source>
+        <target><![CDATA[crwdns391596:0%scrwdne391596:0]]></target>
+      </trans-unit>
+      <trans-unit id="msg.entryDone">
+        <source>It may take a while until your guestbook entry appears in the list.</source>
+        <target>crwdns391598:0crwdne391598:0</target>
+      </trans-unit>
+      <trans-unit id="hdl.entryDone">
+        <source>Thank you for the guestbook entry</source>
+        <target>crwdns391600:0crwdne391600:0</target>
+      </trans-unit>
+      <trans-unit id="msg.entryNotFound">
+        <source>Perhaps this has already been deleted or confirmed.</source>
+        <target>crwdns391602:0crwdne391602:0</target>
+      </trans-unit>
+      <trans-unit id="hdl.entryNotFound">
+        <source>The entry was unfortunately not found</source>
+        <target>crwdns391604:0crwdne391604:0</target>
+      </trans-unit>
+      <trans-unit id="hdl.entryConfirmed">
+        <source>The entry was confirmed</source>
+        <target>crwdns391606:0crwdne391606:0</target>
+      </trans-unit>
+      <trans-unit id="hdl.entryDeclined">
+        <source>The entry was declined</source>
+        <target>crwdns391608:0crwdne391608:0</target>
+      </trans-unit>
+      <trans-unit id="btn.confirm">
+        <source>Confirm</source>
+        <target>crwdns391610:0crwdne391610:0</target>
+      </trans-unit>
+      <trans-unit id="btn.decline">
+        <source>Decline</source>
+        <target>crwdns391612:0crwdne391612:0</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
