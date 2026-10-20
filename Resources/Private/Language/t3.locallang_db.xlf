@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_guestbook" target-language="t3">
+    <header/>
+    <body>
+      <trans-unit id="tx_wsguestbook_domain_model_entry">
+        <source>Guestbook</source>
+        <target>crwdns391614:0crwdne391614:0</target>
+      </trans-unit>
+      <trans-unit id="tx_wsguestbook_domain_model_entry.name">
+        <source>Name</source>
+        <target>crwdns391616:0crwdne391616:0</target>
+      </trans-unit>
+      <trans-unit id="tx_wsguestbook_domain_model_entry.city">
+        <source>City</source>
+        <target>crwdns391618:0crwdne391618:0</target>
+      </trans-unit>
+      <trans-unit id="tx_wsguestbook_domain_model_entry.email">
+        <source>Email</source>
+        <target>crwdns391620:0crwdne391620:0</target>
+      </trans-unit>
+      <trans-unit id="tx_wsguestbook_domain_model_entry.website">
+        <source>Website</source>
+        <target>crwdns391622:0crwdne391622:0</target>
+      </trans-unit>
+      <trans-unit id="tx_wsguestbook_domain_model_entry.message">
+        <source>Message</source>
+        <target>crwdns391624:0crwdne391624:0</target>
+      </trans-unit>
+      <trans-unit id="tx_wsguestbook_domain_model_entry.terms">
+        <source>Terms accepted</source>
+        <target>crwdns391626:0crwdne391626:0</target>
+      </trans-unit>
+      <trans-unit id="tx_wsguestbook_domain_model_entry.action_key">
+        <source>Action key</source>
+        <target>crwdns391628:0crwdne391628:0</target>
+      </trans-unit>
+      <trans-unit id="wsguestbook_form">
+        <source>Guestbook: Form</source>
+        <target>crwdns391630:0crwdne391630:0</target>
+      </trans-unit>
+      <trans-unit id="wsguestbook_list">
+        <source>Guestbook: List</source>
+        <target>crwdns391632:0crwdne391632:0</target>
+      </trans-unit>
+      <trans-unit id="tsconfig.wizard.WsGuestbookForm.title">
+        <source>WapplerSystems Guestbook - Form</source>
+        <target>crwdns391634:0crwdne391634:0</target>
+      </trans-unit>
+      <trans-unit id="tsconfig.wizard.WsGuestbookForm.description">
+        <source>This allows the visitor to write a new entry.</source>
+        <target>crwdns391636:0crwdne391636:0</target>
+      </trans-unit>
+      <trans-unit id="tsconfig.wizard.WsGuestbookList.title">
+        <source>WapplerSystems Guestbook - List</source>
+        <target>crwdns391638:0crwdne391638:0</target>
+      </trans-unit>
+      <trans-unit id="tsconfig.wizard.WsGuestbookList.description">
+        <source>This outputs the entries.</source>
+        <target>crwdns391640:0crwdne391640:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.thankyouPageId">
+        <source>"Thank you" page</source>
+        <target>crwdns391642:0crwdne391642:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.verification.recipients">
+        <source>Recipients for checking the new entries</source>
+        <target>crwdns391644:0crwdne391644:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.verification.recipient">
+        <source>Recipient</source>
+        <target>crwdns391646:0crwdne391646:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.auditor.emailaddress">
+        <source>Email</source>
+        <target>crwdns391648:0crwdne391648:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.auditor.name">
+        <source>Name</source>
+        <target>crwdns391650:0crwdne391650:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.emailSubject">
+        <source>Email subject</source>
+        <target>crwdns391652:0crwdne391652:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.itemsPerPage">
+        <source>Show number of entries per page</source>
+        <target>crwdns391654:0crwdne391654:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.sorting">
+        <source>Sorting</source>
+        <target>crwdns391656:0crwdne391656:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.newFirst">
+        <source>Newest first</source>
+        <target>crwdns391658:0crwdne391658:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.oldFirst">
+        <source>Oldest first</source>
+        <target>crwdns391660:0crwdne391660:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.automaticApproval">
+        <source>Automatic approval (not recommended)</source>
+        <target>crwdns391662:0crwdne391662:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.verification.email.senderName">
+        <source>Sender name of verification email</source>
+        <target>crwdns391664:0crwdne391664:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.verification.email.senderEmailAddress">
+        <source>Sender email address of verification email</source>
+        <target>crwdns391666:0crwdne391666:0</target>
+      </trans-unit>
+      <trans-unit id="flexforms_tab.general">
+        <source>General settings</source>
+        <target>crwdns391668:0crwdne391668:0</target>
+      </trans-unit>
+      <trans-unit id="flexforms_tab.fields">
+        <source>Form fields</source>
+        <target>crwdns391670:0crwdne391670:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.fields.email.enable">
+        <source>Enable the email field</source>
+        <target>crwdns391672:0crwdne391672:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.fields.email.mandatory">
+        <source>The email field is mandatory</source>
+        <target>crwdns391674:0crwdne391674:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.fields.city.enable">
+        <source>Enable the city field</source>
+        <target>crwdns391676:0crwdne391676:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.fields.city.mandatory">
+        <source>The city field is mandatory</source>
+        <target>crwdns391678:0crwdne391678:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.fields.website.enable">
+        <source>Enable the website field</source>
+        <target>crwdns391680:0crwdne391680:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.fields.website.mandatory">
+        <source>The website field is mandatory</source>
+        <target>crwdns391682:0crwdne391682:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.fields.captcha.enable">
+        <source>Enable the captcha field</source>
+        <target>crwdns391684:0crwdne391684:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.fields.privacyPolicy.enable">
+        <source>Enable the privacy policy field</source>
+        <target>crwdns391686:0crwdne391686:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.fields.privacyPolicy.page">
+        <source>Privacy policy page</source>
+        <target>crwdns391688:0crwdne391688:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.fields.message.maxCharacters">
+        <source>Maximum characters in message field</source>
+        <target>crwdns391690:0crwdne391690:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.function">
+        <source>Function</source>
+        <target>crwdns391692:0crwdne391692:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.function.list">
+        <source>List</source>
+        <target>crwdns391694:0crwdne391694:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.function.form">
+        <source>Form</source>
+        <target>crwdns391696:0crwdne391696:0</target>
+      </trans-unit>
+      <trans-unit id="flexform.storagePid">
+        <source>Storage Page ID</source>
+        <target>crwdns391698:0crwdne391698:0</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
