@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_guestbook" target-language="t3">
+    <header/>
+    <body>
+      <trans-unit id="tx_wsguestbook_domain_model_entry.name">
+        <source>Name</source>
+        <target>crwdns301238:0crwdne301238:0</target>
+      </trans-unit>
+      <trans-unit id="tx_wsguestbook_domain_model_entry.city">
+        <source>City</source>
+        <target>crwdns301240:0crwdne301240:0</target>
+      </trans-unit>
+      <trans-unit id="tx_wsguestbook_domain_model_entry.email">
+        <source>Email</source>
+        <target>crwdns301242:0crwdne301242:0</target>
+      </trans-unit>
+      <trans-unit id="website">
+        <source>Website</source>
+        <target>crwdns301244:0crwdne301244:0</target>
+      </trans-unit>
+      <trans-unit id="xFromY">
+        <source>%1$s from %2$s</source>
+        <target>crwdns301246:0%1$scrwdnd301246:0%2$scrwdne301246:0</target>
+      </trans-unit>
+      <trans-unit id="dateTimeText">
+        <source>%1$s at %2$s</source>
+        <target>crwdns301248:0%1$scrwdnd301248:0%2$scrwdne301248:0</target>
+      </trans-unit>
+      <trans-unit id="dateTimeFormat">
+        <source>%m/%d/%Y at %H:%M</source>
+        <target>crwdns301250:0%mcrwdnd301250:0%dcrwdnd301250:0%Ycrwdnd301250:0%H:%Mcrwdne301250:0</target>
+      </trans-unit>
+      <!-- Mail template -->
+      <trans-unit id="mail.title">
+        <source>New Guest feedback</source>
+        <target>crwdns301252:0crwdne301252:0</target>
+      </trans-unit>
+      <trans-unit id="mail.hello">
+        <source>Hello</source>
+        <target>crwdns301254:0crwdne301254:0</target>
+      </trans-unit>
+      <trans-unit id="mail.msg">
+        <source>Following is new feedback information</source>
+        <target>crwdns301256:0crwdne301256:0</target>
+      </trans-unit>
+      <trans-unit id="mail.Name">
+        <source>Name</source>
+        <target>crwdns301258:0crwdne301258:0</target>
+      </trans-unit>
+      <trans-unit id="mail.City">
+        <source>City</source>
+        <target>crwdns301260:0crwdne301260:0</target>
+      </trans-unit>
+      <trans-unit id="mail.Email">
+        <source>Email</source>
+        <target>crwdns301262:0crwdne301262:0</target>
+      </trans-unit>
+      <trans-unit id="mail.Website">
+        <source>Website</source>
+        <target>crwdns301264:0crwdne301264:0</target>
+      </trans-unit>
+      <trans-unit id="mail.Message">
+        <source>Message</source>
+        <target>crwdns301266:0crwdne301266:0</target>
+      </trans-unit>
+      <trans-unit id="mail.regards">
+        <source>Regards.</source>
+        <target>crwdns301268:0crwdne301268:0</target>
+      </trans-unit>
+      <!-- Mail template -->
+      <trans-unit id="no_records">
+        <source>No entries found.</source>
+        <target>crwdns301270:0crwdne301270:0</target>
+      </trans-unit>
+      <!-- Error messages -->
+      <trans-unit id="validator.newWsguestbook.name.1221560718">
+        <source>Field name is required.</source>
+        <target>crwdns301272:0crwdne301272:0</target>
+      </trans-unit>
+      <trans-unit id="validator.newWsguestbook.email.1221560718">
+        <source>Field email is required.</source>
+        <target>crwdns301274:0crwdne301274:0</target>
+      </trans-unit>
+      <trans-unit id="validator.newWsguestbook.email.1221559976">
+        <source>Invalid Email address</source>
+        <target>crwdns301276:0crwdne301276:0</target>
+      </trans-unit>
+      <!-- Error messages -->
+      <trans-unit id="required">
+        <source>* These fields are required.</source>
+        <target>crwdns301278:0crwdne301278:0</target>
+      </trans-unit>
+      <trans-unit id="controller.mailfrmt">
+        <source>E-Mail format is not valid.</source>
+        <target>crwdns301280:0crwdne301280:0</target>
+      </trans-unit>
+      <!-- Flex form labels -->
+      <trans-unit id="paginate_overall">
+        <source>Page %s of %s.</source>
+        <target>crwdns301282:0%scrwdnd301282:0%scrwdne301282:0</target>
+      </trans-unit>
+      <trans-unit id="paginate_next">
+        <source>Next</source>
+        <target>crwdns301284:0crwdne301284:0</target>
+      </trans-unit>
+      <trans-unit id="paginate_previous">
+        <source>Previous</source>
+        <target>crwdns301286:0crwdne301286:0</target>
+      </trans-unit>
+      <trans-unit id="element.privacyPolicyCheckbox.properties.label">
+        <source><![CDATA[I have read and accepted the <a href="%s">privacy policy</a>.]]></source>
+        <target><![CDATA[crwdns301292:0%scrwdne301292:0]]></target>
+      </trans-unit>
+      <trans-unit id="msg.entryDone">
+        <source>It may take a while until your guestbook entry appears in the list.</source>
+        <target>crwdns301294:0crwdne301294:0</target>
+      </trans-unit>
+      <trans-unit id="hdl.entryDone">
+        <source>Thank you for the guestbook entry</source>
+        <target>crwdns301296:0crwdne301296:0</target>
+      </trans-unit>
+      <trans-unit id="msg.entryNotFound">
+        <source>Perhaps this has already been deleted or confirmed.</source>
+        <target>crwdns301298:0crwdne301298:0</target>
+      </trans-unit>
+      <trans-unit id="hdl.entryNotFound">
+        <source>The entry was unfortunately not found</source>
+        <target>crwdns301300:0crwdne301300:0</target>
+      </trans-unit>
+      <trans-unit id="hdl.entryConfirmed">
+        <source>The entry was confirmed</source>
+        <target>crwdns301302:0crwdne301302:0</target>
+      </trans-unit>
+      <trans-unit id="hdl.entryDeclined">
+        <source>The entry was declined</source>
+        <target>crwdns301304:0crwdne301304:0</target>
+      </trans-unit>
+      <trans-unit id="btn.confirm">
+        <source>Confirm</source>
+        <target>crwdns301306:0crwdne301306:0</target>
+      </trans-unit>
+      <trans-unit id="btn.decline">
+        <source>Decline</source>
+        <target>crwdns301308:0crwdne301308:0</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
