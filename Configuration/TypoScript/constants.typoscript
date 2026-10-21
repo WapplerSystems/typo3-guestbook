@@ -1,16 +1,1 @@
-plugin.tx_wsguestbook {
-  view {
-    # cat=plugin.tx_wsguestbook_form/file; type=string; label=Path to template root (FE)
-    templateRootPath = EXT:ws_guestbook/Resources/Private/Templates/
-    # cat=plugin.tx_wsguestbook_form/file; type=string; label=Path to template partials (FE)
-    partialRootPath = EXT:ws_guestbook/Resources/Private/Partials/
-    # cat=plugin.tx_wsguestbook_form/file; type=string; label=Path to template layouts (FE)
-    layoutRootPath = EXT:ws_guestbook/Resources/Private/Layouts/
-  }
-
-  settings {
-
-
-
-  }
-}
+@import 'EXT:ws_guestbook/Configuration/Sets/WsGuestbook/constants.typoscript'

@@ -3,7 +3,7 @@
         <div class="card-header">
             <f:if condition="{entry.website}">
                 <f:then>
-                    <a class="float-left" target="_blank" href="{entry.website}">
+                    <a class="float-start" target="_blank" href="{entry.website}">
                         <f:render section="Header" arguments="{_all}"/>
                     </a>
                 </f:then>
@@ -13,7 +13,7 @@
             </f:if>
 
             <f:if condition="{entry.tstamp}">
-                <small class="text-muted float-right">
+                <small class="text-muted float-end">
                     <f:format.date format="{f:translate(key:'dateTimeFormat')}">{entry.tstamp}</f:format.date>
                 </small>
             </f:if>

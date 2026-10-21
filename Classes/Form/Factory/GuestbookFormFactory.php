@@ -3,10 +3,11 @@ declare(strict_types = 1);
 
 namespace WapplerSystems\WsGuestbook\Form\Factory;
 
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Crypto\Random;
+use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MailUtility;
-use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
 use TYPO3\CMS\Extbase\Validation\Validator\EmailAddressValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator;
@@ -22,21 +23,12 @@ use WapplerSystems\WsGuestbook\Exception\MissingConfigurationException;
 class GuestbookFormFactory extends AbstractFormFactory
 {
 
-
     /**
-     * @param array $configuration
-     * @param string|null $prototypeName
-     * @return FormDefinition
-     * @throws \TYPO3\CMS\Extbase\Validation\Exception\InvalidValidationOptionsException
-     * @throws \TYPO3\CMS\Form\Domain\Configuration\Exception\PrototypeNotFoundException
-     * @throws \TYPO3\CMS\Form\Domain\Exception\TypeDefinitionNotFoundException
-     * @throws \TYPO3\CMS\Form\Domain\Exception\TypeDefinitionNotValidException
-     * @throws \TYPO3\CMS\Form\Domain\Model\Exception\FinisherPresetNotFoundException
+     * @param array $configuration plugin settings, extended by "storagePid" and "pageUid" in GuestbookController::newAction()
      * @throws MissingConfigurationException
      */
-    public function build(array $configuration, string $prototypeName = null): FormDefinition
+    public function build(array $configuration, ?string $prototypeName = null, ?ServerRequestInterface $request = null): FormDefinition
     {
-
         $configurationService = GeneralUtility::makeInstance(ConfigurationService::class);
         $prototypeConfiguration = $configurationService->getPrototypeConfiguration('guestbook');
 
@@ -46,7 +38,7 @@ class GuestbookFormFactory extends AbstractFormFactory
         $formDefinition->setRenderingOption('submitButtonLabel', 'Submit');
 
 
-        if (empty($configuration['frameworkConfiguration']['persistence']['storagePid'])) {
+        if (empty($configuration['storagePid'])) {
             throw new MissingConfigurationException('No storagePid set', 1627843908);
         }
 
@@ -58,7 +50,7 @@ class GuestbookFormFactory extends AbstractFormFactory
             'mode' => 'insert',
             'databaseColumnMappings' => [
                 'pid' => [
-                    'value' => $configuration['frameworkConfiguration']['persistence']['storagePid'],
+                    'value' => $configuration['storagePid'],
                 ],
                 'tstamp' => [
                     'value' => time(),
@@ -94,7 +86,7 @@ class GuestbookFormFactory extends AbstractFormFactory
         ]);
 
         $recipients = [];
-        $recipientsFlexform = $configuration['verification']['recipients'];
+        $recipientsFlexform = $configuration['verification']['recipients'] ?? [];
         foreach ($recipientsFlexform as $recipient) {
             $recipients[$recipient['container']['address']] = $recipient['container']['name'];
         }
@@ -112,31 +104,8 @@ class GuestbookFormFactory extends AbstractFormFactory
             $defaultFrom = [$configuration['verification']['email']['senderEmailAddress'] => $configuration['verification']['email']['senderName']];
         }
 
-        $uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
-
-        $confirmationUrl = $uriBuilder->reset()
-            ->setTargetPageUid($configuration['pageUid'])
-            ->setCreateAbsoluteUri(true)
-            ->setArguments([
-                'tx_wsguestbook_form' => [
-                    'action' => 'confirm',
-                    'controller' => 'Guestbook',
-                    'action_key' => $actionKey,
-                ],
-            ])
-            ->buildFrontendUri();
-
-        $declineUrl = $uriBuilder->reset()
-            ->setTargetPageUid($configuration['pageUid'])
-            ->setCreateAbsoluteUri(true)
-            ->setArguments([
-                'tx_wsguestbook_form' => [
-                    'action' => 'decline',
-                    'controller' => 'Guestbook',
-                    'action_key' => $actionKey,
-                ],
-            ])
-            ->buildFrontendUri();
+        $confirmationUrl = $this->buildActionUri($request, (int)$configuration['pageUid'], 'confirm', $actionKey);
+        $declineUrl = $this->buildActionUri($request, (int)$configuration['pageUid'], 'decline', $actionKey);
 
         $emailFinisher = $formDefinition->createFinisher('EmailToReceiver');
         $emailFinisher->setOptions([
@@ -144,7 +113,6 @@ class GuestbookFormFactory extends AbstractFormFactory
             'recipients' => $recipients,
             'senderName' => $defaultFrom[array_key_first($defaultFrom)],
             'senderAddress' => array_key_first($defaultFrom),
-            'useFluidEmail' => true,
             'templateName' => 'Notification',
             'templateRootPaths' => [
                 50 => 'EXT:ws_guestbook/Resources/Private/Templates/Email/',
@@ -187,18 +155,18 @@ class GuestbookFormFactory extends AbstractFormFactory
         $element->addValidator($stringLengthValidator);
         $element->addValidator(new NotEmptyValidator());
 
-        if ($configuration['fields']['email']['enable'] === '1') {
+        if ((int)($configuration['fields']['email']['enable'] ?? 0) === 1) {
             /** @var GenericFormElement $element */
             $element = $fieldset->createElement('email', 'Text');
             $element->setLabel('E-Mail');
             $element->setProperty('fluidAdditionalAttributes', ['placeholder' => 'mail@mail.de']);
             $element->addValidator(new EmailAddressValidator());
-            if ($configuration['fields']['email']['mandatory'] === '1') {
+            if ((int)($configuration['fields']['email']['mandatory'] ?? 0) === 1) {
                 $element->addValidator(new NotEmptyValidator());
             }
         }
 
-        if ($configuration['fields']['website']['enable'] === '1') {
+        if ((int)($configuration['fields']['website']['enable'] ?? 0) === 1) {
             /** @var GenericFormElement $element */
             $element = $fieldset->createElement('website', 'Text');
             $element->setLabel('Website');
@@ -206,19 +174,19 @@ class GuestbookFormFactory extends AbstractFormFactory
             $stringLengthValidator = GeneralUtility::makeInstance(StringLengthValidator::class);
             $stringLengthValidator->setOptions(['maximum' => 200]);
             $element->addValidator($stringLengthValidator);
-            if ($configuration['fields']['website']['mandatory'] === '1') {
+            if ((int)($configuration['fields']['website']['mandatory'] ?? 0) === 1) {
                 $element->addValidator(new NotEmptyValidator());
             }
         }
 
-        if ($configuration['fields']['city']['enable'] === '1') {
+        if ((int)($configuration['fields']['city']['enable'] ?? 0) === 1) {
             /** @var GenericFormElement $element */
             $element = $fieldset->createElement('city', 'Text');
             $element->setLabel('City');
             $stringLengthValidator = GeneralUtility::makeInstance(StringLengthValidator::class);
             $stringLengthValidator->setOptions(['maximum' => 100]);
             $element->addValidator($stringLengthValidator);
-            if ($configuration['fields']['city']['mandatory'] === '1') {
+            if ((int)($configuration['fields']['city']['mandatory'] ?? 0) === 1) {
                 $element->addValidator(new NotEmptyValidator());
             }
         }
@@ -231,11 +199,10 @@ class GuestbookFormFactory extends AbstractFormFactory
         $element->setProperty('fluidAdditionalAttributes', ['data-maximum-chars' => (int)$configuration['fields']['message']['maxCharacters']]);
         $element->addValidator(new NotEmptyValidator());
         $stringLengthValidator = GeneralUtility::makeInstance(StringLengthValidator::class);
-        $stringLengthValidator->setOptions(['minimum' => 50]);
-        $stringLengthValidator->setOptions(['maximum' => (int)$configuration['fields']['message']['maxCharacters']]);
+        $stringLengthValidator->setOptions(['minimum' => 50, 'maximum' => (int)$configuration['fields']['message']['maxCharacters']]);
         $element->addValidator($stringLengthValidator);
 
-        if ($configuration['fields']['privacyPolicy']['enable'] === '1') {
+        if ((int)($configuration['fields']['privacyPolicy']['enable'] ?? 0) === 1) {
             /** @var GenericFormElement $element */
             $element = $fieldset->createElement('privacyPolicy', 'PrivacyPolicyCheckbox');
             $element->setLabel('I agree to the privacy policy');
@@ -243,7 +210,22 @@ class GuestbookFormFactory extends AbstractFormFactory
             $element->addValidator(new NotEmptyValidator());
         }
 
-        return $formDefinition;
+        return $this->triggerFormBuildingFinished($formDefinition);
     }
 
+    protected function buildActionUri(?ServerRequestInterface $request, int $pageUid, string $action, string $actionKey): string
+    {
+        $site = $request?->getAttribute('site');
+        if (!$site instanceof Site) {
+            throw new MissingConfigurationException('No site found for the current request', 1761040000);
+        }
+        return (string)$site->getRouter()->generateUri($pageUid, [
+            '_language' => $request->getAttribute('language'),
+            'tx_wsguestbook_form' => [
+                'action' => $action,
+                'controller' => 'Guestbook',
+                'action_key' => $actionKey,
+            ],
+        ]);
+    }
 }

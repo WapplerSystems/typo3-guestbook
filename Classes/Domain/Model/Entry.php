@@ -52,13 +52,13 @@ class Entry extends AbstractEntity
      *
      * @var int
      */
-    protected int $tstamp;
+    protected int $tstamp = 0;
 
     /**
      * hidden
      * @var bool
      */
-    protected bool $hidden;
+    protected bool $hidden = true;
 
     /**
      * @return int $tstamp

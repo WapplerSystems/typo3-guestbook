@@ -29,5 +29,7 @@
         </f:if>
     </f:spaceless></formvh:renderFormValue>
 
+<f:translate key="LLL:EXT:ws_guestbook/Resources/Private/Language/locallang.xlf:btn.confirm" />: {confirmationUrl -> f:format.raw()}
+<f:translate key="LLL:EXT:ws_guestbook/Resources/Private/Language/locallang.xlf:btn.decline" />: {declineUrl -> f:format.raw()}
 
 </f:section>

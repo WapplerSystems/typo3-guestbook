@@ -2,16 +2,16 @@
 
 namespace WapplerSystems\WsGuestbook\Controller;
 
-use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Core\Cache\CacheManager;
+use TYPO3\CMS\Core\Cache\CacheTag;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Configuration\FrontendConfigurationManager;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
-use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
-use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
+use TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface;
 use WapplerSystems\WsGuestbook\Domain\Repository\EntryRepository;
 
 
@@ -21,9 +21,17 @@ use WapplerSystems\WsGuestbook\Domain\Repository\EntryRepository;
 class GuestbookController extends AbstractController
 {
 
+    /**
+     * Pages showing the guestbook list are tagged with the table name; TYPO3 flushes this tag
+     * on every backend change of an entry, the frontend actions below flush it as well.
+     */
+    protected const CACHE_TAG = 'tx_wsguestbook_domain_model_entry';
 
-    public function __construct(readonly EntryRepository $entryRepository, EventDispatcherInterface $eventDispatcher)
-    {
+    public function __construct(
+        protected readonly EntryRepository $entryRepository,
+        protected readonly PersistenceManagerInterface $persistenceManager,
+        protected readonly CacheManager $cacheManager,
+    ) {
     }
 
 
@@ -34,6 +42,7 @@ class GuestbookController extends AbstractController
      */
     public function listAction(int $currentPage = 1): ResponseInterface
     {
+        $this->request->getAttribute('frontend.cache.collector')?->addCacheTags(new CacheTag(self::CACHE_TAG));
         $entries = $this->entryRepository->findSorted($this->settings);
 
         $assignedValues = [
@@ -66,10 +75,10 @@ class GuestbookController extends AbstractController
      */
     public function newAction(): ResponseInterface
     {
-
-        $configurationManager = GeneralUtility::makeInstance(FrontendConfigurationManager::class);
-        $this->settings['frameworkConfiguration'] = $configurationManager->getConfiguration();
-        $this->settings['pageUid'] = $this->getTypoScriptFrontendController()->id;
+        $frameworkConfiguration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+        // storagePid may be a comma separated list, new entries go to the first page
+        $this->settings['storagePid'] = (int)($frameworkConfiguration['persistence']['storagePid'] ?? 0);
+        $this->settings['pageUid'] = $this->request->getAttribute('frontend.page.information')->getId();
 
         $this->view->assignMultiple([
             'settings' => $this->settings,
@@ -94,13 +103,12 @@ class GuestbookController extends AbstractController
         $entry = $this->entryRepository->findOneByActionKey($action_key);
 
         if ($entry === null) {
-            $this->forward('entryNotFound');
-        } else {
-
-            $this->entryRepository->remove($entry);
-            $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
-            $persistenceManager->persistAll();
+            return new ForwardResponse('entryNotFound');
         }
+
+        $this->entryRepository->remove($entry);
+        $this->persistenceManager->persistAll();
+        $this->cacheManager->flushCachesInGroupByTags('pages', [self::CACHE_TAG]);
 
         return $this->htmlResponse();
     }
@@ -117,13 +125,13 @@ class GuestbookController extends AbstractController
         $entry = $this->entryRepository->findOneByActionKey($action_key);
 
         if ($entry === null) {
-            $this->forward('entryNotFound');
-        } else {
-            $entry->setHidden(0);
-            $this->entryRepository->update($entry);
-            $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
-            $persistenceManager->persistAll();
+            return new ForwardResponse('entryNotFound');
         }
+
+        $entry->setHidden(false);
+        $this->entryRepository->update($entry);
+        $this->persistenceManager->persistAll();
+        $this->cacheManager->flushCachesInGroupByTags('pages', [self::CACHE_TAG]);
 
         return $this->htmlResponse();
     }
@@ -132,14 +140,6 @@ class GuestbookController extends AbstractController
     public function entryNotFoundAction(): ResponseInterface
     {
         return $this->htmlResponse();
-    }
-
-    /**
-     * @return TypoScriptFrontendController
-     */
-    protected function getTypoScriptFrontendController(): TypoScriptFrontendController
-    {
-        return $GLOBALS['TSFE'];
     }
 
 }
